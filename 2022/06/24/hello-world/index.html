@@ -147,7 +147,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Typora" style="color: #ff7d73">
+                <a href="/tags/Typora" style="color: #00bcd4">
                     Typora
                 </a>
             </span>
@@ -250,12 +250,12 @@ categories:  //分类
     
 	  
 	  
-		
     <div id="comment">
-		<div id="livere-container"  data-id="city" data-uid="MTAyMC81NjY2OS8zMzEzMw==">
-		</div>
-	</div>
+        <div id="valine-container">
+        </div>
+    </div>
     
+		
                          
 <footer id="footer">
     <div class="footer-wrap">
@@ -287,25 +287,29 @@ categories:  //分类
         
 
 
-
-     <!-- 来必力City版安装代码 -->
-
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');  
-   livere.render("livere-container")
+        <style>
+       .comments{margin:30px;padding:10px;background:#fff}
+       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+     </style>
+<script src="/js/av-min.js"></script>
+<script src="/js/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "NOFQLmaTJbvtydd2B161BvtA-gzGzoHsz",
+            app_key: "QNlm9fwjIdhcaVT1rj8AlIJp",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+		Valine.render("valine-container")
+    }
 </script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-<!-- City版安装代码已完成 -->
+
 
 
     </body>
