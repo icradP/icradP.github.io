@@ -147,14 +147,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/Typora" style="color: #00bcd4">
+                <a href="/tags/Typora" style="color: #03a9f4">
                     Typora
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/md" style="color: #ff7d73">
+                <a href="/tags/md" style="color: #03a9f4">
                     md
                 </a>
             </span>
@@ -248,14 +248,13 @@ categories:  //分类
 
     </div>
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+	  
+	  
     <div id="comment">
-        <div id="gitalk-container">
+        <div id="valine-container">
         </div>
     </div>
     
-	  
-	  
 		
 	</div>
                          
@@ -287,30 +286,29 @@ categories:  //分类
 		<script src="/js/av-min.js"></script>
         <script src="/js/Valine.min.js"></script>
         
-<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+        <style>
+       .valine{margin:30px;padding:10px;background:#fff}
+       @media screen and (max-width:800px){.valine{margin:auto;padding:10px;background:#fff}}
+     </style>
+<script src="/js/av-min.js"></script>
+<script src="/js/Valine.min.js"></script>
 <script>
-    var clientID = "47415ec54d81211565e4", clientSecret = "74334021a297161e9b4e551ac03802e93c0ed255";
-    
-    if (window.location.host == "www.icrad.top") {
-        clientID = "cb09d68f6471d80efcb4";
-        clientSecret = "d6deb97e84ec5c80ddb9b05ef85b2896186fee44";
-    }
-    
-    const gitalk = new Gitalk({
-        clientID: clientID,
-        clientSecret: clientSecret,
-        repo: "bloggitalk",
-        owner: "icradP",
-        admin: ["icradP"],
-        language: "zh-CN",
-		proxy: 'https://github.com/login/oauth/access_token',
-        id: location.pathname,
-        distractionFreeMode: true
-    })
-    gitalk.render("gitalk-container")
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "NOFQLmaTJbvtydd2B161BvtA-gzGzoHsz",
+            app_key: "QNlm9fwjIdhcaVT1rj8AlIJp",
+            placeholder: "Just go go",
+            avatar:"mm"
+        })
+    }valine.render("valine-container")
 </script>
-
-
 
 
 
