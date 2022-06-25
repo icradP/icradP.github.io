@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hello World | Icrad的博客</title>
+        <title>文章的技巧 | Icrad的博客</title>
         <meta name="author" content="Icrad">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -120,7 +120,7 @@
                         
 <div class="article">
     <div>
-        <h1>Hello World </h1>
+        <h1>文章的技巧 </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -130,27 +130,122 @@
             2022/6/24
         </span>
         
+        <span class="category">
+            <a href="/categories/技巧">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                技巧
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Typora" style="color: #03a9f4">
+                    Typora
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/md" style="color: #00a596">
+                    md
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><code>                                                                &lt;!-- more --&gt;</code></p>
-<pre><code class="markdown">&lt;!-- more --&gt;
+        <p>​         </p>
+<p>​		第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁</p>
+<p>​									<span id="more"></span></p>
+<p>[TOC]</p>
+<p>&#96;                      </p>
+<h3 id="文章阅读截止"><a href="#文章阅读截止" class="headerlink" title="文章阅读截止"></a>文章阅读截止</h3><p>​		将过长的文章截取，只显示代码上方的文章内容，避免文章过长的显示在博客主页（这个可以说是非常常用）</p>
+<p>代码如下：</p>
+<pre><code class="bash">&lt;!-- more --&gt;
 </code></pre>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+<h3 id="文章的新建命令"><a href="#文章的新建命令" class="headerlink" title="文章的新建命令"></a>文章的新建命令</h3><pre><code>hexo new [layout] &lt;title&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Create-a-Image-for-Pigco"><a href="#Create-a-Image-for-Pigco" class="headerlink" title="Create a Image for Pigco"></a>Create a Image for Pigco</h3><p>![](<a target="_blank" rel="noopener" href="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220624204900041.png">https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220624204900041.png</a></p>
-<p>More info: <a href="#">Nothings</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>​		在github bash 中使用 该指令可以新建一个页面：</p>
+<p>​		使用实例如下 ：</p>
+<pre><code>hexo new post 标题
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p>​		可以在hexo根文件的中的_post的文件夹中发现新建了一个标题.md	，头部信息如下</p>
+<pre><code>title: 标题
+date: //时间
+tags: //标签
+categories:  //分类
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<h3 id="草稿的新建命令"><a href="#草稿的新建命令" class="headerlink" title="草稿的新建命令"></a>草稿的新建命令</h3><pre><code>hexo new draft title
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>​		在github bash 中使用 该指令可以新建一个草稿：</p>
+<p>​		使用实例如下 ：</p>
+<pre><code>hexo new draft 标题
+</code></pre>
+<p>​		可以在hexo根文件的中的_drafts的文件夹中发现新建了一个标题.md	头部的信息如下</p>
+<pre><code>title: 标题
+date: //时间
+tags: //标签
+categories:  //分类
+</code></pre>
+<p>​		草稿不会显示在博客中，想要看到博客草稿需要在github bash 中使用如下指令：</p>
+<pre><code>hexo s -draft
+</code></pre>
+<p>​		该指令的作用除了在本地运行博客部署以外，可以在博客中访问草稿.</p>
+<h3 id="front-Matter"><a href="#front-Matter" class="headerlink" title="front  Matter"></a>front  Matter</h3><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//20200916181236318.png"></p>
+<p>​	每个创建的MD文件都在头端插入了名为front  Matter预定义读取参数,就是上文所说的头部信息。<br>​	可以看见这张图是有水印的，我们可以利用MD的文件中的画图代码画出相同的信息：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout</td>
+<td>布局</td>
+<td>无</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td>无</td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立的日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>update</td>
+<td>更新的日期</td>
+<td>每次文件更新的日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>该文章的评论功能</td>
+<td>默认每个文章开启</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签</td>
+<td>无</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类</td>
+<td>无</td>
+</tr>
+</tbody></table>
 
     </div>
     
