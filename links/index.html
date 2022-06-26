@@ -17,8 +17,8 @@
   <meta name="keywords" content="">
   
     <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://www.icrad.top/categories/index.html">
+<meta property="og:title" content="友链">
+<meta property="og:url" content="https://www.icrad.top/links/index.html">
 <meta property="og:site_name" content="icrad的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Icrad">
@@ -28,7 +28,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>分类 - icrad的博客</title>
+  <title>友链 - icrad的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="分类"></span>
+            <span id="subtitle" data-typed-text="友情链接"></span>
           
         </div>
 
@@ -214,56 +214,94 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-
-
-
-<div class="category-list">
-  
+<div class="row links">
   
     
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="技巧"
-        id="heading-952d012fcbf9d533dab2eae0ca3ca41f" role="tab" data-toggle="collapse" href="#collapse-952d012fcbf9d533dab2eae0ca3ca41f"
-        aria-expanded="false"
-      >
-        技巧
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/%E6%8A%80%E5%B7%A7/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>1</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-952d012fcbf9d533dab2eae0ca3ca41f"
-           role="tabpanel" aria-labelledby="heading-952d012fcbf9d533dab2eae0ca3ca41f">
-        
-        
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://hexo.fluid-dev.com/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
           
-  <div class="category-post-list">
+            <div class="link-avatar my-auto">
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Blog"
+                   onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Blog</div>
+            <div class="link-intro">主题博客</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  
     
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://hexo.fluid-dev.com/docs/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Docs"
+                   onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Docs</div>
+            <div class="link-intro">主题使用指南</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  
     
-      
-      
-        <a href="/2022/06/24/hello-world/" title="文章的技巧"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">文章的技巧</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
+    <div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Repo"
+                   onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">Fluid Repo</div>
+            <div class="link-intro">主题 GitHub 仓库</div>
+          </div>
+        </div>
+      </a>
     </div>
   
 </div>
+
+
+
+
+  <article id="comments" lazyload>
+    
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.5.11/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo-icradp.vercel.app/","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
 
 
               </div>
