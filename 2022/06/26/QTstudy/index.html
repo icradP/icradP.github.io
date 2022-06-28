@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png">
 <meta property="article:published_time" content="2022-06-26T13:36:11.000Z">
-<meta property="article:modified_time" content="2022-06-28T13:10:42.530Z">
+<meta property="article:modified_time" content="2022-06-28T13:17:34.686Z">
 <meta property="article:author" content="Icrad">
 <meta property="article:tag" content="Qt6.2.3，C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,12 +316,11 @@
 <p>　　如果是对话框，就使用QDialog类；</p>
 <p>　　如果不确定，有可能作为顶层窗口，也有可能嵌入到其他窗口，就使用QWidget类。</p>
 <p>​		第一个程序我们可以默认直接选QWidget类</p>
-<p><img src="C:\Users\icrad\AppData\Roaming\Typora\typora-user-images\image-20220628202512898.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628202512898.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
 <p>这个是生成一个UI界面，一开始做第一个程序可以不选，因为需要学习一下UI底层的实现代码。</p>
 <h4 id="Kits-选择"><a href="#Kits-选择" class="headerlink" title="Kits 选择"></a>Kits 选择</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628202115437.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
 <p>这里我因为安装时选择需要MSVC调试开发，所以会出现MSVC，默认有MInGW,一般可全选，创建第一个项目的时候不容易出错</p>
-<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628202912401.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
-<p>选择版本控制系统，一开始第一个程序用不上，实际是做大项目开发用的源代码管理工具选择，比如说我们常见的git ，svn等。具体可看这篇CSDN博文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45627194/article/details/110050361">源代码管理工具 </a></p>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628202912401.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload>选择版本控制系统，一开始第一个程序用不上，实际是做大项目开发用的源代码管理工具选择，比如说我们常见的git ，svn等。具体可看这篇CSDN博文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45627194/article/details/110050361">源代码管理工具 </a></p>
 <p>点击完成至此，创建一个Qt项目完成</p>
 <h4 id="常用快捷键："><a href="#常用快捷键：" class="headerlink" title="常用快捷键："></a>常用快捷键：</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>ctrl / 注释<br><span class="hljs-regexp">//</span>ctrl r 运行<br><span class="hljs-regexp">//</span>ctrl b 编译<br><span class="hljs-regexp">//</span>ctrl i 自动对齐<br><span class="hljs-regexp">//</span>F4 快捷切换同名文件<br></code></pre></td></tr></table></figure>
 
@@ -330,11 +329,8 @@
 
 
 
-
-
+<p>widget.cpp</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#include &quot;widget.h&quot;</span><br><span class="hljs-comment">#include&lt;QDebug&gt;</span><br><span class="hljs-comment">#include&lt;QPushButton&gt;</span><br><br><br>Widget::Widget(QWidget *parent): QWidget(parent)<span class="hljs-regexp">//</span>这不就是初始化列表么<br>&#123;<br>    <span class="hljs-regexp">//</span>创建一个按钮<br>    QPushButton *btn = new QPushButton;<br>    <span class="hljs-regexp">//</span>btn-&gt;show();<span class="hljs-regexp">//</span>单独弹出一个顶层的窗口来弹出窗口控件<br>    <span class="hljs-regexp">//</span>所以我们需要将Btn对象依赖在Widget窗口中<br>    btn-&gt;setParent(this);<br>    <span class="hljs-regexp">//</span>函数名直译，设置父母。<br><br>    <span class="hljs-regexp">//</span>给按钮显示值<br>    btn-&gt;setText(<span class="hljs-string">&quot;第一个按钮&quot;</span>);<br><br><span class="hljs-regexp">//</span>    创建第二个按钮<br>    QPushButton *btn2=new QPushButton(<span class="hljs-string">&quot;第二个按钮&quot;</span>,this);<span class="hljs-regexp">//</span>有参构造<br>    <span class="hljs-regexp">//</span>但是有问题，只会按照空间的大小创建窗口<br>    <span class="hljs-regexp">//</span>我们可以自己设定默认窗口大小<br>    <span class="hljs-regexp">//</span>可修改<br>    resize(<span class="hljs-number">600</span>,<span class="hljs-number">400</span>);<br>   <span class="hljs-regexp">//</span>我想要窗口固定大小，就需要<br>    setFixedSize(<span class="hljs-number">600</span>,<span class="hljs-number">400</span>);<br>    <span class="hljs-regexp">//</span>同理，按钮需要定义大小也可以<br>    btn-&gt;resize(<span class="hljs-number">50</span>,<span class="hljs-number">20</span>);<br><br>    <span class="hljs-regexp">//</span>但是运行还是只有一个按钮没因为默认位置将第一个按钮覆盖显示了，我们需要移动他<br>    btn2-&gt;move (<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<br>    <span class="hljs-regexp">//</span>这样我们就可以看到两个按钮了，这个时候我也可以更改应用标题<br>    setWindowTitle(<span class="hljs-string">&quot;第一个Qt&quot;</span>);<br><br><br>    <span class="hljs-regexp">//</span>问题：<br>    <span class="hljs-regexp">//</span>我们的按钮都是开辟于堆区，不用去考虑释放内存的问题吗<br>    <span class="hljs-regexp">//</span>引入对象树的概念<br>    <span class="hljs-regexp">//</span>setparent(this)<br>    <span class="hljs-regexp">//</span>关键函数：<br>	<span class="hljs-regexp">//</span>将这个类与类下的对象放入对象树中<br>	<span class="hljs-regexp">//</span>析构的时候   --接以下注释--<br>&#125;<br><br>Widget::~Widget()<br>&#123;<br>    qDebug(<span class="hljs-string">&quot;父类的析构&quot;</span>);<br>    <br>    <span class="hljs-regexp">//</span>先执行自行添加的代码，然后<br>    <span class="hljs-regexp">//</span>底层在释放这个类之前判断是否有子类，如果有就找到子类析构，再执行自添加的代码，再判断，<br>    <span class="hljs-regexp">//</span>直到找不到子类，确认是最后一个子类后释放这个子类下的对象<br>    <span class="hljs-regexp">//</span>所以就会出现，先输出父类析构代码再输出子类的析构代码的情况<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
 
 
 
@@ -349,7 +345,7 @@
 
 <p>QT库中有现成的信号与槽函数，当然我们也可以自己写一个，具体实现：</p>
 <p>更多内容在下一篇文章再说，<del>还没写呢。先玩游戏去辣</del></p>
-<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628211036994.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="image-20220628211036994"></p>
+<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628211036994.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
 
                 
               </div>
