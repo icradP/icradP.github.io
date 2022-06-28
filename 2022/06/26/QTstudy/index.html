@@ -16,26 +16,26 @@
   <meta name="author" content="Icrad">
   <meta name="keywords" content="">
   
-    <meta name="description" content="个人最近杂谈：​		百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。      ​		最近在网络上看到的段子：奶酪洞越多，">
+    <meta name="description" content="Qt 基于C++的跨平台的图形引擎 发行于1991年 就记了个大概，不知道的咱可以百度不是 优点1.跨平台 2.接口简单 3.一定程度简化了内存回收 案例1.WPS 2.linux-KDE 3.vlc多媒体播放 创建第一个Qt 系统环境：windows11软件环境：Qt6.2.3(MSVC 2019 64bit) 新建工程一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调">
 <meta property="og:type" content="article">
-<meta property="og:title" content="觉得博客很空总想写点什么？">
-<meta property="og:url" content="https://www.icrad.top/2022/06/26/others1/index.html">
+<meta property="og:title" content="Qt学习第一节|Qt基础">
+<meta property="og:url" content="https://www.icrad.top/2022/06/26/QTstudy/index.html">
 <meta property="og:site_name" content="icrad的博客">
-<meta property="og:description" content="个人最近杂谈：​		百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。      ​		最近在网络上看到的段子：奶酪洞越多，">
+<meta property="og:description" content="Qt 基于C++的跨平台的图形引擎 发行于1991年 就记了个大概，不知道的咱可以百度不是 优点1.跨平台 2.接口简单 3.一定程度简化了内存回收 案例1.WPS 2.linux-KDE 3.vlc多媒体播放 创建第一个Qt 系统环境：windows11软件环境：Qt6.2.3(MSVC 2019 64bit) 新建工程一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//イベント／メイン／菊千代.jpg">
+<meta property="og:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png">
 <meta property="article:published_time" content="2022-06-26T13:36:11.000Z">
-<meta property="article:modified_time" content="2022-06-27T03:58:44.409Z">
+<meta property="article:modified_time" content="2022-06-28T12:51:05.975Z">
 <meta property="article:author" content="Icrad">
-<meta property="article:tag" content="网上冲浪">
+<meta property="article:tag" content="Qt6.2.3，C++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//イベント／メイン／菊千代.jpg">
+<meta name="twitter:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>觉得博客很空总想写点什么？ - icrad的博客</title>
+  <title>Qt学习第一节|Qt基础 - icrad的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,13 +194,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com//イベント／メイン／菊千代.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="觉得博客很空总想写点什么？"></span>
+            <span id="subtitle" data-typed-text="Qt学习第一节|Qt基础"></span>
           
         </div>
 
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.8k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          11 分钟
+          15 分钟
         
       </span>
     
@@ -280,22 +280,65 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">觉得博客很空总想写点什么？</h1>
+            <h1 style="display: none">Qt学习第一节|Qt基础</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="个人最近杂谈："><a href="#个人最近杂谈：" class="headerlink" title="个人最近杂谈："></a>个人最近杂谈：</h2><p>​		百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。 </p>
- <center> <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220626222334097.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload r style="zoom:40%;" /></center>
+                <h2 id="Qt"><a href="#Qt" class="headerlink" title="Qt"></a>Qt</h2><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>基于C++的跨平台的图形引擎</p>
+<p>发行于1991年 <del>就记了个大概，不知道的咱可以百度不是</del></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>1.跨平台</p>
+<p>2.接口简单</p>
+<p>3.一定程度简化了内存回收</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>1.WPS</p>
+<p>2.linux-KDE</p>
+<p>3.vlc多媒体播放</p>
+<h2 id="创建第一个Qt"><a href="#创建第一个Qt" class="headerlink" title="创建第一个Qt"></a>创建第一个Qt</h2><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628111650699.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>系统环境：windows11<br>软件环境：Qt6.2.3(MSVC 2019 64bit)</p>
+<h4 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h4><p>一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调试开发，</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">file</span>-&gt; <span class="hljs-keyword">new</span> <span class="hljs-keyword">project</span><br></code></pre></td></tr></table></figure>
 
-<p>​		最近在网络上看到的段子：奶酪洞越多，奶酪越少，而奶酪越多，奶酪洞越多，得出结论：奶酪越少，奶酪就越少；<br>​		乍一看，嗯，很合理。虽然仔细思考一看有很多漏洞，但是依旧合理，首先第一眼能看到最大的问题就是，结论纯纯的废话：<del>毕竟正在看这篇文章的一定在看这篇文章罢</del> </p>
-<p>​		我们可以简单的分析一下，首先<strong>典型的演绎论证，需要：前提，论证，结论</strong>。 这个是我们常用的论证手段。这条段子咱们可以处理为：</p>
-<p>​		前提：如果奶酪洞越多，奶酪越少。论证：奶酪越多，奶酪洞越多。</p>
-<p>​		结论：奶酪越少，奶酪就越少；</p>
-<p>​		前提乍一看是真，但是我的理解是：多和少这个概念其实是通过对比而言的，怎么定义多，怎么定义少？所以原前提对我个人而言是不能确定的（虽然一般都会默认比较的是自身的体重体积大小 的变化前与变化后）。我们需要让前提更严谨一些：有一个奶酪，体积重量大小都是一个固定的量，不会产生莫名其妙的增加或减少，只会通过奶酪洞的形式变化，如果奶酪洞越多，奶酪的重量大小和体积大小越少。这样就可以确定该前提为真。<br>​		虽然看都很合理，但是蕴含悖论：前提永远都是真的 ，看到论证实际上也都是为了配合前提而多说的废话，用来强调前提，而重要的是，结论也永远都是真的 奶酪越少，奶酪就越少；不谈语句问题。这也是个合理的论证，因为不存在一种情况，使得前提为真而结论为假。</p>
-<p>​		总结：虽然合理但是，无效。</p>
-<p>​		咳咳，扯远了<del>想到什么写什么，完全没有规划的那种</del> 来形容我现在的思想情况吧：学的越多越感觉自己懂得越少（拿段子来说的话，奶酪量可以相比脑容量了，自身就没啥奶酪，结果还要开洞&#x2F;😢😢）</p>
-<p>​		要搭建个博客，直到最近我都认为，搭建博客，需要买个服务器，注册域名，虽然不是必要的，但是有个属于自己的网址确实cool😎，然后找个网页模板就开始改（虽然确实没啥问题），最后将网页上传到服务器就够了。一开始确实是这么认为的，脑子里只有html，CSS，JS的一点概念我就屁颠屁颠来直接开整了，现在网络能拿到很多教程资源（感谢开源！），<del>但依旧磕磕绊绊换了无数个主题弄了个三天</del>，找免费图床,建反向代理，期中了解下node.js，和PHP，虽然有wordpress（这个虽然很方便也有很多现成的方案，但是也需要些折腾，<del>主要是不想买服务器,想白嫖</del>，而且在国内需要建站域名和网站都需要备案），最终选择了基于hexo的fluid的主题，期间用也有试过自建主题，发现需要了解的东西很多，从零开始写CSS和JS也太折磨我了，虽然我怕麻烦，但是为了解决gitalk的porxy代理问题花了一天时间找了的免费的无服务构建应用平台和免费好使的评论，最后做了一大堆查找了一大堆，才回过神，<strong>卧槽!我一开始不是只想找个地方记录我的平常的学习进度么？</strong></p>
+
+
+<h4 id="选择模板（tempates"><a href="#选择模板（tempates" class="headerlink" title="选择模板（tempates)"></a>选择模板（tempates)</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628110514448.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>默认<strong>Qt widget application</strong>（最基本的，也是最常用的窗口应用）</p>
+<p>新建文件名和选择路径需要注意：（名字 路径，都不要有中文）</p>
+<h4 id="选择构建系统（build-system）"><a href="#选择构建系统（build-system）" class="headerlink" title="选择构建系统（build system）"></a>选择构建系统（build system）</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628110646484.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>因为做的是第一个程序，要快速上手选择qmake（Qt自带，不过个人建议cmake）。</p>
+<h4 id="细节（details）"><a href="#细节（details）" class="headerlink" title="细节（details）"></a>细节（details）</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628111032398.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>名字都可以默认，也可以更改随喜好，注意事项（中文不行，空格禁止）</p>
+<p><strong>重点在于Base class（基类）</strong></p>
+<p>窗口类型介绍：QMainWindow、QWidget、QDialog三个类都可以用来创建窗口，可以直接使用，也可以继承后使用。</p>
+<p>　　QMainWindow窗口包含菜单栏、工具栏、状态栏、标题栏等，是最常见的窗口形式，也可以说是GUI程序的主窗口。</p>
+<p>　　QDialog是对话框窗口的基类。对话框主要用来执行短期任务，或者与用户进行互动，它可以是模态的，也可以是非模态的。他没有菜单栏、工具栏、状态栏等。</p>
+<p>　　如果是主窗口，就使用QMainWindow类；</p>
+<p>　　如果是对话框，就使用QDialog类；</p>
+<p>　　如果不确定，有可能作为顶层窗口，也有可能嵌入到其他窗口，就使用QWidget类。</p>
+<p>​		第一个程序我们可以默认直接选QWidget类</p>
+<p><img src="C:\Users\icrad\AppData\Roaming\Typora\typora-user-images\image-20220628202512898.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>这个是生成一个UI界面，一开始做第一个程序可以不选，因为需要学习一下UI底层的实现代码。</p>
+<h4 id="Kits-选择"><a href="#Kits-选择" class="headerlink" title="Kits 选择"></a>Kits 选择</h4><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628202115437.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>这里我因为安装时选择需要MSVC调试开发，所以会出现MSVC，默认有MInGW,一般可全选，创建第一个项目的时候不容易出错</p>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="C:\Users\icrad\AppData\Roaming\Typora\typora-user-images\image-20220628202912401.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<p>选择版本控制系统，一开始第一个程序用不上，实际是做大项目开发用的源代码管理工具选择，比如说我们常见的git ，svn等。具体可看这篇CSDN博文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45627194/article/details/110050361">源代码管理工具 </a></p>
+<p>点击完成至此，创建一个Qt项目完成</p>
+<h4 id="常用快捷键："><a href="#常用快捷键：" class="headerlink" title="常用快捷键："></a>常用快捷键：</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>ctrl / 注释<br><span class="hljs-regexp">//</span>ctrl r 运行<br><span class="hljs-regexp">//</span>ctrl b 编译<br><span class="hljs-regexp">//</span>ctrl i 自动对齐<br><span class="hljs-regexp">//</span>F4 快捷切换同名文件<br></code></pre></td></tr></table></figure>
+
+<h3 id="生成的代码文件"><a href="#生成的代码文件" class="headerlink" title="生成的代码文件"></a>生成的代码文件</h3><h3 id="需要掌握的："><a href="#需要掌握的：" class="headerlink" title="需要掌握的："></a>需要掌握的：</h3><p>main.cpp:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widget.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QApplication&gt;</span></span><br><span class="hljs-comment">//argc为命令行变量的数量</span><br><span class="hljs-comment">//*argv变量的数组</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-function">QApplication <span class="hljs-title">a</span><span class="hljs-params">(argc, argv)</span></span>;<span class="hljs-comment">//a即为应用程序对象，有且仅有一个</span><br>    Widget w;<br>    <span class="hljs-comment">//窗口对象 （子类widger ：public QWidget）</span><br>    <span class="hljs-comment">//默认不显示；</span><br>    <span class="hljs-comment">//需要以下函数调用，调用的是顶层窗口函数</span><br>    w.<span class="hljs-built_in">show</span>();<br>    <span class="hljs-comment">//让应用程序对象进入消息循环机制</span><br>    <span class="hljs-comment">//类似while（true）</span><br>    <span class="hljs-comment">//触发条件退出循环结束程序</span><br>    <span class="hljs-comment">//堵塞你的代码运行</span><br>    <span class="hljs-comment">//与system(&quot;pause&quot;)作用类似</span><br>    <span class="hljs-keyword">return</span> a.<span class="hljs-built_in">exec</span>();<br><br>    <span class="hljs-comment">//之后的代码依旧会顺序执行，但是窗口关闭后只可以再应用程序中可见</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="信号和槽"><a href="#信号和槽" class="headerlink" title="信号和槽"></a>信号和槽</h4><p>Qt的学习重点，Qt的引以为豪的部分。</p>
+<p>怎了么理解信号与槽？</p>
+<p>我们现看个例子：</p>
+<p>我打开一盏灯，灯亮了</p>
+<p>信号的发送者，发送具体信号，信号的接收者，槽函数：信号的处理</p>
+<p>connect （信号的发送者，发送具体信号；信号的接收者，信号的处理）</p>
+<p>信号槽的优点，松散耦合：可以理解为信号发送与接收者没啥关联，通过connect的链接两端耦合在一起</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//连接函数</span><br><span class="hljs-built_in">connect</span>(mybtn  ,&amp;QPushButton::clicked,<span class="hljs-keyword">this</span>,&amp;Widget::close);<br><span class="hljs-comment">//参数1：信号发送者，参数2：信号这里填入地址；</span><br><span class="hljs-comment">//参数3：信号接收者，参数3；同样是地址槽（槽函数，执行行为）</span><br></code></pre></td></tr></table></figure>
+
+<p>QT库中有现成的信号与槽函数，当然我们也可以自己写一个</p>
+<p>想到哪写到哪，未完</p>
 
                 
               </div>
@@ -314,7 +357,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/" class="category-chain-item">日常杂谈</a>
+  <a href="/categories/Qt%E5%AD%A6%E4%B9%A0/" class="category-chain-item">Qt学习</a>
   
   
 
@@ -329,7 +372,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">#网上冲浪</a>
+        <a href="/tags/Qt6-2-3%EF%BC%8CC/">#Qt6.2.3，C++</a>
       
     </div>
   
@@ -341,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>觉得博客很空总想写点什么？</div>
-      <div>https://www.icrad.top/2022/06/26/others1/</div>
+      <div>Qt学习第一节|Qt基础</div>
+      <div>https://www.icrad.top/2022/06/26/QTstudy/</div>
     </div>
     <div class="license-meta">
       
@@ -384,18 +427,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/26/QTstudy/" title="Qt学习第一节|Qt基础">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Qt学习第一节|Qt基础</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/24/hello-world/" title="文章的技巧">
-                        <span class="hidden-mobile">文章的技巧</span>
+                      <a href="/2022/06/26/others1/" title="觉得博客很空总想写点什么？">
+                        <span class="hidden-mobile">觉得博客很空总想写点什么？</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
