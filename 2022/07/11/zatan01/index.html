@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png">
 <meta property="article:published_time" content="2022-07-11T13:37:50.000Z">
-<meta property="article:modified_time" content="2022-07-11T14:47:52.614Z">
+<meta property="article:modified_time" content="2022-07-11T14:50:59.003Z">
 <meta property="article:author" content="Icrad">
 <meta property="article:tag" content="CMake">
 <meta property="article:tag" content="VScode">
@@ -291,12 +291,12 @@
                 <p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
 <h3 id="啥事cmake"><a href="#啥事cmake" class="headerlink" title="啥事cmake?"></a>啥事cmake?</h3><p>​		CMake 是一个开源、跨平台的工具，旨在构建、测试和打包您的程序。CMake 用于使用简单的平台和编译器独立配置文件来控制程序编译过程，并生成可在您选择的编译器环境中使用的主机配置文件和项目文件。这套 CMake 工具由 Kitware 创建，以满足 ITK 和 VTK 等开源项目对强大的跨平台构建环境的需求。</p>
 <p>​		说白了，这玩意只是个配置器，配置你的编译器该如何进行编译</p>
-<h3 id="cmake的好处："><a href="#cmake的好处：" class="headerlink" title="cmake的好处："></a>cmake的好处：</h3><pre><code class="hljs">    &lt;center&gt;*“Write once, run everywhere”*
-        
-    &lt;/center&gt;
+<h3 id="cmake的好处："><a href="#cmake的好处：" class="headerlink" title="cmake的好处："></a>cmake的好处：</h3><pre><code class="hljs">&lt;center&gt;“Write once, run everywhere”
+    
+&lt;/center&gt;
 </code></pre>
 <p>​		非常好理解，就是只写一次，到处运行</p>
-<p>对我来说就三个字：跨平台。</p>
+<p>​		对我来说就三个字：跨平台。</p>
 <h3 id="cmake的缺点："><a href="#cmake的缺点：" class="headerlink" title="cmake的缺点："></a>cmake的缺点：</h3><p>​		缺点：麻烦，步骤繁多		</p>
 <p>​		断点调试挺麻烦的，VScode里的插件可以，但是需要对luanch.json和tasks.json进行修改，尤其是出现多个目录多个源文件等大项目的编译，修改虽然不复杂，但是麻烦。想要调试添加额外配置参数来打印所执行的所有代码及行号，插入log等方式检查问题。</p>
 <p>​		有这弱语言的共通问题，就是容易出问题。</p>
