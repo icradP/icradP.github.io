@@ -1,0 +1,113 @@
+# Theme Github link: https://github.com/argvchs/hexo-theme-particlex
+# Developer: argvchs
+
+# html lang
+language: zh
+
+# avatar image url
+head_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//QQ图片20220625125028.jpg
+
+# home page head info block
+head_block_enable: true
+
+# home page head background style.
+home_background: https://blog-1253996024.cos.ap-beijing.myqcloud.com//bgm.jpg
+
+# Particle theme icon is adopts the font awesome 6
+# Link: https://fontawesome.com/search/
+
+# main menu navigation
+menu:
+    主页:
+        name: house
+        theme: solid
+        src: /
+    关于我:
+        name: id-card
+        theme: solid
+        src: /about
+    归档:
+        name: box-archive
+        theme: solid
+        src: /archives
+    分类:
+        name: bookmark
+        theme: solid
+        src: /categories
+    标签:
+        name: tags
+        theme: solid
+        src: /tags
+
+# side info card
+card:
+    enable: true
+    description: ["<br>还就内个老二次元DD人！<br/> <br>画画渣，代码渣，剪辑渣<br/>什么都有兴趣但是什么都学不会XD"]
+    icon_links: 
+        github:
+            name: github
+            theme: brands
+            link: https://github.com/icradP
+
+        QQ:
+            name: qq
+            theme: brands
+            link: tencent://Message/?Uin=972791158&websiteName=q-zone.qq.com&Menu=yes
+         # Example:
+            # <name>:
+            #    name: <icon-name>
+            #    theme: <icon-theme>
+            #    link: <link-url>
+    friend_links: []
+         # Example:
+         # <name>: <link-url>
+
+# footer info
+footer:
+    since: 2022
+    ICP:
+        enable: false
+        code:
+
+# Gitalk
+# https://github.com/gitalk/gitalk
+# 由于这个cros跨域的公共API被墙了所以
+gitalk:
+    enable: true
+    clientID: 47415ec54d81211565e4
+    clientSecret: 74334021a297161e9b4e551ac03802e93c0ed255
+    repo: bloggitalk
+    owner: icradP
+    admin: icradP
+    language: zh-CN #  https://my-app.iccrad.workers.dev/?
+    proxy: https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token
+    sites: 
+        www.icrad.top:
+             clientID: cb09d68f6471d80efcb4
+             clientSecret: d6deb97e84ec5c80ddb9b05ef85b2896186fee44
+
+#.utteranc评论： https://utteranc.es (参数配置详见主页)
+#这个似乎也因为墙的问题出现了访问问题
+utterance:
+  enable: false
+  repo: 'icradP/bloggitalk'     #仓库名字,格式：你的用户ID/仓库名称，如：blog/utterance_repo
+  issue_term: 'title'            #映射配置
+  theme: 'github-light'          #主题
+
+
+
+#Valine https://valine.js.org 测试后不显示。。
+valine: 
+    enable: false
+    appid:  NOFQLmaTJbvtydd2B161BvtA-gzGzoHsz
+    appkey:  QNlm9fwjIdhcaVT1rj8AlIJp
+    verify: false #验证码
+    notify: false #评论回复提醒
+    visitor: false #允许访客？
+    avatar: mm #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+    placeholder: Just go go #评论框占位符
+
+#livere 来必力   测试后不显示。。
+livere:
+  enable: false
+  uid: MTAyMC81NjY2OS8zMzEzMw==
