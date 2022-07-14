@@ -1,0 +1,963 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://blog-1253996024.cos.ap-beijing.myqcloud.com//QQ图片20220625125028.jpg">
+  <link rel="icon" href="https://blog-1253996024.cos.ap-beijing.myqcloud.com//QQ图片20220625125028.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Icrad">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="icrad的博客">
+<meta property="og:url" content="https://www.icrad.top/index.html">
+<meta property="og:site_name" content="icrad的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Icrad">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>icrad的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.icrad.top","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":120,"cursorChar":" ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Icrad</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com//bgm.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="灵活的,弹性的,低碳的,生活！"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/GDB/" target="_self">
+          <img src="/img/default.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="GDB基础">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/GDB/" target="_self">
+          GDB基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/GDB/" target="_self">
+        <div>
+          GDB的调试GDB (GUN DEBUGGER)  设置断点  单步运行  查看变量值  动态改变执行环境  分析崩溃产生core文件   GDB调试参数调试需要在编译时加入可调试信息才可使用GDB工具进行调试 12g++ -g test.cpp -o test#生成可调试的执行文件    GDB 常用指令​	说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个比
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 20:22" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/GDB/" class="category-chain-item">GDB</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/GDB/">#GDB</a>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/%E8%B0%83%E8%AF%95/">#调试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/GccG++/" target="_self">
+          <img src="/img/default.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="GCC/G++基础">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/GccG++/" target="_self">
+          GCC/G++基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/GccG++/" target="_self">
+        <div>
+          G++&#x2F;GCC基础编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件test
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 20:22" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/GCC-G/" class="category-chain-item">GCC/G++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/GCC-G/">#GCC/G++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/blog/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/238826dbcf42846c32643335a7e155c178a1a04a.png@942w_531h_progressive.webp" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="博客的更新与备份">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/blog/" target="_self">
+          博客的更新与备份
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/blog/" target="_self">
+        <div>
+          博客的更新与备份基于hexo的博客，搭建在github的仓库中 我们要实现在不同的系统与电脑中进行修改，与同步 需要以下条件 Nodes.js npm git 博客源文件已经部署在github的仓库中（建议部署在分支中）  需要注意的事项首先新系统下的git配置，关键点在于重新配置ssh密匙 其次是Nodes.js与npm需要最新版本（有多新装多新 初始化另一台电脑的操作 git bash 将远程
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 20:22" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E5%B7%A7/" class="category-chain-item">技巧</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Blog/">#Blog</a>
+            
+              <a href="/tags/hexo/">#hexo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/cmake01/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="CMake基础">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/cmake01/" target="_self">
+          CMake基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/cmake01/" target="_self">
+        <div>
+          Cmake前言Linux下cmake编译工具使用过程与windows的操作大同小异 单独开一篇文章对指令基础做个总结 Corss-platform development跨平台：毕竟做linux下的c++ 开发不用cmake 可不行 语法特性指令格式 1指令（参数1 参数2）  不同参数需要用空格或者分号隔开 指令无关大小写，参数和变量是大小写相关的 常用指令 cmake_minimum_requ
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 20:22" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CMake/" class="category-chain-item">CMake</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CMake/">#CMake</a>
+            
+              <a href="/tags/vscode/">#vscode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/linux00/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/截图 2022-07-14 20-16-28.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="linux基础00">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/linux00/" target="_self">
+          linux基础00
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/linux00/" target="_self">
+        <div>
+          linux基础中的基础![](https:&#x2F;&#x2F;blog-1253996024.cos.ap-beijing.myqcloud.com&#x2F;img&#x2F;截图 2022-07-14 20-16-28.png) linux  的基础命令指令默认格式1指令 [选项] [操作对象]  注意：中括号代表的意思是可以省略内容不输入，一样可以运行该指令 默认打开终端 1Ctrl+Alt+T    常用指令打印当前所在的目
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 20:22" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/14/hello-world/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//98639154_p0.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="文章的技巧">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/14/hello-world/" target="_self">
+          文章的技巧
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/14/hello-world/" target="_self">
+        <div>
+          前言：​		第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁 ​
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-14 19:13" pubdate>
+              2022-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E5%B7%A7/" class="category-chain-item">技巧</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Typora/">#Typora</a>
+            
+              <a href="/tags/md/">#md</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/11/zatan01/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="利用VScode与CMake做C++开发环境">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/11/zatan01/" target="_self">
+          利用VScode与CMake做C++开发环境
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/07/11/zatan01/" target="_self">
+        <div>
+          啥事cmake?​		CMake 是一个开源、跨平台的工具，旨在构建、测试和打包您的程序。CMake 用于使用简单的平台和编译器独立配置文件来控制程序编译过程，并生成可在您选择的编译器环境中使用的主机配置文件和项目文件。这套 CMake 工具由 Kitware 创建，以满足 ITK 和 VTK 等开源项目对强大的跨平台构建环境的需求。 ​		说白了，这玩意只是个配置器，配置你的编译器该如何进行编
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-11 21:37" pubdate>
+              2022-07-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CMake-C/" class="category-chain-item">CMake,C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/CMake/">#CMake</a>
+            
+              <a href="/tags/VScode/">#VScode</a>
+            
+              <a href="/tags/Windows/">#Windows</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/26/QTstudy/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="Qt学习第一节|Qt基础">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/26/QTstudy/" target="_self">
+          Qt学习第一节|Qt基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/26/QTstudy/" target="_self">
+        <div>
+          Qt 基于C++的跨平台的图形引擎 发行于1991年 就记了个大概，不知道的咱可以百度不是 优点1.跨平台 2.接口简单 3.一定程度简化了内存回收 案例1.WPS 2.linux-KDE 3.vlc多媒体播放 创建第一个Qt 系统环境：windows11软件环境：Qt6.2.3(MSVC 2019 64bit) 新建工程一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-26 21:36" pubdate>
+              2022-06-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Qt%E5%AD%A6%E4%B9%A0/" class="category-chain-item">Qt学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Qt6-2-3%EF%BC%8CC/">#Qt6.2.3，C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/26/others1/" target="_self">
+          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//イベント／メイン／菊千代.jpg" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="觉得博客很空总想写点什么？">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/26/others1/" target="_self">
+          觉得博客很空总想写点什么？
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/26/others1/" target="_self">
+        <div>
+          个人最近杂谈：​		百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。      ​		最近在网络上看到的段子：奶酪洞越多，
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-26 21:36" pubdate>
+              2022-06-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/" class="category-chain-item">日常杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">#网上冲浪</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
