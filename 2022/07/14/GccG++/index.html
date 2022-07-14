@@ -16,25 +16,27 @@
   <meta name="author" content="Icrad">
   <meta name="keywords" content="">
   
-    <meta name="description" content="G++&#x2F;GCC基础编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件test">
+    <meta name="description" content="G++&#x2F;GCC基础 编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件tes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GCCG++基础">
+<meta property="og:title" content="G++基础">
 <meta property="og:url" content="https://www.icrad.top/2022/07/14/GccG++/index.html">
 <meta property="og:site_name" content="icrad的博客">
-<meta property="og:description" content="G++&#x2F;GCC基础编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件test">
+<meta property="og:description" content="G++&#x2F;GCC基础 编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件tes">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gcc.png">
 <meta property="article:published_time" content="2022-07-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-14T13:24:25.034Z">
+<meta property="article:modified_time" content="2022-07-14T13:32:02.623Z">
 <meta property="article:author" content="Icrad">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="GCC&#x2F;G++">
+<meta property="article:tag" content="G++">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gcc.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>GCCG++基础 - icrad的博客</title>
+  <title>G++基础 - icrad的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,13 +195,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com//bgm.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gcc.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="GCCG++基础"></span>
+            <span id="subtitle" data-typed-text="G++基础"></span>
           
         </div>
 
@@ -279,12 +281,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">GCCG++基础</h1>
+            <h1 style="display: none">G++基础</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="G-x2F-GCC基础"><a href="#G-x2F-GCC基础" class="headerlink" title="G++&#x2F;GCC基础"></a>G++&#x2F;GCC基础</h2><h3 id="编译过程有四步"><a href="#编译过程有四步" class="headerlink" title="编译过程有四步"></a>编译过程有四步</h3><ol>
+                <h2 id="G-x2F-GCC基础"><a href="#G-x2F-GCC基础" class="headerlink" title="G++&#x2F;GCC基础"></a>G++&#x2F;GCC基础</h2><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gcc.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload></p>
+<h3 id="编译过程有四步"><a href="#编译过程有四步" class="headerlink" title="编译过程有四步"></a>编译过程有四步</h3><ol>
 <li><h4 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">g++ -E test.cpp -o test.i<br><span class="hljs-comment">#预处理为.i文件</span><br><span class="hljs-comment">#头文件啥的的预定义啥的</span><br></code></pre></td></tr></table></figure>
 
 
@@ -417,7 +420,7 @@
       
         <a href="/tags/C/">#C++</a>
       
-        <a href="/tags/GCC-G/">#GCC/G++</a>
+        <a href="/tags/G/">#G++</a>
       
     </div>
   
@@ -429,7 +432,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GCCG++基础</div>
+      <div>G++基础</div>
       <div>https://www.icrad.top/2022/07/14/GccG++/</div>
     </div>
     <div class="license-meta">
