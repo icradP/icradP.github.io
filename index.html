@@ -1,1155 +1,487 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://blog-1253996024.cos.ap-beijing.myqcloud.com//QQ图片20220625125028.jpg">
-  <link rel="icon" href="https://blog-1253996024.cos.ap-beijing.myqcloud.com//QQ图片20220625125028.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Icrad">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>icrad的博客 - hi,i'm icrad.</title><meta name="author" content="Icrad"><meta name="copyright" content="Icrad"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="icrad的博客">
 <meta property="og:url" content="https://www.icrad.top/index.html">
 <meta property="og:site_name" content="icrad的博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100">
 <meta property="article:author" content="Icrad">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>icrad的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.icrad.top","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":120,"cursorChar":" ","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.icrad.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
     }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Icrad</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://blog-1253996024.cos.ap-beijing.myqcloud.com//bgm.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="灵活的,弹性的,低碳的,生活！"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/17/internet02/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/728da9773912b31bad1719cedfd48473dbb4e130.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="计算机网络基础|第二节|物理层">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/17/internet02/" target="_self">
-          计算机网络基础|第二节|物理层
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/17/internet02/" target="_self">
-        <div>
-          物理层前言本章了解个概念，不深究，比较抽象 物理层的主要任务明确：考虑怎么链接各种计算机之间传输比特流数据 四个特性  机械 接口类型  电气 电压  功能 传输1&#x2F;0编码  过程 时种顺序   传输介质注意传输介质实际上不属于物理层 导引型传输媒体 双绞线  两根，按一定规则双绞，抗干扰  同轴电缆  光纤  单模光纤：波导,就是贵，对光信号要求高  多模光纤：全反射 优点：带宽大,损
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-17 00:00" pubdate>
-              2022-07-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机网络基础</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
-            
-              <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/">#基础，物理层</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/16/socket/" target="_self">
-          <img src="/img/default.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/16/socket/" target="_self">
-          
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/16/socket/" target="_self">
-        <div>
-          socket套接字 描述计算机的ip地址和端口，基于TCP&#x2F;ip 这里我直接上图：先把协议的概念先搞懂
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-16 15:18" pubdate>
-              2022-07-16
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/15/Internet01/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/728da9773912b31bad1719cedfd48473dbb4e130.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="计算机网络基础|第一节">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/15/Internet01/" target="_self">
-          计算机网络基础|第一节
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/15/Internet01/" target="_self">
-        <div>
-          计算机网络基础|第一节 前言学校网课不努力，B站大学再继续。实在努力不下去，美团饿么当兄弟。  计算机网络定义两个以上主机可发送接受信息的互连的，可自治的，组成计算机网络 计算机网络的性能指标常用以下8个1.速率比特 bit 数据量单位 代表：一个数0&#x2F;1 字节&#x3D;B 8bit&#x3D;1B; 注意：依次乘与2的10次方 K-&gt;M-&gt;G-&gt;T 举个例子 我们购
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-15 00:00" pubdate>
-              2022-07-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机网络基础</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
-            
-              <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/14/GDB/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gdb.jpg" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="GDB基础">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/14/GDB/" target="_self">
-          GDB基础
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/14/GDB/" target="_self">
-        <div>
-          GDB的调试 GDB (GUN DEBUGGER)  设置断点  单步运行  查看变量值  动态改变执行环境  分析崩溃产生core文件   GDB调试参数调试需要在编译时加入可调试信息才可使用GDB工具进行调试 12g++ -g test.cpp -o test#生成可调试的执行文件    GDB 常用指令​	说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-14 00:00" pubdate>
-              2022-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/GDB/" class="category-chain-item">GDB</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/GDB/">#GDB</a>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/%E8%B0%83%E8%AF%95/">#调试</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/14/Gcc/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gcc.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="G++基础">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/14/Gcc/" target="_self">
-          G++基础
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/14/Gcc/" target="_self">
-        <div>
-          G++&#x2F;GCC基础 编译过程有四步 预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的    编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件    汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o    链接12g++ test.o test#生成为可执行文件tes
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-14 00:00" pubdate>
-              2022-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/GCC-G/" class="category-chain-item">GCC/G++</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/G/">#G++</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/14/blog/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/238826dbcf42846c32643335a7e155c178a1a04a.png@942w_531h_progressive.webp" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="博客的更新与备份">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/14/blog/" target="_self">
-          博客的更新与备份
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/14/blog/" target="_self">
-        <div>
-          博客的更新与备份基于hexo的博客，搭建在github的仓库中 我们要实现在不同的系统与电脑中进行修改，与同步 需要以下条件 Nodes.js npm git 博客源文件已经部署在github的仓库中（建议部署在分支中）  需要注意的事项首先新系统下的git配置，关键点在于重新配置ssh密匙 其次是Nodes.js与npm需要最新版本（有多新装多新 初始化另一台电脑的操作 git bash 将远程
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-14 00:00" pubdate>
-              2022-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E5%B7%A7/" class="category-chain-item">技巧</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Blog/">#Blog</a>
-            
-              <a href="/tags/hexo/">#hexo</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/12/cmake01/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="CMake基础">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/12/cmake01/" target="_self">
-          CMake基础
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/12/cmake01/" target="_self">
-        <div>
-          Cmake前言Linux下cmake编译工具使用过程与windows的操作大同小异 单独开一篇文章对指令基础做个总结 Corss-platform development跨平台：毕竟做linux下的c++ 开发不用cmake 可不行 语法特性指令格式 1指令（参数1 参数2）  不同参数需要用空格或者分号隔开 指令无关大小写，参数和变量是大小写相关的 常用指令 cmake_minimum_requ
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-12 00:00" pubdate>
-              2022-07-12
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/CMake/" class="category-chain-item">CMake</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/CMake/">#CMake</a>
-            
-              <a href="/tags/vscode/">#vscode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/11/zatan01/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="利用VScode与CMake做C++开发环境">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/11/zatan01/" target="_self">
-          利用VScode与CMake做C++开发环境
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/11/zatan01/" target="_self">
-        <div>
-          啥事cmake?​		CMake 是一个开源、跨平台的工具，旨在构建、测试和打包您的程序。CMake 用于使用简单的平台和编译器独立配置文件来控制程序编译过程，并生成可在您选择的编译器环境中使用的主机配置文件和项目文件。这套 CMake 工具由 Kitware 创建，以满足 ITK 和 VTK 等开源项目对强大的跨平台构建环境的需求。 ​		说白了，这玩意只是个配置器，配置你的编译器该如何进行编
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-11 21:37" pubdate>
-              2022-07-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/CMake-C/" class="category-chain-item">CMake,C++</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/CMake/">#CMake</a>
-            
-              <a href="/tags/VScode/">#VScode</a>
-            
-              <a href="/tags/Windows/">#Windows</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/11/linux00/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/截图 2022-07-14 20-16-28.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="linux基础00">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/11/linux00/" target="_self">
-          linux基础00
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/07/11/linux00/" target="_self">
-        <div>
-          linux基础中的基础linux  的基础命令指令默认格式1指令 [选项] [操作对象]  注意：中括号代表的意思是可以省略内容不输入，一样可以运行该指令 默认打开终端 1Ctrl+Alt+T    常用指令打印当前所在的目录 1pwd  打印当前目录下的文件与文件夹 1ls  ls的用法扩展： 123ls [文件路径]#文件路径：#相对路径or绝对路径  打开文件目录下的文件 12ls 选项 [
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-11 00:00" pubdate>
-              2022-07-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/linux/">#linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/26/QTstudy/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="Qt学习第一节|Qt基础">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/26/QTstudy/" target="_self">
-          Qt学习第一节|Qt基础
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/06/26/QTstudy/" target="_self">
-        <div>
-          Qt 基于C++的跨平台的图形引擎 发行于1991年 就记了个大概，不知道的咱可以百度不是 优点1.跨平台 2.接口简单 3.一定程度简化了内存回收 案例1.WPS 2.linux-KDE 3.vlc多媒体播放 创建第一个Qt 系统环境：windows11软件环境：Qt6.2.3(MSVC 2019 64bit) 新建工程一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-26 21:36" pubdate>
-              2022-06-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Qt%E5%AD%A6%E4%B9%A0/" class="category-chain-item">Qt学习</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Qt6-2-3%EF%BC%8CC/">#Qt6.2.3，C++</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/26/others1/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//イベント／メイン／菊千代.jpg" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="觉得博客很空总想写点什么？">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/26/others1/" target="_self">
-          觉得博客很空总想写点什么？
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/06/26/others1/" target="_self">
-        <div>
-          个人最近杂谈：​		百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。      ​		最近在网络上看到的段子：奶酪洞越多，
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-26 21:36" pubdate>
-              2022-06-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/" class="category-chain-item">日常杂谈</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">#网上冲浪</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/25/hello-world/" target="_self">
-          <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//98639154_p0.png" srcset="https://blog-1253996024.cos.ap-beijing.myqcloud.com//1.gif" lazyload alt="文章的技巧">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/25/hello-world/" target="_self">
-          文章的技巧
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/06/25/hello-world/" target="_self">
-        <div>
-          前言：​		第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁 ​
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-25 00:00" pubdate>
-              2022-06-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E5%B7%A7/" class="category-chain-item">技巧</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Typora/">#Typora</a>
-            
-              <a href="/tags/md/">#md</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'icrad的博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-19 22:52:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
+    }
   
-    <script  src="/js/img-lazyload.js" ></script>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">icrad的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/18/internet03/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-18T00:34:55.651Z" title="发表于 2022-07-18 08:34:55">2022-07-18</time></span></div><div class="content">数据链路层点对点信道的数据链路层点对点（ppp)
+封装成帧给上一层交付的协议数据单元进行先添加帧尾和帧头使其成为帧
+ppp帧（点对点信道的帧）
+帧头帧尾作用之一是帧定界标志
+透明传输指的是对上层交付的传输数据没有任何限制，数据链路层的封装好像就是理所应当的，看不见的，不存在的（可以理解为你经常会忽视，你习以为常的事物）
+面对字节的物理链路使用字节填充在发送帧之前检测定界标志，检测到定界符flag或者转义字符就前插入一个esc转义字符
+如图所示：
+
+注意转义字符只有一个字节，10进制为27，是一个控制字符
+面向比特的物理链路使用比特填充对数据部分进行每五个连续的比特1添加一个比特0，确保帧定界的标志成为唯一的值
+
+在接收方时按照改规则去除比特0即可
+注意提高帧的传输效率，应当使数据部分的长度更大一些
+但是考虑到差错控制等多种因素，每一种数据链路层的协议都规定的帧的数据部分的最大上限
+我们称其为最大传送单元MTU（Maximum Transfer Unit)
+mac帧是没有定界符的，取代而之的是物理层加入一个前导码，有着相同的作用
+差错检测比特差错，也是我们常说的误码
+0变成1,1变成0  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/17/internet02/" title="计算机网络基础|第二节|物理层">计算机网络基础|第二节|物理层</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-16T16:00:00.000Z" title="发表于 2022-07-17 00:00:00">2022-07-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">计算机网络基础</a></span></div><div class="content">物理层前言本章了解个概念，不深究，比较抽象
+物理层的主要任务明确：考虑怎么链接各种计算机之间传输比特流数据
+四个特性
+
+机械
+接口类型
+
+电气
+电压
+
+功能
+传输1/0编码
+
+过程
+时种顺序
+
+
+传输介质注意传输介质实际上不属于物理层
+导引型传输媒体
+双绞线
+
+两根，按一定规则双绞，抗干扰
+
+同轴电缆
+
+光纤
+
+单模光纤：波导,就是贵，对光信号要求高
+
+多模光纤：全反射
+优点：带宽大,损耗低
+
+
+
+电力线
+适合短距离
+
+
+非导引型传输媒体(自由空间)
+
+微波
+
+直线，电离层无折射，需要中继站，典型5G通信
+
+无线电波
+
+电离层折射，距离远
+
+可见光
+
+应用：lifi
+传输方式串行传输一条数据传输线路
+并行传输多条数据传输线路
+计算机内部常用并行传输
+同步传输时钟同步连续无间隔
+外同步
+多加一条单独的时钟信号线
+内同步
+市中心号线与发送数据曼彻斯特编码
+异步传输异步的体现：字节之间的时间间隔不固定
+需要字节需要加上起始位和结束位
+但各比特的持续时间是相同的
+字节异步，比特同步
+单工单向
+半双工双向不同时
+全双工同时双向
+编码与调制关于编码与调制我们需要了解：
+信息-&gt;数据（二进制） ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/16/socket/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-16T07:18:29.598Z" title="发表于 2022-07-16 15:18:29">2022-07-16</time></span></div><div class="content">socket套接字 描述计算机的ip地址和端口，基于TCP/ip
+这里我直接上图：先把协议的概念先搞懂
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/15/Internet01/" title="计算机网络基础|第一节">计算机网络基础|第一节</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-14T16:00:00.000Z" title="发表于 2022-07-15 00:00:00">2022-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">计算机网络基础</a></span></div><div class="content">计算机网络基础|第一节
+前言学校网课不努力，B站大学再继续。实在努力不下去，美团饿么当兄弟。
+
+计算机网络定义两个以上主机可发送接受信息的互连的，可自治的，组成计算机网络
+计算机网络的性能指标常用以下8个1.速率比特 bit 数据量单位
+代表：一个数0/1
+字节=B
+8bit=1B;
+注意：依次乘与2的10次方
+K-&gt;M-&gt;G-&gt;T
+举个例子
+我们购买的硬盘，商家标的是250GB为什么在操作系统中却只有232.8GB呢
+我们看下面的一个公式：
+
+\frac{250*10^{9} } {2^{30} }=232.8（GB）商家的计算方式是G 为10的9次方，操作系统中数据量的G 是2的30次方
+比特率速率单位 bit/s
+注意：依次乘与10的3次方
+k-&gt;M-&gt;G-&gt;T
+与数据量不同
+2.带宽在模拟信号中 ：单位Hz
+表达的是信号频率范围
+在计算机网络中：
+可以理解为网络中点到点传输的 最高数据率
+单位b/s与比特率相同
+这两者其实表述都是有联系的，带宽频率越宽，网络越好
+
+3.吞吐量单位时间通过的数据量
+受到带宽限制
+4.时延总的来说就是传输数据的时 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/GDB/" title="GDB基础">GDB基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/GDB/">GDB</a></span></div><div class="content">GDB的调试
+GDB (GUN DEBUGGER)
+
+设置断点
+
+单步运行
+
+查看变量值
+
+动态改变执行环境
+
+分析崩溃产生core文件
+
+
+GDB调试参数调试需要在编译时加入可调试信息才可使用GDB工具进行调试
+g++ -g test.cpp -o test
+#生成可调试的执行文件
+
+GDB 常用指令​    说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个比较基础的糊弄糊弄，就记住几个
+gdb [file]
+#执行gdb调试
+
+#进入gdb，可以直接输入命令
+
+break(b) [num]
+#在第num行代码设置断电
+
+info breakpoint 
+#查看当前代码信息
+
+display [变量]
+#显示变量，在每次运行到断点显示值
+
+continue
+#继续运行
+
+run
+#运行程序
+
+quit
+#退出GDB调试
+
+#更多的我也记不到了，用men gdb指令查吧
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/Gcc/" title="G++基础">G++基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/GCC-G/">GCC/G++</a></span></div><div class="content">G++/GCC基础
+编译过程有四步
+预处理g++ -E test.cpp -o test.i
+#预处理为.i文件
+#头文件啥的的预定义啥的
 
 
 
 
-  <script  src="/js/local-search.js" ></script>
+编译g++ -S test.i -o test.s
+#编译为汇编语言输出为.s文件
 
 
 
 
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+汇编g++ -c test.s -o test.o
+#编译为机器语言输出为.o
 
 
+
+
+链接g++ test.o test
+#生成为可执行文件test，二进制的文件
+
+
+
+GCC/G++的优化选项#基本优化
+-O 
+#等效O1
+-O0
+#不做优化
+-O1
+#为默认优化
+-O2
+#默认优化+额外的调整
+-O3
+#默认优化+额外的调整+循环展开等处理特性的优化
+
+g++ test.cpp -O2 -o test
+#优化等级2生成可执行文件test
+
+所谓优化就是提升效率，编译时间换取执行效率
+示例:
+
+#include &lt;iostream&gt;
+using    namespace std;
+
+int main ()
+&#123;
+
+    unsigned long int counter;
+    unsigned long int resu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/blog/" title="博客的更新与备份">博客的更新与备份</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">博客的更新与备份基于hexo的博客，搭建在github的仓库中
+我们要实现在不同的系统与电脑中进行修改，与同步
+需要以下条件
+Nodes.js
+npm
+git
+博客源文件已经部署在github的仓库中（建议部署在分支中）
+
+需要注意的事项首先新系统下的git配置，关键点在于重新配置ssh密匙
+其次是Nodes.js与npm需要最新版本（有多新装多新
+初始化另一台电脑的操作
+git bash 将远程仓库克隆到本地
+git clone 博客所在仓库地址
+
+
+进入项目目录，安装依赖启动博客服务器，生成静态文件
+并在本地部署，通过http://localhost:4000进行访问
+npm install
+hexo g&amp;hexo s
+
+
+发布文章与之前相同
+hexo c&amp;hexo d -g
+
+
+
+另一台电脑同步​        在博客目录下执行
+hexo clean
+hexo d -g
+​        后执行更新原始文件
+git pull 
+git add -A
+git commit -m &quot;描述&quot;
+git push origin hexo
+
+​       ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/12/cmake01/" title="CMake基础">CMake基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-11T16:00:00.000Z" title="发表于 2022-07-12 00:00:00">2022-07-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CMake/">CMake</a></span></div><div class="content">Cmake前言Linux下cmake编译工具使用过程与windows的操作大同小异
+单独开一篇文章对指令基础做个总结
+Corss-platform development跨平台：毕竟做linux下的c++ 开发不用cmake 可不行
+语法特性指令格式
+指令（参数1 参数2）
+不同参数需要用空格或者分号隔开
+指令无关大小写，参数和变量是大小写相关的
+常用指令
+cmake_minimum_required:指定cmake版本
+#cmake_minimum_required -指定cmake的最小版本要求
+cmake_minimum_required (VERSION 2.8.3)
+
+
+project:定义工程名称
+#指定 project(projectname [CXX][C][java])
+project(HEllO CXX)
+#指定工程名称为HELLO 支持C++
+
+
+set:显示的定义变量
+set(SRC sayhello.cpp hello.cpp)
+#定义一个SRC变量 引用SRC 相当于引用sayhello.cpp hello.cpp
+
+
+include_directories ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">还是简单一点好~</div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CMake/"><span class="card-category-list-name">CMake</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CMake-C/"><span class="card-category-list-name">CMake,C++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GCC-G/"><span class="card-category-list-name">GCC/G++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GDB/"><span class="card-category-list-name">GDB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Qt%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">Qt学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E5%B7%A7/"><span class="card-category-list-name">技巧</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/"><span class="card-category-list-name">日常杂谈</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/C/" style="font-size: 1.5em; color: #99a9bf">C++</a> <a href="/tags/CMake/" style="font-size: 1.3em; color: #99a1ac">CMake</a> <a href="/tags/G/" style="font-size: 1.1em; color: #999">G++</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/Qt6-2-3%EF%BC%8CC/" style="font-size: 1.1em; color: #999">Qt6.2.3，C++</a> <a href="/tags/Typora/" style="font-size: 1.1em; color: #999">Typora</a> <a href="/tags/VScode/" style="font-size: 1.1em; color: #999">VScode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/md/" style="font-size: 1.1em; color: #999">md</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">基础</a> <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 1.1em; color: #999">基础，物理层</a> <a href="/tags/%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/" style="font-size: 1.1em; color: #999">网上冲浪</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">调试</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-19T14:52:28.734Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
   
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
 
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
