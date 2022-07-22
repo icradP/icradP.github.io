@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2022/07/22/cfj/"/>
+      <url>/2022/07/22/cfj/</url>
+      
+        <content type="html"><![CDATA[<p>C++复健（侯捷）</p><p>overloading (重载)</p><p>重载的条件：</p><p>同名</p><p>同作用域</p><p>不同的返回值</p><p>或者不同的参数（形参）</p><p>同名：其实在编译器来看是不同名的</p><p>作用域：一个类内，一个全局域内，一个函数域内</p><p>当构造函数放在私有中：</p><p>设计模式：Singleton</p><p>外界不能创建这个类</p><p>但是我们可以通过这个类提供的外界接口。</p><p>示例：</p><pre><code class="lang-c++">class A&#123;  public:    static A&amp; getInstance(); //关键点在 static    setup()&#123;...&#125;  private:    A();    A(const A&amp; rhs);    ...&#125;;A&amp; A::getInstance()&#123;    static A a;    return a;&#125;void test()&#123;    A::getInstance().setup();//调用方式&#125;</code></pre><p>成员函数,内联（inline）定义，调用是最快的 </p><p>但内联是编译器决定的，写的定义过于复杂就不能一定是内联函数 </p><p>我们在类外定义函数实现的时候：需要inline在最外进行修饰，才有可能修饰成内联函数</p><p>构造函数：初始化值最好使用初始化列表的方式</p><p>常量成员函数</p><p>修饰符：const</p><p>要确定，是否要更改其中对象中数据，<br>如果要不需要更改 ，那必须需要修饰成员函数 添加const修饰</p><p>因为这是正规的正式合法的修饰，不加说明你是学习C++的杂牌军</p><p>const的意义</p><p>在使用该类的途中如果使用了const修饰，你却没有给这个函数修饰，编译器会报错</p><p>所有的成员函数都隐藏着一个参数 this; 这个this是调用这个成员函数的对象的指针</p><p>示例：</p><p>运算符的重写</p><pre><code class="lang-c++">//表面写法operator ()(const int &amp;a)//实际上operator ()(this,const int &amp;a)</code></pre><p>引用是可以理解为一个指针常量</p><p>可以改内容不可以改名字</p><p>我们可以用const修饰引用，既不可以该指针地址，也不可以改值</p><p>传指针才多大，当你要传的东西，大于指针地址的大小，为了速度呢前提是你不更改你传的东西，可以使用常量引用作为传值，若果要修改，就不要加常量修饰</p><p>注意了，返回引用本质是上返回指针，别啥玩意都返回引用，返回个野指针空指针啥的都是非法操作</p><p><strong>传递者无许知道接受者是以引用（reference)的形式接受</strong></p><p>类的匿名对象可以用作temp object（临时对象） ,一般用在生命周期比较短的作用域</p><p>标准库不是圣经,<del>圣经还有错的</del>呢，不是完美无缺的</p><p>构造函数的特殊语法初始化列表</p><p><strong>相同class的各个objects互为友元</strong></p><p><strong>一个好的C++代码习惯：</strong></p><p><strong>总结：const能加就加，引用能用就用，类中变量数据最好放私有区域</strong> <strong>用构造函数的特殊语法初始化列表</strong></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络基础ISO</title>
+      <link href="/2022/07/21/socket/"/>
+      <url>/2022/07/21/socket/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ISO7层网络结构体系图"><a href="#ISO7层网络结构体系图" class="headerlink" title="ISO7层网络结构体系图"></a>ISO7层网络结构体系图</h1><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/bfcd89ba301b34b6f158d2065a5ccb40.jpg" alt="https://s4.51cto.com/oss/201910/22/bfcd89ba301b34b6f158d2065a5ccb40.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络基础|第三节|数据链路层</title>
       <link href="/2022/07/20/internet03/"/>
       <url>/2022/07/20/internet03/</url>
@@ -54,19 +94,6 @@
             <tag> 基础，物理层 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2022/07/16/socket/"/>
-      <url>/2022/07/16/socket/</url>
-      
-        <content type="html"><![CDATA[<h1 id="ISO7层网络结构体系图"><a href="#ISO7层网络结构体系图" class="headerlink" title="ISO7层网络结构体系图"></a>ISO7层网络结构体系图</h1><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/bfcd89ba301b34b6f158d2065a5ccb40.jpg" alt="https://s4.51cto.com/oss/201910/22/bfcd89ba301b34b6f158d2065a5ccb40.jpg"></p>]]></content>
-      
-      
       
     </entry>
     
@@ -210,6 +237,37 @@
     
     
     <entry>
+      <title>利用VScode与CMake做C++开发环境</title>
+      <link href="/2022/07/11/zatan01/"/>
+      <url>/2022/07/11/zatan01/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png" alt=""></p><h3 id="啥事cmake"><a href="#啥事cmake" class="headerlink" title="啥事cmake?"></a>啥事cmake?</h3><p>​        CMake 是一个开源、跨平台的工具，旨在构建、测试和打包您的程序。CMake 用于使用简单的平台和编译器独立配置文件来控制程序编译过程，并生成可在您选择的编译器环境中使用的主机配置文件和项目文件。这套 CMake 工具由 Kitware 创建，以满足 ITK 和 VTK 等开源项目对强大的跨平台构建环境的需求。</p><p>​        说白了，这玩意只是个配置器，配置你的编译器该如何进行编译</p><h3 id="cmake的好处："><a href="#cmake的好处：" class="headerlink" title="cmake的好处："></a>cmake的好处：</h3><pre><code>&lt;center&gt;“Write once, run everywhere”&lt;/center&gt;</code></pre><p>​        非常好理解，就是只写一次，到处运行</p><p>​        对我来说就三个字：跨平台。</p><h3 id="cmake的缺点："><a href="#cmake的缺点：" class="headerlink" title="cmake的缺点："></a>cmake的缺点：</h3><p>​        缺点：麻烦，步骤繁多        </p><p>​        断点调试挺麻烦的，VScode里的插件可以，但是需要对luanch.json和tasks.json进行修改，尤其是出现多个目录多个源文件等大项目的编译，修改虽然不复杂，但是麻烦。想要调试添加额外配置参数来打印所执行的所有代码及行号，插入log等方式检查问题。</p><p>​        有这弱语言的共通问题，就是容易出问题。</p><p>总而言之，挺麻烦的</p><p><del>要不是最近需要将Qmake项目迁移到cmake，还真不想用这玩意</del></p><h3 id="利用CMake编译一个简单的C-程序"><a href="#利用CMake编译一个简单的C-程序" class="headerlink" title="利用CMake编译一个简单的C++程序"></a>利用CMake编译一个简单的C++程序</h3><p>首先vscode需要下载两个插件，CMAKE与C/C++,这些我默认就有，因为在下载之前就一直用着VS2022，模块化无脑安装。</p><p>然后配置CMake和MINGW环境变量，这些我默认也有，安装Qt自带，直接指向Qt/tools里的对应路径即可。</p><p>前提条件准备得那是相当充足。</p><p>直接就随便顺手写一个冒泡排序的小例子</p><pre><code>//创建这样一个目录结构└── src        └── sort.cpp└── include        └── sort.h└── main.cpp</code></pre><p>main.cpp</p><pre><code class="lang-c++">#include&lt;iostream&gt;using namespace std;#include&quot;sort.h&quot;int main()&#123;    int a[10]=&#123;3,1,2,4,5,6,8,9,10,7&#125;;    Sort sort;    sort(a);    for (int i = 0; i &lt; 10; i++)    &#123;        /* code */        cout&lt;&lt;a[i]&lt;&lt;endl;    &#125;    sort.test();    return 0;&#125;</code></pre><p>sort.h</p><pre><code class="lang-c++">#pragma once#include&lt;iostream&gt;using namespace std;class Sort&#123;    public:    int x[10];    int temp;    void test();    void operator()(int x[10])    &#123;        for(int i=0;i&lt;10;i++)        &#123;               for (int j = 0; j &lt; 10-i-1; j++)            &#123;                if(x[j]&lt;x[j+1])                &#123;                    temp=x[j];                    x[j]=x[j+1];                    x[j+1]=temp;                &#125;            &#125;        &#125;    &#125;&#125;;</code></pre><p>sort.cpp</p><pre><code>#include&quot;sort.h&quot;void Sort::test()&#123;    cout&lt;&lt;&quot;test\n&quot;;&#125;</code></pre><p>到这里，前提源文件准备工作结束</p><p>开始编写CMakelists.txt</p><pre><code class="lang-cmake">#这种写法非常简单，无脑摁写，但是不够直观project(Sorttest) #项目名称aux_source_directory(src SRC_SUB) #项目根目录下的所有子项目aux_source_directory(. SRC_CUR)  #同理add_executable(sort $&#123;SRC_SUB&#125; $&#123;SRC_CUR&#125;) #同理include_directories(include) #头文件包含目录</code></pre><pre><code class="lang-cmake">cmake_minimum_required(VERSION 3.0) #最低版本需求project(Sorttest) #项目名include_directories($&#123;PROJECT_SOURCE_DIR&#125;/include)#头文键包含#添加源文件add_executable(main               $&#123;PROJECT_SOURCE_DIR&#125;/src/main.cpp #这个路径看这个main.cpp位于哪里了                             $&#123;PROJECT_SOURCE_DIR&#125;/src/sort.cpp)</code></pre><p>后者相对前者直观一些，效果都是一样的</p><p>在CMakelist.txt视窗中按下快捷键</p><pre><code>shift+ctrl+p</code></pre><p>唤起</p><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220711223231514.png" alt="image-20220711223231514"></p><p>选择CMake配置，一切自动化帮你构建build文件夹目录</p><p>再新终端下方 cd跳转到build目录中</p><p>输入以下指令</p><pre><code class="lang-powershell">cmake ..</code></pre><p>运行如下工具 (这个是根据build的中的Makefile中的规则经行对源文件进行编译)</p><pre><code>mingw32-make.exe</code></pre><p>可以看到运行后在Bulid目录下多出一个sort.exe</p><p>在终端中输入运行</p><pre><code>.\sort.exe</code></pre><p>既可以看到程序的输出结果：</p><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220711224250666.png" alt="image-20220711224250666"></p><p>至此编译到此结束</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CMake </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> CMake </tag>
+            
+            <tag> VScode </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux基础00</title>
       <link href="/2022/07/11/linux00/"/>
       <url>/2022/07/11/linux00/</url>
@@ -252,25 +310,6 @@
         <tags>
             
             <tag> Qt6.2.3，C++ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>觉得博客很空总想写点什么？</title>
-      <link href="/2022/06/26/others1/"/>
-      <url>/2022/06/26/others1/</url>
-      
-        <content type="html"><![CDATA[<h2 id="个人最近杂谈："><a href="#个人最近杂谈：" class="headerlink" title="个人最近杂谈："></a>个人最近杂谈：</h2><p>​        百无聊赖，不知道写些什么，也不知道要做些什么（虽然有一堆事请要做，但是就是不想干），想要说些什么，却不知道写啥，肚子里憋不出一点墨水，确实很久都没有翻过书了，既然开始建立了博客，就得写写博文，平常连论文都憋不出几个字，但是还得整些文化人的东西，果然有必要增加阅读量的，总不能一天到晚看番剧在评论区玩玩烂梗，总不能一直写大白文。 </p> <center> <img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220626222334097.png" r style="zoom:40%;" /></center><p>​        最近在网络上看到的段子：奶酪洞越多，奶酪越少，而奶酪越多，奶酪洞越多，得出结论：奶酪越少，奶酪就越少；<br>​        乍一看，嗯，很合理。虽然仔细思考一看有很多漏洞，但是依旧合理，首先第一眼能看到最大的问题就是，结论纯纯的废话：<del>毕竟正在看这篇文章的一定在看这篇文章罢</del> </p><p>​        我们可以简单的分析一下，首先<strong>典型的演绎论证，需要：前提，论证，结论</strong>。 这个是我们常用的论证手段。这条段子咱们可以处理为：</p><p>​        前提：如果奶酪洞越多，奶酪越少。论证：奶酪越多，奶酪洞越多。</p><p>​        结论：奶酪越少，奶酪就越少；</p><p>​        前提乍一看是真，但是我的理解是：多和少这个概念其实是通过对比而言的，怎么定义多，怎么定义少？所以原前提对我个人而言是不能确定的（虽然一般都会默认比较的是自身的体重体积大小 的变化前与变化后）。我们需要让前提更严谨一些：有一个奶酪，体积重量大小都是一个固定的量，不会产生莫名其妙的增加或减少，只会通过奶酪洞的形式变化，如果奶酪洞越多，奶酪的重量大小和体积大小越少。这样就可以确定该前提为真。<br>​        虽然看都很合理，但是蕴含悖论：前提永远都是真的 ，看到论证实际上也都是为了配合前提而多说的废话，用来强调前提，而重要的是，结论也永远都是真的 奶酪越少，奶酪就越少；不谈语句问题。这也是个合理的论证，因为不存在一种情况，使得前提为真而结论为假。</p><p>​        总结：虽然合理但是，无效。</p><p>​        咳咳，扯远了<del>想到什么写什么，完全没有规划的那种</del> 来形容我现在的思想情况吧：学的越多越感觉自己懂得越少（拿段子来说的话，奶酪量可以相比脑容量了，自身就没啥奶酪，结果还要开洞/😢😢）</p><p>​        要搭建个博客，直到最近我都认为，搭建博客，需要买个服务器，注册域名，虽然不是必要的，但是有个属于自己的网址确实cool😎，然后找个网页模板就开始改（虽然确实没啥问题），最后将网页上传到服务器就够了。一开始确实是这么认为的，脑子里只有html，CSS，JS的一点概念我就屁颠屁颠来直接开整了，现在网络能拿到很多教程资源（感谢开源！），<del>但依旧磕磕绊绊换了无数个主题弄了个三天</del>，找免费图床,建反向代理，期中了解下node.js，和PHP，虽然有wordpress（这个虽然很方便也有很多现成的方案，但是也需要些折腾，<del>主要是不想买服务器,想白嫖</del>，而且在国内需要建站域名和网站都需要备案），最终选择了基于hexo的fluid的主题，期间用也有试过自建主题，发现需要了解的东西很多，从零开始写CSS和JS也太折磨我了，虽然我怕麻烦，但是为了解决gitalk的porxy代理问题花了一天时间找了的免费的无服务构建应用平台和免费好使的评论，最后做了一大堆查找了一大堆，才回过神，<strong>卧槽!我一开始不是只想找个地方记录我的平常的学习进度么？</strong></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 网上冲浪 </tag>
             
         </tags>
       
