@@ -12,13 +12,13 @@
 <meta property="article:tag" content="Typora">
 <meta property="article:tag" content="md">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.icrad.top/2022/06/25/hello-world/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2022/06/25/hello-world/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -148,29 +148,22 @@
 <p>`                      </p>
 <h3 id="文章阅读截止"><a href="#文章阅读截止" class="headerlink" title="文章阅读截止"></a>文章阅读截止</h3><p>​        将过长的文章截取，只显示代码上方的文章内容，避免文章过长的显示在博客主页（这个可以说是非常常用）</p>
 <p>代码如下：</p>
-<pre><code class="lang-bash">&lt;!-- more --&gt;
-</code></pre>
-<h3 id="文章的新建命令"><a href="#文章的新建命令" class="headerlink" title="文章的新建命令"></a>文章的新建命令</h3><pre><code>hexo new [layout] &lt;title&gt;
-</code></pre><p>​        在github bash 中使用 该指令可以新建一个页面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="文章的新建命令"><a href="#文章的新建命令" class="headerlink" title="文章的新建命令"></a>文章的新建命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>​        在github bash 中使用 该指令可以新建一个页面：</p>
 <p>​        使用实例如下 ：</p>
-<pre><code>hexo new post 标题
-</code></pre><p>​        可以在hexo根文件的中的_post的文件夹中发现新建了一个标题.md    ，头部信息如下</p>
-<pre><code>title: 标题
-date: //时间
-tags: //标签
-categories:  //分类
-</code></pre><h3 id="草稿的新建命令"><a href="#草稿的新建命令" class="headerlink" title="草稿的新建命令"></a>草稿的新建命令</h3><pre><code>hexo new draft title
-</code></pre><p>​        在github bash 中使用 该指令可以新建一个草稿：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post 标题</span><br></pre></td></tr></table></figure>
+<p>​        可以在hexo根文件的中的_post的文件夹中发现新建了一个标题.md    ，头部信息如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">date: //时间</span><br><span class="line">tags: //标签</span><br><span class="line">categories:  //分类</span><br></pre></td></tr></table></figure>
+<h3 id="草稿的新建命令"><a href="#草稿的新建命令" class="headerlink" title="草稿的新建命令"></a>草稿的新建命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft title</span><br></pre></td></tr></table></figure>
+<p>​        在github bash 中使用 该指令可以新建一个草稿：</p>
 <p>​        使用实例如下 ：</p>
-<pre><code>hexo new draft 标题
-</code></pre><p>​        可以在hexo根文件的中的_drafts的文件夹中发现新建了一个标题.md    头部的信息如下</p>
-<pre><code>title: 标题
-date: //时间
-tags: //标签
-categories:  //分类
-</code></pre><p>​        草稿不会显示在博客中，想要看到博客草稿需要在github bash 中使用如下指令：</p>
-<pre><code>hexo s -draft
-</code></pre><p>​        该指令的作用除了在本地运行博客部署以外，可以在博客中访问草稿.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft 标题</span><br></pre></td></tr></table></figure>
+<p>​        可以在hexo根文件的中的_drafts的文件夹中发现新建了一个标题.md    头部的信息如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">date: //时间</span><br><span class="line">tags: //标签</span><br><span class="line">categories:  //分类</span><br></pre></td></tr></table></figure>
+<p>​        草稿不会显示在博客中，想要看到博客草稿需要在github bash 中使用如下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -draft</span><br></pre></td></tr></table></figure>
+<p>​        该指令的作用除了在本地运行博客部署以外，可以在博客中访问草稿.</p>
 <h3 id="front-Matter"><a href="#front-Matter" class="headerlink" title="front  Matter"></a>front  Matter</h3><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com//20200916181236318.png" alt=""></p>
 <p>​    每个创建的MD文件都在头端插入了名为front  Matter预定义读取参数,就是上文所说的头部信息。<br>​    可以看见这张图是有水印的，我们可以利用MD的文件中的画图代码画出相同的信息：</p>
 <center>

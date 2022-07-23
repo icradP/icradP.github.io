@@ -6,13 +6,13 @@
 <meta property="og:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100">
 <meta property="article:author" content="Icrad">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.icrad.top/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-07-22 22:52:40'
+  postUpdate: '2022-07-23 21:23:05'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -141,27 +141,20 @@
 单独开一篇文章对指令基础做个总结
 Corss-platform development跨平台：毕竟做linux下的c++ 开发不用cmake 可不行
 语法特性指令格式
-指令（参数1 参数2）
+1指令（参数1 参数2）
 不同参数需要用空格或者分号隔开
 指令无关大小写，参数和变量是大小写相关的
 常用指令
 cmake_minimum_required:指定cmake版本
-#cmake_minimum_required -指定cmake的最小版本要求
-cmake_minimum_required (VERSION 2.8.3)
-
+123#cmake_minimum_required -指定cmake的最小版本要求cmake_minimum_required (VERSION 2.8.3)
 
 project:定义工程名称
-#指定 project(projectname [CXX][C][java])
-project(HEllO CXX)
-#指定工程名称为HELLO 支持C++
-
+123#指定 project(projectname [CXX][C][java])project(HEllO CXX)#指定工程名称为HELLO 支持C++ 
 
 set:显示的定义变量
-set(SRC sayhello.cpp hello.cpp)
-#定义一个SRC变量 引用SRC 相当于引用sayhello.cpp hello.cpp
+12set(SRC sayhello.cpp hello.cpp)#定义一个SRC变量 引用SRC 相当于引用sayhello.cpp hello.cpp
 
-
-include_directories ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/11/zatan01/" title="利用VScode与CMake做C++开发环境">利用VScode与CMake做C++开发环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-11T13:37:50.000Z" title="发表于 2022-07-11 21:37:50">2022-07-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CMake/">CMake</a></span></div><div class="content">
+include_director ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/11/zatan01/" title="利用VScode与CMake做C++开发环境">利用VScode与CMake做C++开发环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-11T13:37:50.000Z" title="发表于 2022-07-11 21:37:50">2022-07-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CMake/">CMake</a></span></div><div class="content">
 啥事cmake?​        CMake 是一个开源、跨平台的工具，旨在构建、测试和打包您的程序。CMake 用于使用简单的平台和编译器独立配置文件来控制程序编译过程，并生成可在您选择的编译器环境中使用的主机配置文件和项目文件。这套 CMake 工具由 Kitware 创建，以满足 ITK 和 VTK 等开源项目对强大的跨平台构建环境的需求。
 ​        说白了，这玩意只是个配置器，配置你的编译器该如何进行编译
 cmake的好处：&lt;center&gt;“Write once, run everywhere”
@@ -170,53 +163,32 @@ cmake的好处：&lt;center&gt;“Write once, run everywhere”
 ​        非常好理解，就是只写一次，到处运行
 ​        对我来说就三个字：跨平台。
 cmake的缺点：​        缺点：麻烦，步骤繁多        
-​        断点调试挺麻烦的，VScode里的插件可以，但是需要对luanch.json和tasks.json进行修改，尤其是出现多个目录多个源文件等大项目的编译，修改虽然不复杂，但是麻烦。想要调试添加额外配置参数来打印所执行的所有代码及行号，插入log ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/11/linux00/" title="linux基础00">linux基础00</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-10T16:00:00.000Z" title="发表于 2022-07-11 00:00:00">2022-07-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">linux基础中的基础linux  的基础命令指令默认格式指令 [选项] [操作对象]
-
+​        断点调试挺麻烦的，VScode里的插件可以，但是需要对luanch.json和tasks.json进行修改，尤其是出现多个目录多个源文件等大项目的编译，修改虽然不复杂，但是麻烦。想要调试添加额外配置参数来打印所执行的所有代码及行号，插入log ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/11/linux00/" title="linux基础00">linux基础00</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-10T16:00:00.000Z" title="发表于 2022-07-11 00:00:00">2022-07-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">linux基础中的基础linux  的基础命令指令默认格式1指令 [选项] [操作对象]
 注意：中括号代表的意思是可以省略内容不输入，一样可以运行该指令
 默认打开终端
-Ctrl+Alt+T
+1Ctrl+Alt+T
 常用指令打印当前所在的目录
-pwd
-
+1pwd
 打印当前目录下的文件与文件夹
-ls
-
+1ls
 ls的用法扩展：
-ls [文件路径]
-#文件路径：
-#相对路径or绝对路径
-
+123ls [文件路径]#文件路径：#相对路径or绝对路径
 打开文件目录下的文件
-ls 选项 [文件路径]
-#选项：指定方式显示
-
+12ls 选项 [文件路径]#选项：指定方式显示
 选项：
--a #表示显示所有的(all)文件与文件夹，包括隐藏
--l #表示详细列表的方式展示(list)
--h #以可读性较高的形式显示
-
+123-a #表示显示所有的(all)文件与文件夹，包括隐藏-l #表示详细列表的方式展示(list)-h #以可读性较高的形式显示
 
 cd(chanage directory)
 
 ：跳转目录
-cd  
-cd ~
-#作用都是直接回到家目录
-
+123cd  cd ~#作用都是直接回到家目录
 与ls类似的
-cd [文件路径]
-#文件路径：
-#相对路径or绝对路径
-
+123cd [文件路径]#文件路径：#相对路径or绝对路径
 
 mkdir(make directories)
 
-mkdir myfolder 
-#在当前的目录下创建一个mydir文件夹
-mkdir myfolder1 myfolder2
-#在当前目录下创建两个文件夹，分别是 myfolder1，myfolder2
-
-m ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/26/QTstudy/" title="Qt学习第一节|Qt基础">Qt学习第一节|Qt基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-26T13:36:11.000Z" title="发表于 2022-06-26 21:36:11">2022-06-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Qt%E5%AD%A6%E4%B9%A0/">Qt学习</a></span></div><div class="content">Qt
+1234mkdir myfolder #在当前的目录下创建一个mydir文件夹mkdir myfolder1 myfolder2#在当前目录下创建两个文件夹，分别是 myfolder1，myfolder2
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/26/QTstudy/" title="Qt学习第一节|Qt基础">Qt学习第一节|Qt基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-26T13:36:11.000Z" title="发表于 2022-06-26 21:36:11">2022-06-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Qt%E5%AD%A6%E4%B9%A0/">Qt学习</a></span></div><div class="content">Qt
 基于C++的跨平台的图形引擎
 发行于1991年 就记了个大概，不知道的咱可以百度不是
 优点1.跨平台
@@ -228,7 +200,7 @@ m ...</div></div></div><div class="recent-post-item"><div class="recent-post-inf
 创建第一个Qt
 系统环境：windows11软件环境：Qt6.2.3(MSVC 2019 64bit)
 新建工程一开始可以直接打开官方的Qt Creator，暂且不需要使用MSVS上进行调试开发，
-file-&gt; new project
+1file-&gt; new project
 选择模板（tempates)
 默认Qt widget application（最基本的，也是最常用的窗口应用）
 新建文件名和选择路径需要注意：（名字 路径，都不要有中文）
@@ -237,31 +209,27 @@ file-&gt; new project
 细节（details）
 名字都可以默认，也可以更改随喜好，注意事项（中文不行，空格禁止）
 重点在于Base class（基类）
-窗口类型介绍：QMainWindow、QWidget、QDialog三个类都可以用来创建窗口，可以直接使用，也可以继承 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/25/hello-world/" title="文章的技巧">文章的技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-24T16:00:00.000Z" title="发表于 2022-06-25 00:00:00">2022-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/">博客技巧</a></span></div><div class="content">前言：​        第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁
+窗口类型介绍：QMainWindow、QWidget、QDialog三个类都可以用来创建窗口，可以直接使用，也可以继 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/25/hello-world/" title="文章的技巧">文章的技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-24T16:00:00.000Z" title="发表于 2022-06-25 00:00:00">2022-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/">博客技巧</a></span></div><div class="content">前言：​        第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁
 ​                                    
 `                      
 文章阅读截止​        将过长的文章截取，只显示代码上方的文章内容，避免文章过长的显示在博客主页（这个可以说是非常常用）
 代码如下：
-&lt;!-- more --&gt;
-
-文章的新建命令hexo new [layout] &lt;title&gt;
+1&lt;!-- more --&gt;
+文章的新建命令1hexo new [layout] &lt;title&gt;
 ​        在github bash 中使用 该指令可以新建一个页面：
 ​        使用实例如下 ：
-hexo new post 标题
+1hexo new post 标题
 ​        可以在hexo根文件的中的_post的文件夹中发现新建了一个标题.md    ，头部信息如下
-title: 标题
-date: //时间
-tags: //标签
-categories:  //分类
-草稿的新建命令hexo new draft title
-​        在gi ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">还是简单一点好~</div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+1234title: 标题date: //时间tags: //标签categories:  //分类
+草稿的新建命令1hexo new draft title
+​        ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">还是简单一点好~</div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CMake/"><span class="card-category-list-name">CMake</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GCC-G/"><span class="card-category-list-name">GCC/G++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GDB/"><span class="card-category-list-name">GDB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Qt%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">Qt学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/"><span class="card-category-list-name">博客技巧</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">计算机网络基础</span><span class="card-category-list-count">4</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/C/" style="font-size: 1.37em; color: #99a4b2">C++</a> <a href="/tags/CMake/" style="font-size: 1.23em; color: #999ea6">CMake</a> <a href="/tags/G/" style="font-size: 1.1em; color: #999">G++</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/Qt6-2-3%EF%BC%8CC/" style="font-size: 1.1em; color: #999">Qt6.2.3，C++</a> <a href="/tags/Typora/" style="font-size: 1.1em; color: #999">Typora</a> <a href="/tags/VScode/" style="font-size: 1.1em; color: #999">VScode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/md/" style="font-size: 1.1em; color: #999">md</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.37em; color: #99a4b2">基础</a> <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 1.1em; color: #999">基础，物理层</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" style="font-size: 1.1em; color: #999">数据链路层</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.5em; color: #99a9bf">计算机网络</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">调试</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-22T14:52:40.695Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/C/" style="font-size: 1.37em; color: #99a4b2">C++</a> <a href="/tags/CMake/" style="font-size: 1.23em; color: #999ea6">CMake</a> <a href="/tags/G/" style="font-size: 1.1em; color: #999">G++</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/Qt6-2-3%EF%BC%8CC/" style="font-size: 1.1em; color: #999">Qt6.2.3，C++</a> <a href="/tags/Typora/" style="font-size: 1.1em; color: #999">Typora</a> <a href="/tags/VScode/" style="font-size: 1.1em; color: #999">VScode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/md/" style="font-size: 1.1em; color: #999">md</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.37em; color: #99a4b2">基础</a> <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 1.1em; color: #999">基础，物理层</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" style="font-size: 1.1em; color: #999">数据链路层</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.5em; color: #99a9bf">计算机网络</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">调试</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-23T13:23:05.401Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',

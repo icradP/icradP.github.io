@@ -13,13 +13,13 @@
 <meta property="article:tag" content="基础">
 <meta property="article:tag" content="数据链路层">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.icrad.top/2022/07/20/internet03/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2022/07/20/internet03/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -181,17 +181,16 @@
 <p>发送方：根据发送数据和生成的多项式计算出差错检测码（冗余码），将其添加到带传输数据的后面一起传输</p>
 <p>简单冗余码的计算过程</p>
 <p>首先我们需要得知待发送的信息的比特串</p>
-<pre><code>假设为：101001
-</code></pre><p>生成一个多项式（随机假设的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假设为：101001</span><br></pre></td></tr></table></figure>
+<p>生成一个多项式（随机假设的）</p>
 <script type="math/tex; mode=display">
 G(x)=x^3+x^2+1</script><p>通过多项式的系数构造一个被除数</p>
-<pre><code>得到：1101
-</code></pre><p><strong>注意</strong> 使用的是模2除法，不是我们常用的十进制除法（进行的是异或运算）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">得到：1101</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> 使用的是模2除法，不是我们常用的十进制除法（进行的是异或运算）</p>
 <p><img src="" alt=""></p>
 <p>通过组合计算出来的余数就可以发送了</p>
-<pre><code>发送的数据：101001  001
-                  余数
-</code></pre><p>接受方：根据发送数据和生成的多项式计算，检查余数是否为0,若不为0,说明为产生误码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">发送的数据：101001  001</span><br><span class="line">                  余数</span><br></pre></td></tr></table></figure>
+<p>接受方：根据发送数据和生成的多项式计算，检查余数是否为0,若不为0,说明为产生误码</p>
 <p>直接上图：</p>
 <p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/image-20220718095630773.png" alt="image-20220718095630773"></p>
 <p><strong>注意</strong>：咱这只是差错检测，<strong>纠错</strong>是不行的，想要纠错，可以使用冗余信息更多的<strong>纠错码</strong>进行<strong>向前纠错</strong>。但是纠错码<strong>开销较大</strong>，计算机很少用</p>

@@ -6,13 +6,13 @@
 <meta property="og:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100">
 <meta property="article:author" content="Icrad">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.icrad.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -48,7 +48,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-07-22 22:52:40'
+  postUpdate: '2022-07-23 21:23:05'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -151,28 +151,9 @@ overloading (重载)
 外界不能创建这个类
 但是我们可以通过这个类提供的外界接口。
 示例：
-class A&#123;
-  public:
-    static A&amp; getInstance(); //关键点在 static
-    setup()&#123;...&#125;
-  private:
-    A();
-    A(const A&amp; rhs);
-    ...
-&#125;;
-A&amp; A::getInstance()
-&#123;
-    static A a;
-    return a;
-&#125;
-
-void test()
-&#123;
-    A::getInstance().setup();//调用方式
-&#125;
-
+12345678910111213141516171819class A&#123;  public:    static A&amp; getInstance(); //关键点在 static    setup()&#123;...&#125;  private:    A();    A(const A&amp; rhs);    ...&#125;;A&amp; A::getInstance()&#123;    static A a;    return a;&#125;void test()&#123;    A::getInstance().setup();//调用方式&#125;
 成员函数,内联（inline）定义，调用是最快的 
-但内联是编译器决定的，写的定义过于复杂就不 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/21/socket/" title="计算机网络基础ISO">计算机网络基础ISO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-20T16:00:00.000Z" title="发表于 2022-07-21 00:00:00">2022-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">计算机网络基础</a></span></div><div class="content">ISO7层网络结构体系图
+但内联是编译器决定的， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/21/socket/" title="计算机网络基础ISO">计算机网络基础ISO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-20T16:00:00.000Z" title="发表于 2022-07-21 00:00:00">2022-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">计算机网络基础</a></span></div><div class="content">ISO7层网络结构体系图
 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/20/internet03/" title="计算机网络基础|第三节|数据链路层">计算机网络基础|第三节|数据链路层</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-19T16:00:00.000Z" title="发表于 2022-07-20 00:00:00">2022-07-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">计算机网络基础</a></span></div><div class="content">数据链路层有些部分内容也是相当的抽象，了解即可
 重点部分
 
@@ -306,87 +287,30 @@ GDB (GUN DEBUGGER)
 
 
 GDB调试参数调试需要在编译时加入可调试信息才可使用GDB工具进行调试
-g++ -g test.cpp -o test
-#生成可调试的执行文件
-
+12g++ -g test.cpp -o test#生成可调试的执行文件
 GDB 常用指令​    说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个比较基础的糊弄糊弄，就记住几个
-gdb [file]
-#执行gdb调试
-
-#进入gdb，可以直接输入命令
-
-break(b) [num]
-#在第num行代码设置断电
-
-info breakpoint 
-#查看当前代码信息
-
-display [变量]
-#显示变量，在每次运行到断点显示值
-
-continue
-#继续运行
-
-run
-#运行程序
-
-quit
-#退出GDB调试
-
-#更多的我也记不到了，用men gdb指令查吧
-
+123456789101112131415161718192021222324gdb [file]#执行gdb调试#进入gdb，可以直接输入命令break(b) [num]#在第num行代码设置断电info breakpoint #查看当前代码信息display [变量]#显示变量，在每次运行到断点显示值continue#继续运行run#运行程序quit#退出GDB调试#更多的我也记不到了，用men gdb指令查吧
 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/Gcc/" title="G++基础">G++基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/GCC-G/">GCC/G++</a></span></div><div class="content">G++/GCC基础
 编译过程有四步
-预处理g++ -E test.cpp -o test.i
-#预处理为.i文件
-#头文件啥的的预定义啥的
+预处理123g++ -E test.cpp -o test.i#预处理为.i文件#头文件啥的的预定义啥的
 
 
 
-
-编译g++ -S test.i -o test.s
-#编译为汇编语言输出为.s文件
+编译12g++ -S test.i -o test.s#编译为汇编语言输出为.s文件
 
 
 
-
-汇编g++ -c test.s -o test.o
-#编译为机器语言输出为.o
+汇编12g++ -c test.s -o test.o#编译为机器语言输出为.o
 
 
 
-
-链接g++ test.o test
-#生成为可执行文件test，二进制的文件
+链接12g++ test.o test#生成为可执行文件test，二进制的文件
 
 
-
-GCC/G++的优化选项#基本优化
--O 
-#等效O1
--O0
-#不做优化
--O1
-#为默认优化
--O2
-#默认优化+额外的调整
--O3
-#默认优化+额外的调整+循环展开等处理特性的优化
-
-g++ test.cpp -O2 -o test
-#优化等级2生成可执行文件test
-
+GCC/G++的优化选项1234567891011121314#基本优化-O #等效O1-O0#不做优化-O1#为默认优化-O2#默认优化+额外的调整-O3#默认优化+额外的调整+循环展开等处理特性的优化g++ test.cpp -O2 -o test#优化等级2生成可执行文件test
 所谓优化就是提升效率，编译时间换取执行效率
 示例:
-
-#include &lt;iostream&gt;
-using    namespace std;
-
-int main ()
-&#123;
-
-    unsigned long int counter;
-    unsigned long int resu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/blog/" title="博客的更新与备份">博客的更新与备份</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/">博客技巧</a></span></div><div class="content">博客的更新与备份基于hexo的博客，搭建在github的仓库中
+1234567891011121314151617181920212223242526272829#include &lt;iostream&gt;using	namespace std;int main ()&#123;	unsigned lon ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/14/blog/" title="博客的更新与备份">博客的更新与备份</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/">博客技巧</a></span></div><div class="content">博客的更新与备份基于hexo的博客，搭建在github的仓库中
 我们要实现在不同的系统与电脑中进行修改，与同步
 需要以下条件
 Nodes.js
@@ -398,37 +322,28 @@ git
 其次是Nodes.js与npm需要最新版本（有多新装多新
 初始化另一台电脑的操作
 git bash 将远程仓库克隆到本地
-git clone 博客所在仓库地址
-
+1git clone 博客所在仓库地址
 
 进入项目目录，安装依赖启动博客服务器，生成静态文件
 并在本地部署，通过http://localhost:4000进行访问
-npm install
-hexo g&amp;hexo s
-
+12npm installhexo g&amp;hexo s
 
 发布文章与之前相同
-hexo c&amp;hexo d -g
-
+1hexo c&amp;hexo d -g
 
 
 另一台电脑同步​        在博客目录下执行
-hexo clean
-hexo d -g
+12hexo cleanhexo d -g
 ​        后执行更新原始文件
-git pull 
-git add -A
-git commit -m &quot;描述&quot;
-git push origin hexo
-
-​       ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">还是简单一点好~</div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+1234git pull git add -Agit commit -m &quot;描述&quot;git push origin hexo 
+​     ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">还是简单一点好~</div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CMake/"><span class="card-category-list-name">CMake</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GCC-G/"><span class="card-category-list-name">GCC/G++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/GDB/"><span class="card-category-list-name">GDB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Qt%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">Qt学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%8A%80%E5%B7%A7/"><span class="card-category-list-name">博客技巧</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">计算机网络基础</span><span class="card-category-list-count">4</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/C/" style="font-size: 1.37em; color: #99a4b2">C++</a> <a href="/tags/CMake/" style="font-size: 1.23em; color: #999ea6">CMake</a> <a href="/tags/G/" style="font-size: 1.1em; color: #999">G++</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/Qt6-2-3%EF%BC%8CC/" style="font-size: 1.1em; color: #999">Qt6.2.3，C++</a> <a href="/tags/Typora/" style="font-size: 1.1em; color: #999">Typora</a> <a href="/tags/VScode/" style="font-size: 1.1em; color: #999">VScode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/md/" style="font-size: 1.1em; color: #999">md</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.37em; color: #99a4b2">基础</a> <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 1.1em; color: #999">基础，物理层</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" style="font-size: 1.1em; color: #999">数据链路层</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.5em; color: #99a9bf">计算机网络</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">调试</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-22T14:52:40.695Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/C/" style="font-size: 1.37em; color: #99a4b2">C++</a> <a href="/tags/CMake/" style="font-size: 1.23em; color: #999ea6">CMake</a> <a href="/tags/G/" style="font-size: 1.1em; color: #999">G++</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/Qt6-2-3%EF%BC%8CC/" style="font-size: 1.1em; color: #999">Qt6.2.3，C++</a> <a href="/tags/Typora/" style="font-size: 1.1em; color: #999">Typora</a> <a href="/tags/VScode/" style="font-size: 1.1em; color: #999">VScode</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/md/" style="font-size: 1.1em; color: #999">md</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.37em; color: #99a4b2">基础</a> <a href="/tags/%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%89%A9%E7%90%86%E5%B1%82/" style="font-size: 1.1em; color: #999">基础，物理层</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" style="font-size: 1.1em; color: #999">数据链路层</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.5em; color: #99a9bf">计算机网络</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">调试</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-23T13:23:05.401Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
