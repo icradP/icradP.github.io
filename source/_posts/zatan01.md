@@ -2,9 +2,8 @@
 title: 利用VScode与CMake做C++开发环境
 date: 2022-07-11 21:37:50
 tags: [CMake,VScode,C++,Windows]
-categories: CMake,C++
-index_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png
-banner_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png
+categories: CMake
+comments: false
 ---
 
 ![](https://blog-1253996024.cos.ap-beijing.myqcloud.com//v2-49a45b8c622434dbf79463ccab9fa627_720w.png)

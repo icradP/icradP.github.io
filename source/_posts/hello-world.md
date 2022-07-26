@@ -1,18 +1,15 @@
 ---
 title: 文章的技巧
 tags: [Typora,md]
-updated: 2022/6/25
-categories: 技巧
-index_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//98639154_p0.png
-banner_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//98639154_p0.png
+date: 2022/6/25
+categories: 博客技巧
+comments: false
 ---
 ###   前言：
 
 ​		第一次利用Typora编写Md文件并且发布博客，有很多操作还是非常生疏，在这里记录个Md文件的文章编辑的常用代码。以供我啥时候突然给整忘了回来看看😁
 
 ​									<!-- more -->
-
-[TOC]
 
 `                      
 

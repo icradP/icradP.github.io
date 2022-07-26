@@ -1,11 +1,9 @@
 ---
-
 title: Qt学习第一节|Qt基础
 date: 2022-06-26 21:36:11
 tags: [Qt6.2.3，C++]
-index_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png
-banner_img: https://blog-1253996024.cos.ap-beijing.myqcloud.com//image-20220628200812272.png
 categories: Qt学习
+comments: false
 ---
 
 
