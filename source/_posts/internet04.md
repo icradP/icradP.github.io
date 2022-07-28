@@ -1,6 +1,6 @@
 ---
 title: 计算机网络基础|第四节|网络层
-tags: [计算机网络,基础,数据链路层]
+tags: [计算机网络,基础,网络层]
 date: 2022/7/25
 categories: 计算机网络基础
 mathjax: true
