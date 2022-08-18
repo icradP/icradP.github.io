@@ -1,0 +1,453 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>linux基础05 | 线程 | icrad的博客</title><meta name="keywords" content="linux"><meta name="author" content="Icrad"><meta name="copyright" content="Icrad"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线程基本概念LWP：light weight process 轻量级的进程，本质仍是进程（linux环境下） 与win不同，区别挺大的，实现原理都不一样。 独立的进制空间，拥有PCB 线程：也有PCB，但没有独立的地址空间（共享） 区别：在于是否共享地址空间。 进程可以理解为独居 线程可以理解为合租 linux下的最小执行单位：线程 最小的资源分配单位：进程。 简单原理进程进行类似fork的操作，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基础05 | 线程">
+<meta property="og:url" content="https://www.icrad.top/2022/08/15/linuxlwp/index.html">
+<meta property="og:site_name" content="icrad的博客">
+<meta property="og:description" content="线程基本概念LWP：light weight process 轻量级的进程，本质仍是进程（linux环境下） 与win不同，区别挺大的，实现原理都不一样。 独立的进制空间，拥有PCB 线程：也有PCB，但没有独立的地址空间（共享） 区别：在于是否共享地址空间。 进程可以理解为独居 线程可以理解为合租 linux下的最小执行单位：线程 最小的资源分配单位：进程。 简单原理进程进行类似fork的操作，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-08-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-18T13:46:10.794Z">
+<meta property="article:author" content="Icrad">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2022/08/15/linuxlwp/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":"400px"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux基础05 | 线程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-18 21:46:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">icrad的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">linux基础05 | 线程<a class="post-edit-link" href="https://github.com/icradP/icradP.github.io.git/edit/main/source/_posts/linuxlwp.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-14T16:00:00.000Z" title="发表于 2022-08-15 00:00:00">2022-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-18T13:46:10.794Z" title="更新于 2022-08-18 21:46:10">2022-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="linux基础05 | 线程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>LWP：light weight process</p>
+<p>轻量级的进程，本质仍是进程（linux环境下）</p>
+<p>与win不同，区别挺大的，实现原理都不一样。</p>
+<p>独立的进制空间，拥有PCB</p>
+<p>线程：也有PCB，但没有独立的地址空间（共享）</p>
+<p>区别：在于是否共享地址空间。</p>
+<p>进程可以理解为独居</p>
+<p>线程可以理解为合租</p>
+<p>linux下的最小执行单位：线程</p>
+<p>最小的资源分配单位：进程。</p>
+<h3 id="简单原理"><a href="#简单原理" class="headerlink" title="简单原理"></a>简单原理</h3><p>进程进行类似fork的操作，但是没有对父进程地址空间进行克隆clone，而是使用原有进程的三级页表，页表最终指向物理页面，中间有三次映射，也被称为三级映射</p>
+<p>进程-&gt;虚拟地址(页目录-&gt;页表-&gt;物理页面)MMU-&gt;物理地址</p>
+<p>不过线程不是完全使用进程的三级页表，实际上线程与进程的区别在于寄存器和栈的内容，不一样</p>
+<p>函数指针调用分配在栈中(用户程序之间的栈)</p>
+<p>两个指针(ebp,esp)组合规划（滑动窗口）一个栈帧，一个函数（还有局部变量等）占用的就是一个栈帧</p>
+<p>进程在切换时要保存寄存器的值，这些值分配在内核区的栈空间之中</p>
+<h4 id="线程共享资源"><a href="#线程共享资源" class="headerlink" title="线程共享资源"></a>线程共享资源</h4><ul>
+<li><p>文件文件描述符表</p>
+</li>
+<li><p>共享信号处理方式（信号建议不要与线程混用）</p>
+</li>
+<li><p>除了栈空间都共享</p>
+</li>
+</ul>
+<h4 id="线程非共享资源"><a href="#线程非共享资源" class="headerlink" title="线程非共享资源"></a>线程非共享资源</h4><ul>
+<li><p>线程Id</p>
+</li>
+<li><p>处理器现场（寄存器）和内核栈</p>
+</li>
+<li><p>独立的栈空间</p>
+</li>
+<li><p>errno变量（在代码段中）</p>
+</li>
+<li><p>信号屏蔽字</p>
+</li>
+<li><p>调度优先级</p>
+</li>
+</ul>
+<h3 id="线程优缺"><a href="#线程优缺" class="headerlink" title="线程优缺"></a>线程优缺</h3><p>优点：程序并发性高，开销小，数据通信，共享数据方便</p>
+<p>缺点：库函数不稳定，调试，编写困难，gdb不支持，对信号支持不好。</p>
+<p>优点相对突出，缺点不是硬伤，linux下由于实现方法，进程，线程差别不是很大。</p>
+<h2 id="控制原语"><a href="#控制原语" class="headerlink" title="控制原语"></a>控制原语</h2><h3 id="pthread-self"><a href="#pthread-self" class="headerlink" title="pthread_self()"></a>pthread_self()</h3><p>获取线程id 注意不是LWP。</p>
+<p>gcc编译的时候需要加入 -pthread。</p>
+<h3 id="pthread-creat"><a href="#pthread-creat" class="headerlink" title="pthread_creat()"></a>pthread_creat()</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_create</span><span class="params">(<span class="type">pthread_t</span> *thread, <span class="type">const</span> <span class="type">pthread_attr_t</span> *attr,</span></span><br><span class="line"><span class="params">                   <span class="type">void</span> *(*start_routine) (<span class="type">void</span> *), <span class="type">void</span> *arg)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>thread：线程id(传出)</li>
+<li>attr：线程属性（传入）</li>
+<li>start_routine：线程的主控函数（传入）</li>
+<li>arg ：线程主控函数的参数（传入）</li>
+</ul>
+<p>返回值：int，成功0 ，出错返回error的错误编号</p>
+<p>代码示例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> var = <span class="number">1</span>;</span><br><span class="line"><span class="type">void</span> *<span class="title function_">thrd_func</span><span class="params">(<span class="type">void</span> *arg)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = (<span class="type">int</span>)arg;</span><br><span class="line">    var += <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;In %d thread  : %ld\n&quot;</span>, i+<span class="number">1</span>, pthread_self());</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="type">pthread_t</span> tid;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret = pthread_create(&amp;tid, <span class="literal">NULL</span>, thrd_func, (<span class="type">void</span> *)i);</span><br><span class="line">        <span class="keyword">if</span>(ret != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;errno :%d: %s&quot;</span>, ret, strerror(ret));</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;var = %d\n&quot;</span>, var);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="pthread-exit"><a href="#pthread-exit" class="headerlink" title="pthread_exit()"></a>pthread_exit()</h3><p>单个线程退出</p>
+<p>与exit退出进程不同</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">pthread_exit</span><span class="params">(<span class="type">void</span> *retval)</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>retval 退出时当前线程状态，传出参数</li>
+</ul>
+<p>在线程中执行exit（）会直接将进程和线程退出</p>
+<h3 id="pthread-join"><a href="#pthread-join" class="headerlink" title="pthread_join()"></a>pthread_join()</h3><p>阻塞等待线程退出，获取线程退出状态</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    <span class="type">int</span> var;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">64</span>];</span><br><span class="line">&#125;<span class="type">test_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> *<span class="title function_">thrd_func</span><span class="params">(<span class="type">void</span>* retvar)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    <span class="type">test_t</span>* retval = (<span class="type">test_t</span>*)retvar;</span><br><span class="line">    retval-&gt;ch = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    retval-&gt;var = <span class="number">200</span>;</span><br><span class="line">    <span class="built_in">strcpy</span>(retval-&gt;str, <span class="string">&quot;hello\n&quot;</span>);</span><br><span class="line">    pthread_exit((<span class="type">void</span> *)retval);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="type">pthread_t</span> tid;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">test_t</span>* retval = (<span class="type">test_t</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">test_t</span>));</span><br><span class="line">    ret = pthread_create(&amp;tid, <span class="literal">NULL</span>, thrd_func, (<span class="type">void</span>*)retval);</span><br><span class="line">    <span class="keyword">if</span>(ret != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;errno :%d: %s&quot;</span>, ret, strerror(ret));</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_join(tid, (<span class="type">void</span> **)&amp;retval);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ch = %c , var = %d , str = %s&quot;</span>, retval-&gt;ch, retval-&gt;var, retval-&gt;str);</span><br><span class="line">    <span class="built_in">free</span>(retval);</span><br><span class="line">    pthread_exit((<span class="type">void</span> *)<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>回收COUNT个子进程</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> COUNT 5</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> var = <span class="number">100</span>; </span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">tfn</span><span class="params">(<span class="type">void</span>* arg)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i = (<span class="type">int</span>)arg;</span><br><span class="line">    sleep(i);</span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">        var = <span class="number">333</span>;</span><br><span class="line">        pthread_exit((<span class="type">void</span> *)var);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">3</span>)&#123;</span><br><span class="line">        var = <span class="number">777</span>;</span><br><span class="line">        pthread_exit((<span class="type">void</span> *)var);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">4</span>)&#123;</span><br><span class="line">        var = <span class="number">666</span>;</span><br><span class="line">        pthread_exit((<span class="type">void</span> *)var);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        pthread_exit((<span class="type">void</span> *)var);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *tid[COUNT];</span><br><span class="line">    <span class="type">int</span> *ret[COUNT];</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; COUNT; i++)&#123;</span><br><span class="line">        pthread_create(&amp;tid[i], <span class="literal">NULL</span>, tfn, (<span class="type">void</span>*)i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; COUNT; i++)&#123;</span><br><span class="line">        pthread_join(tid[i], (<span class="type">void</span>**)&amp;ret[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;回收了第%d个子线程，返回值ret= %d\n&quot;</span>, i+<span class="number">1</span>, ret[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="prthread-detach"><a href="#prthread-detach" class="headerlink" title="prthread_detach()"></a>prthread_detach()</h3><p>线程设定为分离态，设定一个线程退出时自行回收。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_detach</span><span class="params">(<span class="type">pthread_t</span> thread)</span>;</span><br></pre></td></tr></table></figure>
+<p>再进行回收就会报错了,</p>
+<h3 id="prthread-cancel"><a href="#prthread-cancel" class="headerlink" title="prthread_cancel()"></a>prthread_cancel()</h3><p>取消线程</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_cancel</span><span class="params">(<span class="type">pthread_t</span> thread)</span>;</span><br></pre></td></tr></table></figure>
+<p>这个线程的取消并不是实时的，需要达到一个取消点才会取消，比如说内核调用，系统调用。或者自己设定1个取消点在线程中</p>
+<p>具体取消点函数可看man 7 pthreads 或者apue 12.7</p>
+<h2 id="线程属性"><a href="#线程属性" class="headerlink" title="线程属性"></a>线程属性</h2><p>创建线程的第二个参数，pthread_attr_t;</p>
+<h3 id="attr-t结构"><a href="#attr-t结构" class="headerlink" title="attr_t结构"></a>attr_t结构</h3><ul>
+<li><strong>int etachstate</strong> <ul>
+<li><strong>线程的分离状态</strong></li>
+</ul>
+</li>
+<li>int schedpolicy<ul>
+<li>线程调度策略</li>
+</ul>
+</li>
+<li>struct sched_param schedparam<ul>
+<li>线程调度参数</li>
+</ul>
+</li>
+<li>int inheritsched<ul>
+<li>线程调度继承性</li>
+</ul>
+</li>
+<li>int scope<ul>
+<li>作用域</li>
+</ul>
+</li>
+<li><strong>size_t guardsize</strong><ul>
+<li><strong>线程栈末尾的警戒缓冲区大小</strong></li>
+<li>栈空间的函数地址的线程栈并非连着的，之间有一个警戒区分割</li>
+</ul>
+</li>
+<li>int stackaddr_set<ul>
+<li>线程的栈设置</li>
+</ul>
+</li>
+<li>void* stackaddr<ul>
+<li>线程栈的地址位置</li>
+</ul>
+</li>
+<li><strong>size_t stacksize</strong><ul>
+<li><strong>线程栈的大小</strong></li>
+<li>最大线程大小，N个线程对这块大小进行均分分配</li>
+</ul>
+</li>
+</ul>
+<p>加粗的是一般比较常用的属性</p>
+<h3 id="属性初始化"><a href="#属性初始化" class="headerlink" title="属性初始化"></a>属性初始化</h3><p>提前定义一个结构体pthread_attr</p>
+<p>调用pthread_attr_init()，进行值的初始化</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_attr_init</span><span class="params">(<span class="type">pthread_attr_t</span> *attr)</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a>属性设置</h3><p>常用的：</p>
+<h4 id="设置状态"><a href="#设置状态" class="headerlink" title="设置状态"></a>设置状态</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_attr_setdetachstate</span><span class="params">(<span class="type">pthread_attr_t</span> *attr, <span class="type">int</span> detachstate)</span>;</span><br></pre></td></tr></table></figure>
+<p>参数二有两个宏参数可以使用</p>
+<ul>
+<li>PTHREAD_CREATE_DETACHED<ul>
+<li>分离态</li>
+</ul>
+</li>
+<li>PTHREAD_CREATE_JOINABLE<ul>
+<li>可回收态</li>
+</ul>
+</li>
+</ul>
+<p>需要注意的是，在分离态的子线程如果结束过快，create函数的返回的线程id，可能就是错误的id，需要在该子线程中调用一个pthread_cond_timedwait()函数，保证在结束前返回线程id。</p>
+<h4 id="修改线程栈空间"><a href="#修改线程栈空间" class="headerlink" title="修改线程栈空间"></a>修改线程栈空间</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_attr_setstack</span><span class="params">(<span class="type">pthread_attr_t</span> *attr, <span class="type">void</span> *stackaddr, <span class="type">size_t</span> stacksize)</span>;</span><br></pre></td></tr></table></figure>
+<p> 参数二传入一个栈地址，参数三就是要设定的大小</p>
+<p>需要先在在堆空间申请一个空间(毕竟说到底，用户能修改使用的还是堆)</p>
+<p>stackaddr = malloc (SIZE);</p>
+<p>设定好栈空间后，创建的函数就会放到这个设置好的新的空间中</p>
+<p>大小的限制取决于用户的malloc的最大大小。</p>
+<p>而当过小过大都会回到栈默认值中</p>
+<h2 id="线程使用注意点"><a href="#线程使用注意点" class="headerlink" title="线程使用注意点"></a>线程使用注意点</h2><ul>
+<li>需要注意NPTL：线程库的版本</li>
+<li>避免僵尸。</li>
+<li>线程中一般不使用fork创建子进程<ul>
+<li>子进程中只有调用子进程的线程存在</li>
+</ul>
+</li>
+<li>线程中避免使用信号</li>
+</ul>
+<h2 id="多线程拷贝"><a href="#多线程拷贝" class="headerlink" title="多线程拷贝"></a>多线程拷贝</h2><p>之前有做过的多进程拷贝，这次再做个多线程拷贝，在linux系统下线程本质上还是进程，所以区别不大，IPC依旧选择MMAP。</p>
+<p>这里直接上代码，没有难点，巩固一下线程的基本原语和基本特性</p>
+<p>这里试了试最大线程数：我可以开辟的最大线程为15297个线程,如果需要更大的线程数，就需要手动将内存空间开辟到堆中，自己设定进程大小。在这个代码中就不演示了想要加的话可以在写一个判断设置线程空间大小，单纯图一乐</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">size_t</span> fsize = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> tnums = <span class="number">1</span>;</span><br><span class="line"><span class="type">char</span>* fmw = <span class="literal">NULL</span>;</span><br><span class="line"><span class="type">char</span>* fmr = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fileCopy</span><span class="params">(<span class="type">void</span>* arg)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i = (<span class="type">int</span>)arg;</span><br><span class="line">    <span class="type">int</span> len = fsize/tnums;  </span><br><span class="line">    <span class="keyword">if</span>(i &lt; tnums)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == tnums<span class="number">-1</span>)&#123;</span><br><span class="line">            memmove(fmw + (len*i), fmr + (len*i), len + (<span class="type">int</span>)(fsize%len));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            memmove(fmw + (len*i), fmr + (len*i), len);  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">progressBar</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> buff[<span class="number">40</span>];</span><br><span class="line">    <span class="built_in">memset</span>(buff,<span class="string">&#x27;\0&#x27;</span>,<span class="number">40</span>);</span><br><span class="line">    <span class="type">char</span> label[] = <span class="string">&quot;\\/\\/&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">40</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[%-39s][%c][%.lf%%]\r&quot;</span>,buff, label[i%<span class="number">4</span>], (i+<span class="number">1</span>)*<span class="number">2.5</span>);</span><br><span class="line">        fflush(<span class="built_in">stdout</span>);</span><br><span class="line">        buff[i] = <span class="string">&#x27;&gt;&#x27;</span>;</span><br><span class="line">        usleep(<span class="number">50000</span>/tnums);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(argc != <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;食用方法：源文件名，新文件名，使用的线程数\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> fdr = open(argv[<span class="number">1</span>], O_RDONLY);</span><br><span class="line">    <span class="keyword">if</span>(fdr &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">&quot;源文件&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> fdw =open(argv[<span class="number">2</span>], O_RDWR | O_CREAT | O_TRUNC, <span class="number">0777</span>);</span><br><span class="line">    <span class="keyword">if</span>(fdw &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">&quot;目的文件&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">finfo</span>;</span></span><br><span class="line">    fstat(fdr,&amp;finfo);</span><br><span class="line">    fsize = finfo.st_size;</span><br><span class="line">    <span class="type">int</span> ret = ftruncate(fdw, fsize);</span><br><span class="line">    <span class="keyword">if</span>(ret &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;truncate error&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmr = mmap(<span class="literal">NULL</span>, fsize, PROT_READ, MAP_SHARED, fdr, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(fmr == MAP_FAILED)&#123;</span><br><span class="line">        perror(<span class="string">&quot;目的文件映射&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    close(fdr);</span><br><span class="line">    fmw = mmap(<span class="literal">NULL</span>, fsize, PROT_WRITE, MAP_SHARED, fdw, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(fmw == MAP_FAILED)&#123;</span><br><span class="line">        perror(<span class="string">&quot;源文件映射&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    close(fdw);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//根据线程数创建线程  </span></span><br><span class="line">    tnums = atoi(argv[<span class="number">3</span>]);</span><br><span class="line">    <span class="keyword">if</span>(tnums &gt;= <span class="number">10000</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;你要复制什么玩意？确定要这么多进程数？&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">pthread_t</span> tid[tnums + <span class="number">1</span>];<span class="comment">//这里是之前测试回收是否成功的记录</span></span><br><span class="line">    <span class="type">pthread_attr_t</span> attr;</span><br><span class="line">    pthread_attr_init(&amp;attr);</span><br><span class="line">    pthread_attr_setdetachstate(&amp;attr, PTHREAD_CREATE_DETACHED);</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; tnums; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret = pthread_create(&amp;tid[i], &amp;attr, fileCopy, (<span class="type">void</span> *)i);</span><br><span class="line">        <span class="keyword">if</span>(ret &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;errno :%d: %s&quot;</span>, ret, strerror(ret));</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ret = pthread_create(&amp;tid[tnums], &amp;attr, progressBar, (<span class="type">void</span> *)i);</span><br><span class="line">    <span class="keyword">if</span>(ret &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;errno :%d: %s&quot;</span>, ret, strerror(ret));</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    munmap(fmr, fsize);</span><br><span class="line">    munmap(fmw, fsize);  </span><br><span class="line">    pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.icrad.top">Icrad</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.icrad.top/2022/08/15/linuxlwp/">https://www.icrad.top/2022/08/15/linuxlwp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.icrad.top" target="_blank">icrad的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里icrad,一个不知道该走前端还是后端的大学菜鸡</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">简单原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">线程共享资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E9%9D%9E%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">线程非共享资源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%BC%98%E7%BC%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">线程优缺</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8E%9F%E8%AF%AD"><span class="toc-number">1.2.</span> <span class="toc-text">控制原语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pthread-self"><span class="toc-number">1.2.1.</span> <span class="toc-text">pthread_self()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pthread-creat"><span class="toc-number">1.2.2.</span> <span class="toc-text">pthread_creat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pthread-exit"><span class="toc-number">1.2.3.</span> <span class="toc-text">pthread_exit()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pthread-join"><span class="toc-number">1.2.4.</span> <span class="toc-text">pthread_join()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prthread-detach"><span class="toc-number">1.2.5.</span> <span class="toc-text">prthread_detach()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prthread-cancel"><span class="toc-number">1.2.6.</span> <span class="toc-text">prthread_cancel()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">线程属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#attr-t%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">attr_t结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.3.2.</span> <span class="toc-text">属性初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.3.</span> <span class="toc-text">属性设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8A%B6%E6%80%81"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">设置状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%BA%BF%E7%A8%8B%E6%A0%88%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">修改线程栈空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.4.</span> <span class="toc-text">线程使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.5.</span> <span class="toc-text">多线程拷贝</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-icradp.vercel.app/',
+        region: 'ap-shanghai',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
