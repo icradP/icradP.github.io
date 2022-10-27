@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C++复健2(未整理) | icrad的博客</title><meta name="keywords" content="C++"><meta name="author" content="Icrad"><meta name="copyright" content="Icrad"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="conversion function  转换函数 non-explicit-one-argument ctor 1234567891011121314151617181920212223242526272829303132#include &lt;iostream&gt;using namespace std;class Fraction&amp;#123; private:  int m_numer;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++复健2(未整理)">
+<meta property="og:url" content="https://www.icrad.top/2022/07/24/cfj1/index.html">
+<meta property="og:site_name" content="icrad的博客">
+<meta property="og:description" content="conversion function  转换函数 non-explicit-one-argument ctor 1234567891011121314151617181920212223242526272829303132#include &lt;iostream&gt;using namespace std;class Fraction&amp;#123; private:  int m_numer;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-27T13:13:05.371Z">
+<meta property="article:author" content="Icrad">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2022/07/24/cfj1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++复健2(未整理)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-27 21:13:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">icrad的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">C++复健2(未整理)<a class="post-edit-link" href="https://github.com/icradP/icradP.github.io.git/edit/main/source/_posts/cfj1.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-23T16:00:00.000Z" title="发表于 2022-07-24 00:00:00">2022-07-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-27T13:13:05.371Z" title="更新于 2022-10-27 21:13:05">2022-10-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++复健2(未整理)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>conversion function </p>
+<p>转换函数</p>
+<p>non-explicit-one-argument ctor</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fraction</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line">  <span class="type">int</span> m_numer;</span><br><span class="line">  <span class="type">int</span> m_denom;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Fraction</span>(<span class="type">int</span> num, <span class="type">int</span> den = <span class="number">1</span>) : <span class="built_in">m_numer</span>(num), <span class="built_in">m_denom</span>(den) &#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> (<span class="type">double</span>)(m_numer / m_denom); &#125;</span><br><span class="line">  Fraction <span class="keyword">operator</span>+(<span class="type">const</span> Fraction&amp; f) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Fraction</span>((f.m_numer + <span class="number">1</span>) * <span class="keyword">this</span>-&gt;m_denom, f.m_denom * <span class="keyword">this</span>-&gt;m_denom);</span><br><span class="line">  &#125;</span><br><span class="line">  ~<span class="built_in">Fraction</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Fraction ::~<span class="built_in">Fraction</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">Fraction <span class="title">f</span><span class="params">(<span class="number">4</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">  <span class="type">double</span> d = f + <span class="number">4</span>;<span class="comment">//编译出错，二义性，因为编译器不知道应该转f 还是转换 4</span></span><br><span class="line">  <span class="type">double</span> c = <span class="number">4</span> + f;</span><br><span class="line">  cout &lt;&lt; d &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">  Fraction e = f + <span class="number">4</span>;<span class="comment">//加了explicit 关键字后，默认转换Fra为double,编译器就不会再调用构造函数来进行转换了，同时的这里也会报错，double 无法转换得到 Fra类型</span></span><br><span class="line">  Fraction g = <span class="number">4</span> + f;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>编译器会寻找转换函数，不存在，存在多个都会报错</p>
+<p>point like classes 仿指针的类</p>
+<p>智能指针</p>
+<p>我们希望指针能够更加的智能，能做更多的事情，C++11中继而出现了智能指针概念</p>
+<p>成员模板中在只能指针也有应用到，为了模拟父类指针能够指向子类</p>
+<p>因为在继承关系中，父类的类型确实是可以被子类的值，赋值，就想动物类中可以的值有人，猫，狗各种值一样</p>
+<p>需要注意的是 -&gt; 这个符号是可以持续作用的（在重载该符号时，并不会被消耗 </p>
+<p>容器的对应的迭代器，实际上也可以称为智能指针</p>
+<p>其中++ —的遍历操作的实现就是重载运算符函数</p>
+<p>function-like classes，仿函数</p>
+<p>标准库会继承奇特的base classes</p>
+<p>namespace经验谈</p>
+<p>不同的测试函数，类，全局变量使用不同的命名空间，作为分隔区</p>
+<p>互不干扰</p>
+<p>specialization</p>
+<p>模板特化（模板泛化的反面）</p>
+<p>作用就是特殊的类型如果有需要，再指定特殊的具体讨论</p>
+<p>partial 模板的偏特化 （局部特化</p>
+<ul>
+<li>个数上的偏特化<ul>
+<li>最小类型的指定</li>
+</ul>
+</li>
+<li>范围上的偏特化<ul>
+<li>指定范围为指针的类型无论</li>
+</ul>
+</li>
+</ul>
+<p>模板的模板参数，需要注意的是假如模板中有多个模板参数，（定义对象会出现问题，一个坑，编译器无法编译，解决方法不同）</p>
+<p>使用的是不是模板模板参数实现的对象，观察的是：调用时，是否所有的模板参数都指定了类型，如果有模糊地带，换句话而言，就是是否还存在你想让编译器来帮你推导的数据类型。</p>
+<p>C++标准库</p>
+<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h3><p>侯捷老师强烈建议，使用STL标准库，我个人认为，这种说法是不适合当前的面试的情况的，因为遇到了大部分，需要手撕链表二叉树哈希表等面试题目，平时也在刷leetcode等题库，可以体会到，当前的面试要求是，调用标准库算法，都是人下人（极端的说，不过确实有人说脚本小子，库小子的蔑称传开</p>
+<p>在开发的时候当然还是要用标准库，毕竟标准库的算法并不是为面试提供的，而面试之后，你才能加入公司进行开发工作，而你写的手撕代码的实现，在开发中却很可能就完全用不到，调个库几乎就可以完成任务了，所以就会给人一种经典面试造火箭，工作扭螺丝的感觉。</p>
+<p>学习标准库</p>
+<p>第一步当然是都要调用，知道其用法</p>
+<p>常用容器，常用，甚至不常用的算法，至少调用过一次</p>
+<p>variadic templates</p>
+<p>数量不定的模板参数</p>
+<p>c++11中的语言特性</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> T&amp; fristArg, <span class="type">const</span> Types&amp;... args)</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; fristArg &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt;<span class="string">&quot;当前还没执行的参数&quot;</span>&lt;&lt;<span class="keyword">sizeof</span>...(args)&lt;&lt;endl;</span><br><span class="line">  <span class="built_in">print</span>(args...);<span class="comment">//无所谓的处理方式，这里使用的递归</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="number">12</span>, <span class="string">&quot;hellp&quot;</span>, <span class="string">&quot;skdjskd&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是…的位置，不同位置是不同的前后出现次序</p>
+<p>随之更新的标准库中有很多都用到了这个新语法（新是相对98而言的），如今c++11距离至今已经11年了，c++20 加入了协程等（稍微了解了一下），和其他很多新特性，但是目前国内c++11居然还是主流（不好说。</p>
+<p>c++11的语法糖</p>
+<p>auto 实际上就是一个智能的指针</p>
+<p>写迭代器的时候懒得写这么长（当然你还是得会写，这是C++程序员的基本素养所在）</p>
+<p>用auto可以代替，类型推导都交给auto来处理，偷懒。</p>
+<p>需要注意的是，推导的前提是得有值给编译器作为依据。</p>
+<p>有些人干脆认为全都用auto好了，那你为啥不直接用PHP捏，写js全写any不就完了呗，开发都是用shell来写，因为shell直接就一种数据类型。（还是那句话：这是C++程序员的基本素养所在</p>
+<p>for的新语法</p>
+<p>主要是针对容器的遍历</p>
+<p>语法模板</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>（decl : coll)&#123;</span><br><span class="line">statment</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用范例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  vector&lt;<span class="type">char</span>&gt; strs;</span><br><span class="line">  <span class="type">int</span> i;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">    strs.<span class="built_in">push_back</span>(<span class="string">&#x27;A&#x27;</span> + i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; str : strs) &#123;</span><br><span class="line">    cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; str : strs) &#123;</span><br><span class="line">    str += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; str : strs) &#123;</span><br><span class="line">    cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>reference</p>
+<p>引用</p>
+<p>在没有看侯捷老师的课程之前</p>
+<p>引用在我的脑子里等同于 指针常量，在编译器中也是将引用当指针来看待</p>
+<p>但是实际上，并不是的（尽管作用相同），逻辑上讲，引用相当于别名</p>
+<p>别名和原名在调用sizeof函数调用中是一样的大小(这是一种假象，编译器制造出来的)</p>
+<p>ps:java中的所有变量都是reference</p>
+<p>而指针常量呢？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x;</span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> a = &amp;x; </span><br><span class="line"><span class="type">int</span>&amp; b = x;</span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> c = &amp;a;</span><br><span class="line"><span class="type">int</span>&amp; d = b;</span><br><span class="line"><span class="comment">//修改a</span></span><br></pre></td></tr></table></figure>
+<p>编译器中</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">test</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; num)</span> <span class="type">const</span></span>&#123;&#125;</span><br><span class="line"><span class="comment">//等价</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">test</span><span class="params">(<span class="type">const</span> <span class="type">int</span> num)</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">//为了对应编译器的欺骗和处理指针的传值矛盾</span></span><br><span class="line"><span class="comment">//再根据重载条件</span></span><br><span class="line"><span class="comment">//所以这两者是不能并存的</span></span><br><span class="line">但是以下的情况是可以并存的的，<span class="type">const</span>也算函数签名声明的一部分</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">test</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; num)</span> <span class="type">const</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">test</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; num)</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">//不打注释表示这个是更重要的东西</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>总的来说，能用引用就引用，省事，还快，一般用到参数传递传出的描述。</p>
+<p>对象模型</p>
+<p>Vptr 和 vtbl</p>
+<p>虚指针</p>
+<p>虚基表</p>
+<p>子类继承父类时</p>
+<p>父类出现虚函数，子类一定也会继承得到虚函数</p>
+<p>子类中调用虚函数的形式时，</p>
+<p>通过的对象的指针p再找到继承的来的虚指针vptr，通过虚指针找到虚基表vtbl，再找表中的第n个虚函数的地址进行调用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(* p-&gt;vptr[n])(p);</span><br></pre></td></tr></table></figure>
+<p>这就是动态绑定</p>
+<p>也就是常说的的多态。</p>
+<p>只要基础硬得跟石头一样，在进行编程时才会知其然所以然</p>
+<p>关于this</p>
+<p> 对象的函数的调用，在编译器看来</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MYCLASS::funtion(&amp;myclass);</span><br><span class="line"><span class="comment">//等价</span></span><br><span class="line">this = &amp;myclass;</span><br><span class="line">this-&gt;function；</span><br><span class="line"><span class="comment">//如果是虚函数，再结合动态绑定</span></span><br><span class="line">(*this-&gt;function[n])(this);</span><br></pre></td></tr></table></figure>
+<p>关于const</p>
+<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/image-20220907183637718.png" alt=""></p>
+<p>当成员函数中，const存在和non-const也存在。const 对象只会调用const的函数（防止了二义性的问题</p>
+<p>相应的non-const object 只能调用non-const函数</p>
+<p>我理解为编译里的读写锁机制</p>
+<p>设计一个类，根据需求，实现功能，都要好好考量，每一个成员函数是否需要const修饰</p>
+<p>（const就是算签名的一部分）</p>
+<p>标准库的string应用的引用计数</p>
+<p>总结起来就是八个字：就是读时共享，写时复制</p>
+<p>COW ,在fork的进程中的对全局变量的处理也是相同的思想</p>
+<p>关于new. delete</p>
+<p>内存池中需要考虑到用到</p>
+<p>重载delete 和 new和delete[],new[];</p>
+<p>由于这两个函数（运算符）其实是全局的函数，把它们当运算符看也没问题，之前有说过了，new实际上是调用的malloc后构造</p>
+<p>而delete 是调用析构后再进行free.</p>
+<p>一般定义限定在任何一个对象的命名空间中，但是需要static修饰</p>
+<p>既然是重载，肯定是有自己的想法的，说明单纯的new和delete已经满足不了</p>
+<p>就衍生出了,带参数的new 和 delete</p>
+<p>需要注意的是</p>
+<p>带参数的new 不一定需要再写对应的delete</p>
+<p>当这个带参数的new在执行构造抛出错误时才会调用对应的delete</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.icrad.top">Icrad</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.icrad.top/2022/07/24/cfj1/">https://www.icrad.top/2022/07/24/cfj1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.icrad.top" target="_blank">icrad的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里icrad的博客，后端前端都学一点，快乐多一点，头发少一点。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-number">1.</span> <span class="toc-text">吐槽</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-icradp.vercel.app/',
+        region: 'ap-shanghai',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
