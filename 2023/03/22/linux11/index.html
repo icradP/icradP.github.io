@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>linux基础11 | IO函数 | icrad的博客</title><meta name="keywords" content="linux"><meta name="author" content="Icrad"><meta name="copyright" content="Icrad"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="IO 函数文件基本操作  打开 读取 写入 关闭  需要引入如下头文件 12345#include &lt;fcntl.h&gt;#include &lt;sys&#x2F;stat.h&gt;#include &lt;sys&#x2F;types.h&gt;#include &lt;unistd.h&gt; open123int open(const char *pathname, int flags);int o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基础11 | IO函数">
+<meta property="og:url" content="https://www.icrad.top/2023/03/22/linux11/index.html">
+<meta property="og:site_name" content="icrad的博客">
+<meta property="og:description" content="IO 函数文件基本操作  打开 读取 写入 关闭  需要引入如下头文件 12345#include &lt;fcntl.h&gt;#include &lt;sys&#x2F;stat.h&gt;#include &lt;sys&#x2F;types.h&gt;#include &lt;unistd.h&gt; open123int open(const char *pathname, int flags);int o">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-25T08:30:19.913Z">
+<meta property="article:author" content="Icrad">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2023/03/22/linux11/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux基础11 | IO函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2023-03-25 16:30:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">icrad的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-image"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">linux基础11 | IO函数<a class="post-edit-link" href="https://github.com/icradP/icradP.github.io.git/edit/main/source/_posts/linux11.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-21T16:00:00.000Z" title="发表于 2023-03-22 00:00:00">2023-03-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-25T08:30:19.913Z" title="更新于 2023-03-25 16:30:19">2023-03-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="linux基础11 | IO函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="IO-函数"><a href="#IO-函数" class="headerlink" title="IO 函数"></a>IO 函数</h1><p>文件基本操作</p>
+<ul>
+<li>打开</li>
+<li>读取</li>
+<li>写入</li>
+<li>关闭</li>
+</ul>
+<p>需要引入如下头文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="open"><a href="#open" class="headerlink" title="open"></a>open</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">int</span> flags)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">int</span> flags, <span class="type">mode_t</span> mode)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>需要注意的是上面的函数实际上是通过多参数va_list实现的，C 库函数函数中没有函数重载。</p>
+<ul>
+<li><strong>const char * pathname</strong><ul>
+<li>可以填写相对路径和绝对路径</li>
+</ul>
+</li>
+<li><strong>int flags（常用</strong><ul>
+<li>O_CREAT  当文件不存在创建。</li>
+<li>O_RDONLY, 顾名思义，只读</li>
+<li>O_WRONLY 只写</li>
+<li>O_RDWR. 读写都有</li>
+<li>O_APPEND 在文件末尾write添加</li>
+<li>O_TRUNC 当文件不存在创建并清零。（常用在管道</li>
+<li>O_CLOEXEC 是原子操作 ,当执行exec 自动关闭该文件描述符，防止EXEC后的子进程调用该文件描述符。</li>
+</ul>
+</li>
+<li><strong>mode_t mode</strong><ul>
+<li>当文件不存在创建时，需要有mode值，也就是文件的权限</li>
+<li>S_IRWXU | S_IRWXG | S_IRWXO 分别对应<br>00700|00070|00007（也可以知直接填数字，这样更快</li>
+<li>S_I 固定开头 ，中间有三个W（写） R（读） X（执行） 有三个固定结尾 USR（用户） GRP（组） OTH（其他人）</li>
+</ul>
+</li>
+<li><strong>return int</strong> <ul>
+<li>返回 成功 0 失败-1 并且perror()打印错误 ;</li>
+</ul>
+</li>
+</ul>
+<h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ssize_t</span> <span class="title function_">read</span><span class="params">(<span class="type">int</span> fd, <span class="type">void</span> *buf, <span class="type">size_t</span> count)</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>int fd</strong><ul>
+<li>文件描述符，不止是普通文件，也是socket or fifo ,甚至可以是 stderr,stdout ,stdin</li>
+</ul>
+</li>
+<li><strong>void * buf</strong><ul>
+<li>要读的数据存入哪</li>
+<li>这玩意可以进行偏移，单位是字节（多进程拷贝啥的。</li>
+<li>可以是结构体，实现方式其实是用<a href="ELF">ELF</a>格式解析。</li>
+<li>网络数据包之类的 比如socket 传递的包</li>
+</ul>
+</li>
+<li><strong>size_t count</strong><ul>
+<li>要读的数据大小。</li>
+</ul>
+</li>
+<li><strong>return ssize_t</strong><ul>
+<li>实际读了多少字节</li>
+</ul>
+</li>
+</ul>
+<h4 id="ELF"><a href="#ELF" class="headerlink" title="ELF"></a>ELF</h4><blockquote>
+<p>在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/计算机科学/9132?fromModule=lemma_inlink">计算机科学</a>中，是一种用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/二进制文件/996661?fromModule=lemma_inlink">二进制文件</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/可执行文件/2885816?fromModule=lemma_inlink">可执行文件</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/目标代码/9407934?fromModule=lemma_inlink">目标代码</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/共享库/5101825?fromModule=lemma_inlink">共享库</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/核心转储/16772089?fromModule=lemma_inlink">核心转储</a>格式文件的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/文件格式/6156907?fromModule=lemma_inlink">文件格式</a>。</p>
+<p>是UNIX系统实验室（USL）作为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/应用程序二进制接口/497638?fromModule=lemma_inlink">应用程序二进制接口</a>（Application Binary Interface，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ABI/10912305?fromModule=lemma_inlink">ABI</a>）而开发和发布的，也是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Linux/27050?fromModule=lemma_inlink">Linux</a>的主要可执行文件格式。</p>
+<p>1999年，被86open项目选为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/x86架构/7470217?fromModule=lemma_inlink">x86架构</a>上的类<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Unix操作系统/851445?fromModule=lemma_inlink">Unix操作系统</a>的二进制文件标准格式，用来取代<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/COFF/8999517?fromModule=lemma_inlink">COFF</a>。因其<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/可扩展性/8669999?fromModule=lemma_inlink">可扩展性</a>与灵活性，也可应用在其它处理器、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/计算机系统/7210959?fromModule=lemma_inlink">计算机系统</a>架构的操作系统上。</p>
+</blockquote>
+<p>ELF文件由4部分组成，分别是ELF头（ELF header）、程序头表（Program header table）、节（Section）和节头表（Section header table）。实际上，一个文件中不一定包含全部内容，而且它们的位置也未必如同所示这样安排，只有ELF头的位置是固定的，其余各部分的位置、大小等信息由ELF头中的各项值来决定。</p>
+<hr>
+<p><strong>结构体信息通常都放在ELF header中</strong></p>
+<h2 id="write"><a href="#write" class="headerlink" title="write"></a>write</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ssize_t</span> <span class="title function_">write</span><span class="params">(<span class="type">int</span> fd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> count)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>int fd</strong><ul>
+<li>文件描述符，不止是普通文件，也是socket or fifo ,甚至可以是 stderr,stdout ,stdin</li>
+</ul>
+</li>
+<li><strong>void * buf</strong><ul>
+<li>要读的数据存入哪</li>
+<li>这玩意可以进行偏移，单位是字节（多进程拷贝啥的。</li>
+<li>可以是结构体。</li>
+<li>网络数据包之类的 比如socket 传递的包</li>
+</ul>
+</li>
+<li><strong>size_t count</strong><ul>
+<li>要读的数据大小。</li>
+</ul>
+</li>
+<li><strong>return ssize_t</strong><ul>
+<li>实际读了多少字节</li>
+</ul>
+</li>
+</ul>
+<h2 id="close"><a href="#close" class="headerlink" title="close"></a>close</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">close</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br></pre></td></tr></table></figure>
+<p>关闭文件描述符，释放进程的PCB中资源</p>
+<h2 id="文件描述符的操作函数"><a href="#文件描述符的操作函数" class="headerlink" title="文件描述符的操作函数"></a>文件描述符的操作函数</h2><h3 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h3><p>复制文件描述符</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">dup</span><span class="params">(<span class="type">int</span> oldfd)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">dup2</span><span class="params">(<span class="type">int</span> oldfd, <span class="type">int</span> newfd)</span>;</span><br></pre></td></tr></table></figure>
+<p>实际上就是输出重定向常用函数</p>
+<p><strong>返回新的文件描述符</strong></p>
+<p>dup2可以指定重定向指定的文件描述符</p>
+<h3 id="fsync"><a href="#fsync" class="headerlink" title="fsync"></a>fsync</h3><p>文件数据同步</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fsync</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">fdatasync</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br></pre></td></tr></table></figure>
+<p>强制将缓存中的数据写入磁盘</p>
+<p>要求写入立刻生效，谨慎调用</p>
+<p>调用的需要：</p>
+<p>硬盘和内存之间的交互有两个缓存区，交互这两个缓存区是同步的，在从缓存区传到硬盘或内存中。</p>
+<p>当需要立刻将数据写入文件操作执行完成，可以调用该函数。</p>
+<p>但是调用这个是会占用是时间的，根据你的缓存调度速度，硬件配置等因素。</p>
+<h2 id="文件读写位置指针"><a href="#文件读写位置指针" class="headerlink" title="文件读写位置指针"></a>文件读写位置指针</h2><p>钟硕肘子， 文件呢，读取的时候，又有提供一个指针的，指向文件内数据的位置。</p>
+<p>我们可以通过lseek函数将指针进行位置偏移。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">off_t</span> <span class="title function_">lseek</span><span class="params">(<span class="type">int</span> fd, <span class="type">off_t</span> offset, <span class="type">int</span> whence)</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>int fd</strong> </p>
+<ul>
+<li>要操作的文件的描述符</li>
+</ul>
+</li>
+<li><p><strong>off_t offset</strong></p>
+<ul>
+<li>偏移量 or 读写位置</li>
+</ul>
+</li>
+<li><p><strong>int whence</strong></p>
+<ul>
+<li>可以理解为操作设置</li>
+<li>SEEK_SET<ul>
+<li>设置当前读写位置为offset</li>
+</ul>
+</li>
+<li>SEEK_CUR<ul>
+<li>将当前的读写位置偏移offset字节</li>
+<li>有读权限的话，即使偏移的位置没有值也会补0补到偏移的指针位置，否则就会失败</li>
+</ul>
+</li>
+<li>SEEK_END<ul>
+<li>指向末尾后，在偏移offset字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>return off_t</strong></p>
+<ul>
+<li><blockquote>
+<p>Upon successful completion, lseek() returns the resulting offset  location  as  measured  in bytes from the beginning of the file.  On error, the value (off_t) -1 is returned and errno is set to indicate  the  error.</p>
+</blockquote>
+</li>
+<li><p>翻译过来就是成功返回处理后的从0开始的读写位置</p>
+</li>
+<li><p>失败返回-1并 返回error</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="创建临时文件"><a href="#创建临时文件" class="headerlink" title="创建临时文件"></a>创建临时文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">mkstemp</span><span class="params">(<span class="type">char</span> *template)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">mkostemp</span><span class="params">(<span class="type">char</span> *template, <span class="type">int</span> flags)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">mkstemps</span><span class="params">(<span class="type">char</span> *template, <span class="type">int</span> suffixlen)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">mkostemps</span><span class="params">(<span class="type">char</span> *template, <span class="type">int</span> suffixlen, <span class="type">int</span> flags)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>man文档描述：</p>
+<blockquote>
+<pre><code>  The  mkstemp() function generates a unique temporary filename from tem‐
+   plate, creates and opens the file, and returns an open file  descriptor
+   for the file.
+
+   The  last six characters of template must be &quot;XXXXXX&quot; and these are replaced with a string that makes the filename unique.  Since it will  be modified,  template  must  not  be a string constant, but should be declared as a character array.
+
+   The file is created with permissions 0600, that is, read plus write for
+   owner  only.  The returned file descriptor provides both read and write
+   access to the file.  The file is opened with the open(2)  O_EXCL  flag,
+   guaranteeing that the caller is the process that creates the file.
+</code></pre></blockquote>
+<p>翻译总结下来得出：</p>
+<ul>
+<li>生成一个临时的temp 文件，并且放回fd该文件的文件描述符</li>
+<li>该文件的生命周期，通常是close()结束，不保证数据长期有效</li>
+<li><strong>char * temporary</strong> <ul>
+<li>有固定的内容，尾部必须是“XXXXXX”前面倒是无所谓。</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件锁"><a href="#文件锁" class="headerlink" title="文件锁"></a>文件锁</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/file.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"> <span class="type">int</span> <span class="title function_">flock</span><span class="params">(<span class="type">int</span> fd, <span class="type">int</span> operation)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>给文件上锁，放置文件在进程同步中出现访问问题。（防止篡改</p>
+<ul>
+<li><p><strong>int operation</strong></p>
+<ul>
+<li>LOCK_SH 建立共享锁定，可以超过多个进程使用进入访问这个锁，虽然都可以访问这个锁，但是只能读，不可以写。</li>
+<li>LOCK_EX  建立互斥锁定，只能有一个程序使用这个文件。</li>
+<li>LOCK_UN 解锁文件访问状态。实际上文件close或异常关闭的时候也是可以自动解锁的。（有时差，并不是立刻解锁（比如网络套接字有协议方面的等待。</li>
+<li>LOCK_NB 非阻塞锁，如果无法建立锁定，不会等待阻塞进程他会立刻返回进程。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>return int </strong></p>
+<ul>
+<li>成功返回0 失败返回-1并输出error</li>
+</ul>
+</li>
+</ul>
+<p>在消息分发与事件处理起很大的作用</p>
+<h3 id="文件锁特性测试"><a href="#文件锁特性测试" class="headerlink" title="文件锁特性测试"></a>文件锁特性测试</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">const</span> <span class="type">char</span>* fileName = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line">  <span class="type">int</span> fd = open(fileName, O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);</span><br><span class="line">  <span class="keyword">if</span> (fd &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="type">int</span> wret = write(fd, <span class="string">&quot;hallorye!&quot;</span>, <span class="keyword">sizeof</span>(<span class="string">&quot;hallorye!&quot;</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; write: %dflock:%d\n&quot;</span>, wret, flock(fd, LOCK_EX));</span><br><span class="line">    sleep(<span class="number">6</span>);</span><br><span class="line">    flock(fd, LOCK_UN);</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    perror(<span class="string">&quot;open error &quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行这个程序，开两个进程，可以发现当第一个进程结束后，第二个进程才开始对这个文件进行写的操作。</p>
+<p>但是当其他不同的进程并没有给这文件加锁，而是直接进行打开写入也是可以成功的，无视锁的限制。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span>* fileName = <span class="string">&quot;test.txt&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> fd = open(fileName, O_CREAT | O_RDWR, S_IRWXU | S_IRWXG | S_IRWXO);</span><br><span class="line"><span class="keyword">if</span> (fd &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="type">int</span> wret = write(fd, <span class="string">&quot;hallorye!&quot;</span>, <span class="keyword">sizeof</span>(<span class="string">&quot;hallorye!&quot;</span>));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot; write: %d\n&quot;</span>, wret);</span><br><span class="line">  close(fd);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  perror(<span class="string">&quot;open error &quot;</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明文件锁这玩意，只有对其进行认知，设置的进程有效，是一个建议锁，其他进程因为不知道锁，就相当于没有，可以直接写入。</p>
+<p>那么问题来了，如果，我将 写入与上锁语句顺序修改又会如何呢？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flock(fd, LOCK_EX)；</span><br><span class="line"><span class="type">int</span> wret = write(fd, <span class="string">&quot;hallorye!&quot;</span>, <span class="keyword">sizeof</span>(<span class="string">&quot;hallorye!&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>总结：一样， 其他没有认知的进程一样可以直接进行写入访问。所以文件锁不过是建议锁罢了</strong></p>
+<h2 id="FCNTL"><a href="#FCNTL" class="headerlink" title="FCNTL"></a>FCNTL</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     <span class="type">int</span> <span class="title function_">fcntl</span><span class="params">(<span class="type">int</span> fd, <span class="type">int</span> cmd, ... <span class="comment">/* arg */</span> )</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">fcntl</span><span class="params">(<span class="type">int</span> fd, <span class="type">int</span> cmd, <span class="type">long</span> arg)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">fcntl</span><span class="params">(<span class="type">int</span> fd, <span class="type">int</span> cmd, <span class="keyword">struct</span> flock *lock)</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>文件控制函数</p>
+<p>可变参数函数。</p>
+<ul>
+<li><strong>int fd</strong><ul>
+<li>要操作的文件描述符</li>
+</ul>
+</li>
+<li><strong>int cmd</strong><ul>
+<li><strong>F_DUPFD</strong> ，dup fd 作用与dup类似，将旧的文件描述符复制到新的位置，这个新的位置根据后方传入的arg ,大于或等于，并且未使用的文件描述符的位置，不是重定向，虽然共享同一块进程控制块PCB（文件表项），但是新描述符又自己的的一套文件描述符标志,其中FD_CLOEXEC （close on exec, not on-fork）文件描述符标志清除（执行exec后的新进程不会自动释放fd，也能使用这个fd（<strong>管道</strong>））。<strong>返回值成功返回新的文件描述符</strong></li>
+<li><strong>F_GETFD</strong> 取FD 文件标志 ，一般是用来判断FD_CLOEXEC，返回值就是标志；</li>
+<li><strong>F_SETFD</strong> 设置FD 的文件标志 。</li>
+<li><strong>F_GETFL</strong> 取得文件描述符的状态标志，也就是读写权限的标志 O_APPEND,之列的</li>
+<li><strong>F_SETFL</strong> 设置FD 文件状态标志：不过只能设置三个位 O_APPEND,O_NONBLOCK （非阻塞访问）,O_ASYNC：（异步访问）</li>
+<li><strong>F_GETLK</strong> 得到锁状态</li>
+<li><strong>F_SETLK</strong> 设置文件锁状态。此时传入的flock 结构的I_type 值必须是F_RDLC,(读锁)F_WRLCK (写锁)，F_UNLCK 解锁状态。</li>
+<li><strong>F_SETLKW(wait)</strong> 同上，区别不同的是，当无法设置锁的时候，他会一直等待锁的权限阻塞进程，直到成功return 0。或者，直到信号影响为止，返回-1 错误码为EINTR。</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.icrad.top">Icrad</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.icrad.top/2023/03/22/linux11/">https://www.icrad.top/2023/03/22/linux11/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.icrad.top" target="_blank">icrad的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里icrad的博客，后端前端都学一点，快乐多一点，头发少一点。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IO-%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">IO 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-number">1.1.</span> <span class="toc-text">open</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#read"><span class="toc-number">1.2.</span> <span class="toc-text">read</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ELF"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">ELF</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#write"><span class="toc-number">1.3.</span> <span class="toc-text">write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#close"><span class="toc-number">1.4.</span> <span class="toc-text">close</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E7%9A%84%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">文件描述符的操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dup"><span class="toc-number">1.5.1.</span> <span class="toc-text">dup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fsync"><span class="toc-number">1.5.2.</span> <span class="toc-text">fsync</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE%E6%8C%87%E9%92%88"><span class="toc-number">1.6.</span> <span class="toc-text">文件读写位置指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">创建临时文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E9%94%81"><span class="toc-number">1.8.</span> <span class="toc-text">文件锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E9%94%81%E7%89%B9%E6%80%A7%E6%B5%8B%E8%AF%95"><span class="toc-number">1.8.1.</span> <span class="toc-text">文件锁特性测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FCNTL"><span class="toc-number">1.9.</span> <span class="toc-text">FCNTL</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-zeabur-production-59fe.up.railway.app',
+        region: 'ap-shanghai',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 5/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://unpkg.com/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://unpkg.com/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
