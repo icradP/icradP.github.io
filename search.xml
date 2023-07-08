@@ -4,52 +4,25 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2023/04/11/veiba/"/>
-      <url>/2023/04/11/veiba/</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/2fcbb8a8185c60340bde6daa12798922.webp" alt="2fcbb8a8185c60340bde6daa12798922"></p><p><img src="/home/icrad/图片/img/3e97253a1b1779075a7270ac51e71225.webp" alt=""></p><p><img src="/home/icrad/图片/img/4d91417d8bf7a53382e03fd10bf480fe.webp" alt=""></p><p><img src="/home/icrad/图片/img/29a9029868fca1a4117932c0ce9c0456.webp" alt=""></p><p><img src="/home/icrad/图片/img/58f2ae06c05331203d76106190079c6d.webp" alt=""></p><p><img src="/home/icrad/图片/img/80d607fdf6a76167ff543b95a0277949.webp" alt=""></p><p><img src="/home/icrad/图片/img/45176095e8b9eda9c208538b0c084838.webp" alt=""></p><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/805298408906cbfb68750305e3dc81b0.webp" alt=""></p><p><img src="/home/icrad/图片/img/a0aa4b2f6098e31d67036529466eb2ea.webp" alt=""></p><p><img src="/home/icrad/图片/img/a0c21ba83ca669d9b49271cf23111555.webp" alt=""></p><p><img src="/home/icrad/图片/img/aa11ee650bce21c41a536228d7deeee8.webp" alt=""></p><p><img src="/home/icrad/图片/img/affe60a2dd1b8219ea8248c3ff646b41.webp" alt=""></p><p><img src="/home/icrad/图片/img/e2a03889bc230b9ba3236aaf4c9e81a5.webp" alt=""></p><p><img src="/home/icrad/图片/img/e4473e0c2de0d4d69cdf6cc6627f00d2.webp" alt=""></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2023/04/09/Untitled/"/>
-      <url>/2023/04/09/Untitled/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2023/04/08/tcp01/"/>
-      <url>/2023/04/08/tcp01/</url>
-      
-        <content type="html"><![CDATA[<h1 id="TCP注解"><a href="#TCP注解" class="headerlink" title="TCP注解"></a>TCP注解</h1><h1 id="半连接与全连接"><a href="#半连接与全连接" class="headerlink" title="半连接与全连接"></a>半连接与全连接</h1><h1 id="TIME-WAIT"><a href="#TIME-WAIT" class="headerlink" title="TIME_WAIT"></a>TIME_WAIT</h1><h2 id="问题引出"><a href="#问题引出" class="headerlink" title="问题引出"></a>问题引出</h2><p>偶然遇到的bind问题，在使用socket通信的时候，bind的函数调用却出现的地址绑定失败，表示地址已被占用，在natstat tcp 查看端口发现。程序还在占用的该服务器地址占用，并且状态为time_wait。</p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这是系统内核的socket中的TCP 协议的问题。</p><p>首先，当用户没有手动close 服务端套接字时，或者服务端进程意外（可以手动发送信号终止模拟）终止时，系统会手动调用tcp内核协议的关闭流程，进入time_wait状态，等待客户端fin 的ack 重传保证正常退出，这个状态估计有三分钟的时间。此时地址端口是占用的状态。</p><p>不管是服务器和客户端都会有timewait，客户端不常见的原因：主要是客户端tcp再建立链接绑定的时候，ip和端口是系统动态分配的，巧妙的规避了重绑占用的问题。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>端口复用，或者地址复用</p><p>setsockopt ()</p><p>就可以直接close释放地址占用，直接回收</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2023/04/07/cbase05/"/>
-      <url>/2023/04/07/cbase05/</url>
+      <title>C++注解|右值引用与移动语义</title>
+      <link href="/2023/04/08/cbase05/"/>
+      <url>/2023/04/08/cbase05/</url>
       
         <content type="html"><![CDATA[<h1 id="C-注解"><a href="#C-注解" class="headerlink" title="C++ 注解"></a>C++ 注解</h1><h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>C++11，再管理动态分配内存上，引入的智能指针。哥们理解为，是原生指针raw point 的高级封装。</p><p>C++98 就提供了auto_ptr，但是，到了C++11后，不再建议使用，摒弃了auto_ptr，而是提供了unique_ptr ， share_ptr与weak_ptr等</p><p>动态内存分配，能够有效的避免内存泄露的问题</p><p>多线程，多进程的动态分配内存中，常常可能因为某些原因，在释放内存，delete指针指向的内存之前，崩溃，异常捕获，造成内存泄露，悬挂指针问题</p><p>（当然还有可能忘记delete，这个就是程序员的问题了）</p><p>智能指针，将无需记住稍后释放这些new的内存，在智能指针过期时，这些内存将自动释放,你可以不用再担心释放问题（%90）</p><p>智能指针是具有线程安全的，shared指针中有个引用计数，并且引用计数的增加是原子操作。</p><p>需要注意的是，raw原生指针，与智能指针最好不要混用。</p><p>错误示例</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//原生指针</span></span><br><span class="line"><span class="type">double</span> * raw_ptr = <span class="keyword">new</span> <span class="built_in">double</span> (<span class="number">3.14</span>);</span><br><span class="line"><span class="comment">//将原生指针指向赋予给了一个唯一指针</span></span><br><span class="line"><span class="keyword">auto</span> uni_ptr = make_unique&lt;<span class="built_in">double</span>(raw_ptr);</span><br><span class="line"><span class="comment">//将原生指针的内存释放了</span></span><br><span class="line"><span class="keyword">delete</span> raw_ptr;</span><br></pre></td></tr></table></figure><p>正常编译，但是运行就会出现段错误, </p><p>可见，uni_ptr 并不能知道自己指向的内存已经释放，然后自动释放的时候二次调用这个产生的悬挂指针.</p><p>同理 ,分别定义了两个唯一指针，有了原生指针的参与，并不能保证指向的值是唯一的，所以也会触发段错误。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unique_ptr&lt;<span class="type">double</span>&gt; ptr_uni1;</span><br><span class="line">ptr_uni1 = <span class="built_in">unique_ptr</span>&lt;<span class="type">double</span>&gt;(raw_ptr);</span><br><span class="line">unique_ptr&lt;<span class="type">double</span>&gt; ptr_uni2;</span><br><span class="line">ptr_uni2 = <span class="built_in">unique_ptr</span>&lt;<span class="type">double</span>&gt;(raw_ptr);</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
       
     </entry>
     
@@ -323,33 +296,6 @@
         <tags>
             
             <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Plan | 后端学习路线</title>
-      <link href="/2022/10/25/Plan/"/>
-      <url>/2022/10/25/Plan/</url>
-      
-        <content type="html"><![CDATA[<h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><p>由于受到网友启发，意识到自己依旧没有摸到入门的门槛，决定重新规划一个新的学习路线，计划时间是5个月以内，保证在应届毕业生身份还没丢失之前完成以下学习路线（即使任重而道远，头发掉光也在所不惜）。</p><p>这里参考施磊老师， 和某企鹅后端在职的大佬的学习路线进行学习</p><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>积累基础知识和语法这一块，通过黑马的课程进行学习的，至少学完了是大学大一的水平，掌握基本的语法会用，但是没有涉及到不同编译器不同系统环境的和实际应用的层面，这时写出来的纯粹是玩具代码。</p><p>随后看侯捷老师课程的基础提高，养成良好的编程习惯，主要还是掌握思想的部分（因为我都是用clang-format来格式化代码习惯了orz）</p><ul><li>C++面向对象高级开发</li><li>stl与泛型</li><li>C++标准11-14</li><li>C++的内存管理</li><li>设计模式通过李建忠老师的设计模式课程进行学习</li></ul><p>虽然有很多东西都已经过时了，但是作为入门基础还是可以参考的</p><h4 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h4><p>从头到尾把黑马的linux教程看了一遍，并做了笔记跟着敲各种命令，一个月，不能说熟悉，应该是会用的级别。</p><h4 id="数据结构与算法基础"><a href="#数据结构与算法基础" class="headerlink" title="数据结构与算法基础"></a>数据结构与算法基础</h4><p>这个阶段，理论和实战并存，在学习侯捷老师的算法原理和实践课程的同时刷leetcode算法题</p><p>（在学习的过程中做了几个笔试的题目发现大部分都是ACM模式，同时也刷着牛客的题库）</p><p>期间跟着carl大佬的代码随想录路线和剑指Offer进行刷题，目标是200~300左右的量保证能够默写，不看题解，能够在满足时间复杂度要求的同时，再进一步优化算法</p><h4 id="计网"><a href="#计网" class="headerlink" title="计网"></a>计网</h4><p>刷了刷考研用的计网课程，感觉还行。不过在实践中，具体需要了解的还是四层标准，这才是具体要掌握的地方，期间翻阅了谢希仁的自顶向下和unix的网络编程，随着代码量的增加也能逐渐理解运输层和网络层的内容了。</p><h4 id="机组"><a href="#机组" class="headerlink" title="机组"></a>机组</h4><p>这个部分，需要配合经典黑本本和哔站大学的课程才啃了一半（虽然这些部分在网络编程不是重点，毕竟作为一个使用C/C++做主语言的，还是得懂点底层的东西，不能不求甚解</p><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><ul><li>熟悉数据库连接池</li><li>手写NGINX和SGI STL内存池</li><li>C++项目——集群聊天服务器</li><li>C++项目——分布式的网络通信框架（rpc通信)</li><li>C++从0手写线程池</li><li>手写C++ Muduo网络库项目</li></ul><p>以上的项目做完的时候应该算是称得上入门了，应该。</p><h3 id="需要注意的是"><a href="#需要注意的是" class="headerlink" title="需要注意的是"></a>需要注意的是</h3><p>由于项目涉及到跨平台，又要回到win和虚拟机上开始重新配置环境哩（悲，笔记本硬件不行已经开始害怕了，用了三个月ubuntu当主力机，响应速度真不是win能比的</p><p>需要规划好时间，学习新知识的同时，除了实战，理论，还需要做好笔记，时间的不确定性是相当大的，我会尽量保证在规定时间内，做到一定的量，但是实在是卡壳的地方，确实没有办法（毕竟是自学，老师就是网络，而网络，确实不稳定，很多问题答案很粗略，甚至是不正确的，所以该完成学习计划可能要花很久不止5个月，其中画一两个月可能都在踩坑，但是我认为，即使花上再多时间，也是值得的</p><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p><del>谁能想到我是看到了游戏科学（黑神话）的后端招聘才想着要不要试试学习后端的呢？</del></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 后端 </tag>
             
         </tags>
       
@@ -649,31 +595,6 @@
     
     
     <entry>
-      <title>C++ 中比较重要的基础知识</title>
-      <link href="/2022/07/24/C++%E4%B8%AD%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-      <url>/2022/07/24/C++%E4%B8%AD%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> C++ </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>C++复健1(未整理)</title>
       <link href="/2022/07/24/cfj/"/>
       <url>/2022/07/24/cfj/</url>
@@ -900,9 +821,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> GDB </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 调试 </tag>
             
