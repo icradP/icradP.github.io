@@ -180,7 +180,7 @@
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'https://icrad-twikoo.zeabur.app/',
+      envId: 'https://icrad-twikoo-blog.zeabur.app/',
       region: 'ap-shanghai',
       onCommentLoaded: function () {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -192,7 +192,7 @@
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'https://icrad-twikoo.zeabur.app/',
+      envId: 'https://icrad-twikoo-blog.zeabur.app/',
       region: 'ap-shanghai',
       urls: [window.location.pathname],
       includeReply: false
@@ -242,7 +242,7 @@
   const getComment = () => {
     const runTwikoo = () => {
       twikoo.getRecentComments({
-        envId: 'https://icrad-twikoo.zeabur.app/',
+        envId: 'https://icrad-twikoo-blog.zeabur.app/',
         region: 'ap-shanghai',
         pageSize: 6,
         includeReply: true
