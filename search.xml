@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>面试|第一回  “主打就是一个真诚”</title>
+      <link href="/2023/08/29/mianshi/"/>
+      <url>/2023/08/29/mianshi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于我面试啥也不会胡说八道这件事"><a href="#关于我面试啥也不会胡说八道这件事" class="headerlink" title="关于我面试啥也不会胡说八道这件事"></a>关于我面试啥也不会胡说八道这件事</h1><p>进行一个简单的面试记录，记录面试遇到的所有问题，奇葩言论<del>大多来源于我</del></p><h2 id="第一回-“主打就是一个真诚”"><a href="#第一回-“主打就是一个真诚”" class="headerlink" title="第一回  “主打就是一个真诚”"></a>第一回  “主打就是一个真诚”</h2><blockquote><p>面试官：你觉得深圳怎么样<br>我：一个字 快<br>面试官： 感觉 有活力开放的？<br>我： 感觉，前途一片灰暗<br>面试官：……</p><p>嗯，等通知。</p></blockquote><h3 id="出大问题的问题"><a href="#出大问题的问题" class="headerlink" title="出大问题的问题"></a>出大问题的问题</h3><ul><li>Q 类的成员变量 使用 const进行修饰与使用static修饰<ul><li>A： stiaic修饰需要在类外进行定义，因为在类中不是定义而是声明，const，嗯，常量表示不可修改。</li><li>Q： static呢？还有吗？初始化呢？</li><li>A ：嗯，，好像C++17有个特性 static inline 成员变量 可以在类里定义，其他的忘了。</li></ul></li></ul><p><strong>正确答案</strong>：static的最大的作用没讲出来：表示这是一个静态成员变量，它属于类而不是类的实例。类的共享成员变量。它在程序启动时分配内存，放在data段中 并在整个程序生命周期内存在。</p><ul><li><p>Q 关于MySql 的联表查询，你会写出的SQL 语句</p><ul><li>A：我知道关键字 union 和join。 </li><li>Q：UINION 不是，你说说看join ，又有几种JION。</li><li>A： 哦哦，想起来了，UINION 是查询select的时候用到的 不过JION 的我忘了。</li><li>Q : ……</li></ul></li></ul><p><strong>正确答案</strong>：MySQL支持不同类型的JOIN操作，包括INNER JOIN、LEFT JOIN、RIGHT JOIN和FULL JOIN，</p><ol><li><p><strong>INNER JOIN（内连接）</strong>：INNER JOIN返回两个表中匹配的行，且仅返回匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT employees.name, departments.department_name</span><br><span class="line">FROM employees</span><br><span class="line">INNER JOIN departments ON employees.department_id = departments.id;</span><br></pre></td></tr></table></figure></li><li><p><strong>LEFT JOIN（左连接）</strong>：LEFT JOIN返回左边表中的所有行以及与右边表中匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.customer_name, orders.order_id</span><br><span class="line">FROM customers</span><br><span class="line">LEFT JOIN orders ON customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure></li><li><p><strong>RIGHT JOIN（右连接）</strong>：RIGHT JOIN返回右边表中的所有行以及与左边表中匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT orders.order_id, customers.customer_name</span><br><span class="line">FROM orders</span><br><span class="line">RIGHT JOIN customers ON orders.customer_id = customers.customer_id;</span><br></pre></td></tr></table></figure></li><li><p><strong>FULL JOIN（全连接）</strong>：FULL JOIN返回两个表中的所有行，如果没有匹配的行，则返回NULL。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.customer_name, orders.order_id</span><br><span class="line">FROM customers</span><br><span class="line">FULL JOIN orders ON customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure></li></ol><p>这些是最常见的JOIN类型。要执行联表查询，需要指定连接条件，这是连接两个表的基础。</p><ul><li><p>Q 关于MySql ，如果你要存储一个Age 的field，你会写出的SQL 语句</p><ul><li>A:我只记得要数据类型的指定</li><li>Q: 你指定什么呢？</li><li>A :整形吧INTIGER</li><li>Q :还有呢</li><li>A: 也可以VARCHAR， 哦，好像还要指定大小</li><li>Q: 然后呢</li><li>A :呃，忘了</li><li>Q :还有<strong>TINYINT</strong> <strong>SMALLINT</strong> <strong>MEDIUMINT</strong> <strong>BIGINT</strong></li><li>A :哦哦，你说我就想起来了</li><li>……</li></ul></li></ul><p><strong>正确示例</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (PersonID INT PRIMARY KEY,    FirstName VARCHAR(50),    LastName VARCHAR(50),    Age INT );</span><br></pre></td></tr></table></figure><ul><li>Q：关于Qt QApplication 是？<ul><li>A： 我只知道是Qt程序初始化的必要的类。</li><li>Q ：…… 你确定？</li><li>A ： 我只会调库查QAsistance,其他不会就现查（瘫坐</li><li>A：……</li></ul></li></ul><p><strong>正确答案</strong>：QApplication对象是Qt GUI应用程序的核心。它管理应用程序的控制流和主要设置。在英语中，我们通常会说 “The QApplication object is the heart of the Qt application. It manages the GUI application’s control flow and main settings.”（QApplication对象是Qt应用程序的核心。它管理GUI应用程序的控制流和主要设置）。<br>———————————————<br>CSDN：<a href="https://blog.csdn.net/qq_21438461/article/details/131830930">https://blog.csdn.net/qq_21438461/article/details/131830930</a></p><ul><li>Q ：C++如何处理或者实现http请求<ul><li>A  ： 刚刚我说了，我只会调库，比如Qt 下我就调QNetworkAccessManager，可以实现GET 与 POST等请求，或者引用第三方的开源库 curl 等</li><li>Q：我要发个XML 该怎么做</li><li>A：我记得POST请求头里修改个啥，具体我忘了</li></ul></li></ul><p><strong>正确示例：提交表单</strong></p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/submit_user_info</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/xml</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>123</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>John Doe<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">email</span>&gt;</span>john@example.com<span class="tag">&lt;/<span class="name">email</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span></span><br></pre></td></tr></table></figure><ul><li>Q ： 你知道几种C++ 包管理。<ul><li>A： 嗯，我记得有个xmake , vcpkg</li><li>Q ：好处</li><li>A： 版本控制方便吧，环境配置，迁移能方便些？</li><li>Q: 然后呢？</li><li>A ：但我没用过，我都是git clone 别人的 然后 编译静态库或者动态库。我是调库小子</li><li>Q : …</li></ul></li></ul><p><strong>正确答案</strong>：xmake 是个构建工具，并不是包管理工具，但简单包管理是它的功能之一，<strong>vcpkg 和 conan</strong> 是很好的包管理器 可以更方便地安装依赖关系，并决定所安装的版本，两种包管理器都适用于各种平台，</p><p>C++ 的包因为编译器版本不同，库不同，系统环境不同，C++ 标准不同等复杂的编译变量，需要一个好的包管理器进行管理。在多人开发的大型项目中，能够解决很多环境问题。</p><ul><li>Q ：单例实现<ul><li>A ： 嗯，简单的说就是，类的构造函数都是私有的或者delete了，外没法直接调用构造，所以需要一个嵌套的类进行辅助的初始化和析构吧。。应该，我记得有两种写法，一种是懒汉，一种是饿汉</li><li>Q ： 多线程下，单例需要加锁吗？</li><li>A ： 嗯，我记得，不要，main函数之前创建的来着？忘了，应该是不用吧</li><li>Q ：如果是调用的时候才创建，多线程同时调用不就会出现线程安全问题吗？</li><li>A ： 是哦，懒汉还是饿汉不用我也分不清了。按照您这么说那指定是要用到同步机制锁等方式来解决的的。</li><li>Q：…….</li></ul></li></ul><p><strong>正确答案</strong>：懒汉是不需要加锁的，饿汉是需要使用同步机制锁的方式来避免线程安全问题。懒汉在程序开始执行main函数之前，已经初始化好了，并且只初始化了一次就不会再进行初始化，而饿汉不同，饿汉是因为 调用外部接口的时候才创建，就会出现线程安全问题。初始化很费劲的时候常常使用 懒汉 的写法。</p><h3 id="面试的总结：脑子犯浑。"><a href="#面试的总结：脑子犯浑。" class="headerlink" title="面试的总结：脑子犯浑。"></a>面试的总结：脑子犯浑。</h3><p><del>这下我知道为什么面试官最后要自夸他很温和了。。。</del></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法|十大排序算法与C++实现</title>
       <link href="/2023/08/03/sort/"/>
       <url>/2023/08/03/sort/</url>
@@ -350,31 +375,6 @@
         <tags>
             
             <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>面试|第一回  “主打就是一个真诚”</title>
-      <link href="/2022/08/29/mianshi/"/>
-      <url>/2022/08/29/mianshi/</url>
-      
-        <content type="html"><![CDATA[<h1 id="关于我面试啥也不会胡说八道这件事"><a href="#关于我面试啥也不会胡说八道这件事" class="headerlink" title="关于我面试啥也不会胡说八道这件事"></a>关于我面试啥也不会胡说八道这件事</h1><p>进行一个简单的面试记录，记录面试遇到的所有问题，奇葩言论<del>大多来源于我</del></p><h2 id="第一回-“主打就是一个真诚”"><a href="#第一回-“主打就是一个真诚”" class="headerlink" title="第一回  “主打就是一个真诚”"></a>第一回  “主打就是一个真诚”</h2><blockquote><p>面试官：你觉得深圳怎么样<br>我：一个字 快<br>面试官： 感觉 有活力开放的？<br>我： 感觉，前途一片灰暗<br>面试官：……</p><p>嗯，等通知。</p></blockquote><h3 id="出大问题的问题"><a href="#出大问题的问题" class="headerlink" title="出大问题的问题"></a>出大问题的问题</h3><ul><li>Q 类的成员变量 使用 const进行修饰与使用static修饰<ul><li>A： stiaic修饰需要在类外进行定义，因为在类中不是定义而是声明，const，嗯，常量表示不可修改。</li><li>Q： static呢？还有吗？初始化呢？</li><li>A ：嗯，，好像C++17有个特性 static inline 成员变量 可以在类里定义，其他的忘了。</li></ul></li></ul><p><strong>正确答案</strong>：static的最大的作用没讲出来：表示这是一个静态成员变量，它属于类而不是类的实例。类的共享成员变量。它在程序启动时分配内存，放在data段中 并在整个程序生命周期内存在。</p><ul><li><p>Q 关于MySql 的联表查询，你会写出的SQL 语句</p><ul><li>A：我知道关键字 union 和join。 </li><li>Q：UINION 不是，你说说看join ，又有几种JION。</li><li>A： 哦哦，想起来了，UINION 是查询select的时候用到的 不过JION 的我忘了。</li><li>Q : ……</li></ul></li></ul><p><strong>正确答案</strong>：MySQL支持不同类型的JOIN操作，包括INNER JOIN、LEFT JOIN、RIGHT JOIN和FULL JOIN，</p><ol><li><p><strong>INNER JOIN（内连接）</strong>：INNER JOIN返回两个表中匹配的行，且仅返回匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT employees.name, departments.department_name</span><br><span class="line">FROM employees</span><br><span class="line">INNER JOIN departments ON employees.department_id = departments.id;</span><br></pre></td></tr></table></figure></li><li><p><strong>LEFT JOIN（左连接）</strong>：LEFT JOIN返回左边表中的所有行以及与右边表中匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.customer_name, orders.order_id</span><br><span class="line">FROM customers</span><br><span class="line">LEFT JOIN orders ON customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure></li><li><p><strong>RIGHT JOIN（右连接）</strong>：RIGHT JOIN返回右边表中的所有行以及与左边表中匹配的行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT orders.order_id, customers.customer_name</span><br><span class="line">FROM orders</span><br><span class="line">RIGHT JOIN customers ON orders.customer_id = customers.customer_id;</span><br></pre></td></tr></table></figure></li><li><p><strong>FULL JOIN（全连接）</strong>：FULL JOIN返回两个表中的所有行，如果没有匹配的行，则返回NULL。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.customer_name, orders.order_id</span><br><span class="line">FROM customers</span><br><span class="line">FULL JOIN orders ON customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure></li></ol><p>这些是最常见的JOIN类型。要执行联表查询，需要指定连接条件，这是连接两个表的基础。</p><ul><li><p>Q 关于MySql ，如果你要存储一个Age 的field，你会写出的SQL 语句</p><ul><li>A:我只记得要数据类型的指定</li><li>Q: 你指定什么呢？</li><li>A :整形吧INTIGER</li><li>Q :还有呢</li><li>A: 也可以VARCHAR， 哦，好像还要指定大小</li><li>Q: 然后呢</li><li>A :呃，忘了</li><li>Q :还有<strong>TINYINT</strong> <strong>SMALLINT</strong> <strong>MEDIUMINT</strong> <strong>BIGINT</strong></li><li>A :哦哦，你说我就想起来了</li><li>……</li></ul></li></ul><p><strong>正确示例</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (PersonID INT PRIMARY KEY,    FirstName VARCHAR(50),    LastName VARCHAR(50),    Age INT );</span><br></pre></td></tr></table></figure><ul><li>Q：关于Qt QApplication 是？<ul><li>A： 我只知道是Qt程序初始化的必要的类。</li><li>Q ：…… 你确定？</li><li>A ： 我只会调库查QAsistance,其他不会就现查（瘫坐</li><li>A：……</li></ul></li></ul><p><strong>正确答案</strong>：QApplication对象是Qt GUI应用程序的核心。它管理应用程序的控制流和主要设置。在英语中，我们通常会说 “The QApplication object is the heart of the Qt application. It manages the GUI application’s control flow and main settings.”（QApplication对象是Qt应用程序的核心。它管理GUI应用程序的控制流和主要设置）。<br>———————————————<br>CSDN：<a href="https://blog.csdn.net/qq_21438461/article/details/131830930">https://blog.csdn.net/qq_21438461/article/details/131830930</a></p><ul><li>Q ：C++如何处理或者实现http请求<ul><li>A  ： 刚刚我说了，我只会调库，比如Qt 下我就调QNetworkAccessManager，可以实现GET 与 POST等请求，或者引用第三方的开源库 curl 等</li><li>Q：我要发个XML 该怎么做</li><li>A：我记得POST请求头里修改个啥，具体我忘了</li></ul></li></ul><p><strong>正确示例：提交表单</strong></p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/submit_user_info</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/xml</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>123</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>John Doe<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">email</span>&gt;</span>john@example.com<span class="tag">&lt;/<span class="name">email</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span></span><br></pre></td></tr></table></figure><ul><li>Q ： 你知道几种C++ 包管理。<ul><li>A： 嗯，我记得有个xmake , vcpkg</li><li>Q ：好处</li><li>A： 版本控制方便吧，环境配置，迁移能方便些？</li><li>Q: 然后呢？</li><li>A ：但我没用过，我都是git clone 别人的 然后 编译静态库或者动态库。我是调库小子</li><li>Q : …</li></ul></li></ul><p><strong>正确答案</strong>：xmake 是个构建工具，并不是包管理工具，但简单包管理是它的功能之一，<strong>vcpkg 和 conan</strong> 是很好的包管理器 可以更方便地安装依赖关系，并决定所安装的版本，两种包管理器都适用于各种平台，</p><p>C++ 的包因为编译器版本不同，库不同，系统环境不同，C++ 标准不同等复杂的编译变量，需要一个好的包管理器进行管理。在多人开发的大型项目中，能够解决很多环境问题。</p><ul><li>Q ：单例实现<ul><li>A ： 嗯，简单的说就是，类的构造函数都是私有的或者delete了，外没法直接调用构造，所以需要一个嵌套的类进行辅助的初始化和析构吧。。应该，我记得有两种写法，一种是懒汉，一种是饿汉</li><li>Q ： 多线程下，单例需要加锁吗？</li><li>A ： 嗯，我记得，不要，main函数之前创建的来着？忘了，应该是不用吧</li><li>Q ：如果是调用的时候才创建，多线程同时调用不就会出现线程安全问题吗？</li><li>A ： 是哦，懒汉还是饿汉不用我也分不清了。按照您这么说那指定是要用到同步机制锁等方式来解决的的。</li><li>Q：…….</li></ul></li></ul><p><strong>正确答案</strong>：懒汉是不需要加锁的，饿汉是需要使用同步机制锁的方式来避免线程安全问题。懒汉在程序开始执行main函数之前，已经初始化好了，并且只初始化了一次就不会再进行初始化，而饿汉不同，饿汉是因为 调用外部接口的时候才创建，就会出现线程安全问题。初始化很费劲的时候常常使用 懒汉 的写法。</p><h3 id="面试的总结：脑子犯浑。"><a href="#面试的总结：脑子犯浑。" class="headerlink" title="面试的总结：脑子犯浑。"></a>面试的总结：脑子犯浑。</h3><p><del>这下我知道为什么面试官最后要自夸他很温和了。。。</del></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 面试 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 面试 </tag>
             
         </tags>
       
@@ -884,35 +884,6 @@
     
     
     <entry>
-      <title>GDB基础</title>
-      <link href="/2022/07/14/GDB/"/>
-      <url>/2022/07/14/GDB/</url>
-      
-        <content type="html"><![CDATA[<h2 id="GDB的调试"><a href="#GDB的调试" class="headerlink" title="GDB的调试"></a>GDB的调试</h2><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gdb.jpg" alt=""></p><p><strong>GDB (GUN DEBUGGER)</strong></p><ol><li><p>设置断点</p></li><li><p>单步运行</p></li><li><p>查看变量值</p></li><li><p>动态改变执行环境</p></li><li><p>分析崩溃产生core文件</p><span id="more"></span></li></ol><h3 id="GDB调试参数"><a href="#GDB调试参数" class="headerlink" title="GDB调试参数"></a>GDB调试参数</h3><p>调试需要在编译时加入可调试信息才可使用GDB工具进行调试</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ -g test.cpp -o <span class="built_in">test</span></span><br><span class="line"><span class="comment">#生成可调试的执行文件</span></span><br></pre></td></tr></table></figure><h3 id="GDB-常用指令"><a href="#GDB-常用指令" class="headerlink" title="GDB 常用指令"></a>GDB 常用指令</h3><p>​    说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个比较基础的<del>糊弄糊弄，就记住几个</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">gdb [file]</span><br><span class="line"><span class="comment">#执行gdb调试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#进入gdb，可以直接输入命令</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>(b) [num]</span><br><span class="line"><span class="comment">#在第num行代码设置断电</span></span><br><span class="line"></span><br><span class="line">info breakpoint </span><br><span class="line"><span class="comment">#查看当前代码信息</span></span><br><span class="line"></span><br><span class="line">display [变量]</span><br><span class="line"><span class="comment">#显示变量，在每次运行到断点显示值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">continue</span></span><br><span class="line"><span class="comment">#继续运行</span></span><br><span class="line"></span><br><span class="line">run</span><br><span class="line"><span class="comment">#运行程序</span></span><br><span class="line"></span><br><span class="line">quit</span><br><span class="line"><span class="comment">#退出GDB调试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#更多的我也记不到了，用man gdb指令查吧</span></span><br></pre></td></tr></table></figure><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>程序出现段错误时，GDB打开可调试的执行文件，直接运行，程序停止位置表示段错误的位置</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> GDB </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> GDB </tag>
-            
-            <tag> C++ </tag>
-            
-            <tag> 调试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>G++基础</title>
       <link href="/2022/07/14/Gcc/"/>
       <url>/2022/07/14/Gcc/</url>
@@ -929,9 +900,38 @@
       
         <tags>
             
+            <tag> G++ </tag>
+            
             <tag> C++ </tag>
             
-            <tag> G++ </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GDB基础</title>
+      <link href="/2022/07/14/GDB/"/>
+      <url>/2022/07/14/GDB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="GDB的调试"><a href="#GDB的调试" class="headerlink" title="GDB的调试"></a>GDB的调试</h2><p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/gdb.jpg" alt=""></p><p><strong>GDB (GUN DEBUGGER)</strong></p><ol><li><p>设置断点</p></li><li><p>单步运行</p></li><li><p>查看变量值</p></li><li><p>动态改变执行环境</p></li><li><p>分析崩溃产生core文件</p><span id="more"></span></li></ol><h3 id="GDB调试参数"><a href="#GDB调试参数" class="headerlink" title="GDB调试参数"></a>GDB调试参数</h3><p>调试需要在编译时加入可调试信息才可使用GDB工具进行调试</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ -g test.cpp -o <span class="built_in">test</span></span><br><span class="line"><span class="comment">#生成可调试的执行文件</span></span><br></pre></td></tr></table></figure><h3 id="GDB-常用指令"><a href="#GDB-常用指令" class="headerlink" title="GDB 常用指令"></a>GDB 常用指令</h3><p>​    说多也不多，毕竟现在调试大多都是gui调试，暂时很少直接用gdb命令行进行调试，写几个比较基础的<del>糊弄糊弄，就记住几个</del></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">gdb [file]</span><br><span class="line"><span class="comment">#执行gdb调试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#进入gdb，可以直接输入命令</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>(b) [num]</span><br><span class="line"><span class="comment">#在第num行代码设置断电</span></span><br><span class="line"></span><br><span class="line">info breakpoint </span><br><span class="line"><span class="comment">#查看当前代码信息</span></span><br><span class="line"></span><br><span class="line">display [变量]</span><br><span class="line"><span class="comment">#显示变量，在每次运行到断点显示值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">continue</span></span><br><span class="line"><span class="comment">#继续运行</span></span><br><span class="line"></span><br><span class="line">run</span><br><span class="line"><span class="comment">#运行程序</span></span><br><span class="line"></span><br><span class="line">quit</span><br><span class="line"><span class="comment">#退出GDB调试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#更多的我也记不到了，用man gdb指令查吧</span></span><br></pre></td></tr></table></figure><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>程序出现段错误时，GDB打开可调试的执行文件，直接运行，程序停止位置表示段错误的位置</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> GDB </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> GDB </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
