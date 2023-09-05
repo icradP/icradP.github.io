@@ -30,19 +30,6 @@
     
     <entry>
       <title></title>
-      <link href="/2023/08/30/GIT%20%E7%AE%80%E5%8D%95%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/"/>
-      <url>/2023/08/30/GIT%20%E7%AE%80%E5%8D%95%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="GIT-简单工作流程"><a href="#GIT-简单工作流程" class="headerlink" title="GIT 简单工作流程"></a>GIT 简单工作流程</h1><p>clone 拉取仓库到本地工作区</p><p>branch 创建或者删除分支在本地仓库</p><p>checkout / switch 切换指定分支</p><p>add 添加项目到暂存区中</p><p>commit -a/-m提交 到本地仓库</p><p>push 推送到远程仓库</p><p>.gitignore的文件的创建，添加是否需要忽略的项</p><p>merge 合并分支。</p><p>fetch 更新本地仓库，</p><p>diff 将本地仓库更新到工作区</p><p>pull 直接将远程仓库更新到工作区</p><p>高地址</p><ul><li>栈区向上生长 </li><li>未使用的内存</li><li>堆区，不连续的</li><li>全局数据区 <ul><li>C 语言分初始化与为初始化的区</li></ul></li><li>常量区</li><li>代码区</li></ul><p>网络ISO </p><p>七层:</p><ul><li>物理层</li><li>数据链路层</li><li>网络层</li><li>传输层 (TCP/UDP)</li><li>应用层</li></ul><p>并发与并行</p><p>并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。 并行需要硬件支持，如多流水线、多核处理器或者分布式计算系统。</p><p>操作系统通过引入进程和线程，使得程序能够并发运行。</p><h2 id="win消息产生的逻辑"><a href="#win消息产生的逻辑" class="headerlink" title="win消息产生的逻辑"></a>win消息产生的逻辑</h2><p>postMessages ort sendmessage</p><p>post是投递到队列中</p><p>sendmessage不进队列，发乳窗口处理的函数等待处理</p><p>GetMessage </p><p>TranslateMassage</p><p>DIspatchMessage</p><p>操作系统把系统消息队列转发到个个进程</p><p>根据窗口句柄，拿到数据内存，通过数据内存拿到当前程序的示例的句柄，根据该句柄拿到当前程序。</p><p>Windows给每一个进程分配一个资源表也叫句柄表，句柄映射到内核层，映射的是内核的底层硬件示例</p><p>由于window本身消息机制的缺陷，定时器的间隔如果低于50ms，则可靠性极大降低。</p><p>linux Windows 堆栈大小 Windows 不同编译器不同 msvc1M，Linux 是系统决定8kb</p><h2 id="Qt-六种连接方式"><a href="#Qt-六种连接方式" class="headerlink" title="Qt 六种连接方式"></a>Qt 六种连接方式</h2><p>常用三中</p><p>直连和排队连，自动判断连</p><p>直连，单线程下触发，直连同步</p><p>排队连，扔到类似队列里等待，异步连</p><p>自动连二者皆有</p><p>自定义的类要继承QObject 并且要生命一个宏Q_OBJECT</p><p>QQAPP是一个事件循环。每个Qt程序不能少了他</p><h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>任务队列，这个任务队列必须有线程安全</p><p>工作线程</p><p>管理者线程</p><p>任务类</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/2023/08/30/Gitwork/"/>
       <url>/2023/08/30/Gitwork/</url>
       
