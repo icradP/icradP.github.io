@@ -29,19 +29,6 @@
     
     
     <entry>
-      <title></title>
-      <link href="/2023/08/30/Gitwork/"/>
-      <url>/2023/08/30/Gitwork/</url>
-      
-        <content type="html"><![CDATA[<p>GIT 简单工作流程</p><p>clone 拉取仓库到本地工作区</p><p>branch 创建分支在本地工作去</p><p>checkout / switch 切换指定分支</p><p>add 添加项目到暂存区中</p><p>commit 提交</p><p>。gitignore的文件的创建，添加是否需要忽略的项</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>面试|“主打就是一个真诚”</title>
       <link href="/2023/08/29/mianshi/"/>
       <url>/2023/08/29/mianshi/</url>
