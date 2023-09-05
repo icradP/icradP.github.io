@@ -30,19 +30,6 @@
     
     <entry>
       <title></title>
-      <link href="/2023/09/01/Untitled/"/>
-      <url>/2023/09/01/Untitled/</url>
-      
-        <content type="html"><![CDATA[<h1 id="面试-“需要社会拷打拷打”"><a href="#面试-“需要社会拷打拷打”" class="headerlink" title="面试 |  “需要社会拷打拷打”"></a>面试 |  “需要社会拷打拷打”</h1><p>感觉这次没什么骚话要讲，也掰扯不出那么多奇奇怪怪的东西，直接上问题吧</p><blockquote><p>看项目后面有写UDP穿透</p><p>是的，这个项目确实用到了UDP 穿透，但由于当时的技术原因，该UDP穿透功能没有实际完成。</p><p>受到的阻碍有哪些</p><p>这个网络环境很复杂的嘛，网络有个NAT协议，就是那个net address tranclation 网络地址转换，用来处理IPv4地址资源不够的问题，NAT协议又分有不同的限制来着，有四种，嗯，主要分锥形和对称nat,锥形有份有IP受限，端口受限。对称NAT IP端口全受限。</p></blockquote>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/2023/08/30/GIT%20%E7%AE%80%E5%8D%95%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/"/>
       <url>/2023/08/30/GIT%20%E7%AE%80%E5%8D%95%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
       
