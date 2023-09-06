@@ -1,0 +1,448 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>面试| “主打的是一个叛逆” | icrad的博客</title><meta name="keywords" content="面试"><meta name="author" content="Icrad"><meta name="copyright" content="Icrad"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面试 | “主打的是一个叛逆” 面试官：你周围的同学都学什么语言呢？ 我： JAVA ，前端比较多。 面试官：那你为什么要选C++？ 我：主打的是一个叛逆吧啊哈哈….. ……  遇到的实习岗位的几个面试题，有一个代码题我忘了是啥了，和一些比较关键的问题吧 笔试字符串反转没什么好说的，不允许使用额外内存那就用指针换呗，用c的写法，用的两个指针 1234567891011121314void reve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试| “主打的是一个叛逆”">
+<meta property="og:url" content="https://www.icrad.top/2023/09/06/mianshi02/index.html">
+<meta property="og:site_name" content="icrad的博客">
+<meta property="og:description" content="面试 | “主打的是一个叛逆” 面试官：你周围的同学都学什么语言呢？ 我： JAVA ，前端比较多。 面试官：那你为什么要选C++？ 我：主打的是一个叛逆吧啊哈哈….. ……  遇到的实习岗位的几个面试题，有一个代码题我忘了是啥了，和一些比较关键的问题吧 笔试字符串反转没什么好说的，不允许使用额外内存那就用指针换呗，用c的写法，用的两个指针 1234567891011121314void reve">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-09-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-06T15:06:08.579Z">
+<meta property="article:author" content="Icrad">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="http://q1.qlogo.cn/g?b=qq&nk=972791158&s=100"><link rel="canonical" href="https://www.icrad.top/2023/09/06/mianshi02/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试| “主打的是一个叛逆”',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2023-09-06 23:06:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-palette"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">icrad的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-palette"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">面试| “主打的是一个叛逆”</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-05T16:00:00.000Z" title="发表于 2023-09-06 00:00:00">2023-09-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-06T15:06:08.579Z" title="更新于 2023-09-06 23:06:08">2023-09-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面试| “主打的是一个叛逆”"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="面试-“主打的是一个叛逆”"><a href="#面试-“主打的是一个叛逆”" class="headerlink" title="面试 | “主打的是一个叛逆”"></a>面试 | “主打的是一个叛逆”</h1><blockquote>
+<p>面试官：你周围的同学都学什么语言呢？</p>
+<p>我： JAVA ，前端比较多。</p>
+<p>面试官：那你为什么要选C++？</p>
+<p>我：主打的是一个叛逆吧啊哈哈…..</p>
+<p>……</p>
+</blockquote>
+<p>遇到的实习岗位的几个面试题，<del>有一个代码题我忘了是啥了</del>，和一些比较关键的问题吧</p>
+<h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><h3 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h3><p>没什么好说的，不允许使用额外内存那就用指针换呗，用c的写法，用的两个指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">char</span>* cstr)</span>&#123;</span><br><span class="line">     <span class="type">int</span> length = <span class="keyword">sizeof</span>(str);<span class="comment">//这里我使用的是sizeof</span></span><br><span class="line">    <span class="type">char</span> *left = str;</span><br><span class="line">    <span class="type">char</span> *right = str + length - <span class="number">2</span> ;<span class="comment">//不需要反转字符串\0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="comment">// 交换左右两个字符</span></span><br><span class="line">        <span class="type">char</span> temp = *left;</span><br><span class="line">        *left = *right;</span><br><span class="line">        *right = temp;</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二叉树最大深度"><a href="#二叉树最大深度" class="headerlink" title="二叉树最大深度"></a>二叉树最大深度</h3><p>这玩意，写了个伪代码出来（题目上写着伪代码也可）。思路没毛病，递归，求当前节点的最大深度（迭代也可以），比较左右子数的最大深度就行。</p>
+<h4 id="递归的实现"><a href="#递归的实现" class="headerlink" title="递归的实现"></a>递归的实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">NULL</span>), <span class="built_in">right</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;<span class="comment">//定义一个二叉树节点结构体</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//递归调用</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="comment">//根为0就为0</span></span><br><span class="line">    <span class="type">int</span> leftDepth = <span class="built_in">MaxDepth</span>(root-&gt;left);</span><br><span class="line">    <span class="type">int</span> rightDepth = <span class="built_in">MaxDepth</span>(root-&gt;right);</span><br><span class="line">    <span class="type">int</span> depth = <span class="built_in">maxDepth</span>(root);</span><br><span class="line">    <span class="keyword">return</span> std::<span class="built_in">max</span>(leftDepth, rightDepth) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="迭代的实现"><a href="#迭代的实现" class="headerlink" title="迭代的实现"></a>迭代的实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//用队列存放二叉树结构</span></span><br><span class="line">    std::queue&lt;TreeNode*&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(root);</span><br><span class="line">    <span class="type">int</span> depth = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> levelSize = q.<span class="built_in">size</span>(); <span class="comment">// 当前层的节点数</span></span><br><span class="line">        <span class="comment">// 将当前层的所有节点出队，并将下一层的节点入队</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; levelSize; ++i) &#123;</span><br><span class="line">            TreeNode* node = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (node-&gt;left) &#123;</span><br><span class="line">                q.<span class="built_in">push</span>(node-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;right) &#123;</span><br><span class="line">                q.<span class="built_in">push</span>(node-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        depth++; <span class="comment">// 深度加一，表示已经遍历完一层</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> depth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最长递增序列子串长度"><a href="#最长递增序列子串长度" class="headerlink" title="最长递增序列子串长度"></a>最长递增序列子串长度</h3><p>草稿上想了一会补出来了使用的滑动窗口双指针的方法，有很多小问题。并且我感觉动态规划也是可以做到的，参照下方的最大回文子串实现</p>
+<h4 id="滑动窗口的实现"><a href="#滑动窗口的实现" class="headerlink" title="滑动窗口的实现"></a>滑动窗口的实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">longestSubSize</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>; <span class="comment">// 左指针</span></span><br><span class="line">    <span class="type">int</span> maxLen = <span class="number">1</span>; <span class="comment">// 最长递增子序列的长度</span></span><br><span class="line">    <span class="type">int</span> curLen = <span class="number">1</span>; <span class="comment">// 当前子序列的长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> right = <span class="number">1</span>; right &lt; n; ++right) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[right] &gt; nums[right - <span class="number">1</span>]) &#123;</span><br><span class="line">            curLen++;</span><br><span class="line">            maxLen = <span class="built_in">max</span>(maxLen, curLen);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            left = right;</span><br><span class="line">            curLen = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxLen;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="动态规划的题解"><a href="#动态规划的题解" class="headerlink" title="动态规划的题解"></a>动态规划的题解</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="type">int</span> <span class="title">longestSubSize</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建一个动态规划数组，dp[i] 表示以 nums[i] 结尾的最长递增子序列的长度</span></span><br><span class="line">    <span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="comment">// 初始化最大长度为1</span></span><br><span class="line">    <span class="type">int</span> maxLen = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; ++j) &#123;</span><br><span class="line">            <span class="comment">// 如果 nums[i] 大于 nums[j]，则可以将 nums[i] 添加到以 nums[j] 结尾的子序列中</span></span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                dp[i] = std::<span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新最大长度</span></span><br><span class="line">        maxLen = std::<span class="built_in">max</span>(maxLen, dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxLen;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最大回文子串"><a href="#最大回文子串" class="headerlink" title="最大回文子串"></a>最大回文子串</h3><p>暴力写法想了半天天，感觉暴力相当的捞。不是代码捞，是写代码的人捞，现在重新回顾一下发现LeetCode以前还做过，丢人了我去，这题我甚至还超过动态规划的题解 。<del>超过也不见得能当场写出来就是了</del></p>
+<p>暴力的写法当时没有写完，时间不够了，（在题目下方写了个动归，面试官看了看没说话 XP）总得来说就是。两个for循环找子串，把所有满足的子串存起来，最后比较最大子串并返回。</p>
+<h4 id="暴力的写法"><a href="#暴力的写法" class="headerlink" title="暴力的写法"></a>暴力的写法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isHuiwen</span><span class="params">(string &amp;s, <span class="type">int</span> start, <span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[start] != s[end]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">longestHuiwenSub</span><span class="params">(string&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">length</span>();</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    string longest = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; n; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isHuiwen</span>(s, i, j) &amp;&amp; (j - i + <span class="number">1</span>) &gt; longest.<span class="built_in">length</span>()) &#123;</span><br><span class="line">                longest = s.<span class="built_in">substr</span>(i, j - i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> longest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="抄的动态规划的题解"><a href="#抄的动态规划的题解" class="headerlink" title="抄的动态规划的题解"></a>抄的动态规划的题解</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">string <span class="title">longestPalindrome</span><span class="params">(string&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">length</span>();</span><br><span class="line">    vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">dp</span>(n, <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n, <span class="literal">false</span>));</span><br><span class="line">    <span class="type">int</span> start = <span class="number">0</span>; <span class="comment">// 记录最长回文子串的起始位置</span></span><br><span class="line">    <span class="type">int</span> maxLen = <span class="number">1</span>; <span class="comment">// 记录最长回文子串的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单个字符都是回文</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 枚举长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">2</span>; len &lt;= n; ++len) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n - len; ++i) &#123;</span><br><span class="line">            <span class="type">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == s[j]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (len == <span class="number">2</span> || dp[i + <span class="number">1</span>][j - <span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">if</span> (len &gt; maxLen) &#123;</span><br><span class="line">                        maxLen = len;</span><br><span class="line">                        start = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> s.<span class="built_in">substr</span>(start, maxLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="双指针的解法"><a href="#双指针的解法" class="headerlink" title="双指针的解法"></a>双指针的解法</h4><p>我感觉双指针也是没有问题的。在评论区翻找一会确实发现了双指针的写法（内核是中心扩展），也顺便贴上来，并做好注释。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">string <span class="title">longestPalindrome</span><span class="params">(string&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">length</span>();</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> start = <span class="number">0</span>; <span class="comment">// 记录最长回文子串的起始位置</span></span><br><span class="line">    <span class="type">int</span> maxLen = <span class="number">1</span>; <span class="comment">// 记录最长回文子串的长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="comment">// 以当前字符为中心向左右扩展</span></span><br><span class="line">        <span class="type">int</span> left = i, right = i;</span><br><span class="line">        <span class="comment">// 向右扩展</span></span><br><span class="line">        <span class="keyword">while</span> (right &lt; n - <span class="number">1</span> &amp;&amp; s[right] == s[right + <span class="number">1</span>]) &#123;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 向外扩展，直到不是回文串为止</span></span><br><span class="line">        <span class="keyword">while</span> (left &gt; <span class="number">0</span> &amp;&amp; right &lt; n - <span class="number">1</span> &amp;&amp; s[left - <span class="number">1</span>] == s[right + <span class="number">1</span>]) &#123;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 计算当前回文子串的长度</span></span><br><span class="line">        <span class="type">int</span> curLen = right - left + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 更新最长回文子串的信息</span></span><br><span class="line">        <span class="keyword">if</span> (curLen &gt; maxLen) &#123;</span><br><span class="line">            maxLen = curLen;</span><br><span class="line">            start = left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> s.<span class="built_in">substr</span>(start, maxLen);</span><br></pre></td></tr></table></figure>
+<h2 id="面试提问与回答"><a href="#面试提问与回答" class="headerlink" title="面试提问与回答"></a>面试提问与回答</h2><h3 id="32位下的进程模型"><a href="#32位下的进程模型" class="headerlink" title="32位下的进程模型"></a>32位下的进程模型</h3><blockquote>
+<p>面试官：32位下的进程模型你知道吗？</p>
+<p>我：嗯，代码段那些吗？</p>
+<p>面试官： 地址，内存位置（我这里也记不太清是怎么问的了）</p>
+<p>我： 首先是内核，然后是栈，未使用内存 ，嗯有4G， 用户区有3G，我要不画一下吧。</p>
+</blockquote>
+<p><img src="https://blog-1253996024.cos.ap-beijing.myqcloud.com/img/1704997-20200611170632371-1875253540.png" alt="img"></p>
+<p>除了栈区和堆区地址生长方向画反了（但是我嘴上说对了栈是向上，堆区是向下），动态库加载去跟未用空间画反了以外，嗯，应该跟该图一致。</p>
+<h3 id="C-特性"><a href="#C-特性" class="headerlink" title="C++特性"></a>C++特性</h3><blockquote>
+<p>面试官：C++11 14 17 20 这些特性有了解吗？</p>
+<p>我：我比较了解 C++11 ，20 的特性有看了一些，比如说，协程，和import 关键词 模块导入等等</p>
+<p>面试官：也就是说主用 C++11 了？你常用常见的C++特性有哪些呢？</p>
+<p>我：最常用的就是 智能指针了吧</p>
+<p>面试官：说说看，比如 Shared_ptr 和 unique_ptr  和 week_ptr的区别，和你怎么作用呢</p>
+<p>我： 顾名思义的，共享就是共享，但是只有一份，共享指针维护了一个引用变量，如果有人引用就++，这个++是原子操作，但是这个指针本身并不是线程安全的。嗯，唯一就是唯一，只能有一个人用也只有一份，弱，嗯，我实际不怎么用，但是一般配合Shared_ptr的解决循环引用的问题。</p>
+<p>面试官：还有呢？</p>
+<p>我： 还有lambda函数 ，qt里常常用，连接信号的槽函数，我常常是使用lambda写的。</p>
+</blockquote>
+<h3 id="视频服务器实现"><a href="#视频服务器实现" class="headerlink" title="视频服务器实现"></a>视频服务器实现</h3><blockquote>
+<p>面试官：你这个项目服务器部署在Linux？用到了什么模块？能说说吗</p>
+<p>我：嗯，有http模块 ，数据库模块，使用的是sqlite3 也可以是 MySQL，都提供了不同的借口。<br>嗯、还有一个日志模块，异步的，通过封装好的进程类使用，进程之间通过本地套接字进行通信。<br>嗯，利用http模块，哦，还有开源的openssl库，利用md5的加密签名吧，跟数据库模块实现了一个客户端登录的验证。</p>
+</blockquote>
+<h3 id="vlc"><a href="#vlc" class="headerlink" title="vlc"></a>vlc</h3><blockquote>
+<p>面试官：你这个项目的客户端，是用的vlc的客户端？那你的基于Qt是在哪里体现的呢？</p>
+<p>我：不是不是，嗯，我用的不是vlc现成的客户端，虽然vlc现成的客户端界面也是qt写的就是了，<br>我主要是使用官网开源编译的sdk,并进行了一个封装，在qt里进行调用，自己写的界面。</p>
+<p>面试官：也就是说是个换皮咯？</p>
+<p>我：嗯对对对</p>
+<p>面试官：能给我看看界面，比如截图什么的吗？</p>
+<p>我：呃，那个，手机里并没有存，，但是笔记本里有，没有带来。</p>
+</blockquote>
+<h3 id="RTSP，视频的推拉流的处理"><a href="#RTSP，视频的推拉流的处理" class="headerlink" title="RTSP，视频的推拉流的处理"></a>RTSP，视频的推拉流的处理</h3><blockquote>
+<p>面试官：我看你的这个视频服务器，用到了什么协议，视频流推拉流怎么处理</p>
+<p>我：用到了 RTSP的协议， 嗯视频编码用到了 H264, </p>
+<p>面试官：嗯嗯，你这个服务器利用RTSP 拉流给客户端，那你的客户端是怎么处理这个视频流的？</p>
+<p>我：这个，，，嗯，我刚刚说了我封装了VLC 现有的SDK，我对底层的实现怎么处理这个视频流没有太多了解，我只进行了一个封装函数的调用，就是拉流，这一块我不太清楚。。直接就是输入RTSP//地址就调用了。</p>
+</blockquote>
+<p>这里回答是有误的，目前我对这一块的理解不深，暂时没有什么头绪，等我整明白了在更新本段。</p>
+<h3 id="Epoll-select-poll-的区别"><a href="#Epoll-select-poll-的区别" class="headerlink" title="Epoll select poll 的区别"></a>Epoll select poll 的区别</h3><blockquote>
+<p>面试官：你说说Epoll select  poll的区别？</p>
+<p>我：嗯 首先，在系统上，epoll 只能在Linux下使用，select可以在Windows和Linux都可以使用</p>
+<p>可以处理的IO socket select有个上限，具体的值是1024,但是实际上嗯，他也可以修改，epoll没有这个限制，嗯epoll的….</p>
+<p>面试官：你说的这些不是重点，主要是机制</p>
+<p>我： 嗯，哦， epoll是事件驱动的，但是select 嗯。。。好像也是啊。嗯epoll有两种不同的触发方式？边沿和水平？边沿的触发是</p>
+<p>面试官：(打断)这也不是关键。</p>
+<p>我：嗯，epoll他底层不是线性的找事件，我记得，内核维护一个红黑树队列好像找事件特别快。select维护的是个数组，需要遍历轮序，找事件比较慢？</p>
+<p>面试官： （似乎听不下去了）select 的轮询是线性的，监视的文件描述符需要都遍历一遍时间复杂度是 O(n)。epoll呢轮询不是线性的，一有事件就立即返回。时间复杂度一般是O(1);</p>
+</blockquote>
+<p>正确答案：</p>
+<ol>
+<li><strong>性能差异</strong>：<ul>
+<li><code>select</code>：在调用 <code>select</code> 函数后，它会遍历所有的文件描述符，查找其中是否有事件就绪，这导致其性能在处理大量文件描述符时较差。</li>
+<li><code>epoll</code>：<code>epoll</code> 使用了更高效的数据结构，可以在事件就绪时立即返回，而不需要遍历所有的文件描述符。这使得 <code>epoll</code> 在处理大量文件描述符时具有更好的性能。。</li>
+</ul>
+</li>
+<li><strong>事件触发方式</strong>：<ul>
+<li><code>select</code>：<code>select</code> 使用水平触发（LT）方式，即当文件描述符上有数据可读或可写时，会一直通知应用程序，直到应用程序处理完数据。这可能会导致频繁的事件通知，需要应用程序自行管理缓冲区。</li>
+<li><code>epoll</code>：<code>epoll</code> 支持水平触发（LT）和边缘触发（ET）两种触发方式。边缘触发只在状态变化时通知应用程序，需要应用程序自行管理缓冲区，而水平触发会一直通知应用程序直到数据读取完毕或写入完毕。</li>
+</ul>
+</li>
+<li><strong>文件描述符数量限制</strong>：<ul>
+<li><code>select</code>：根据操作系统的不同，<code>select</code> 通常有文件描述符数量的限制，这个限制通常是较小的，例如1024或2048个。</li>
+<li><code>epoll</code>：<code>epoll</code> 没有文件描述符数量的限制，可以处理大量文件描述符，因此适用于高性能服务器应用程序。</li>
+</ul>
+</li>
+<li><strong>支持的事件类型</strong>：<ul>
+<li><code>select</code>：主要用于监视可读、可写和异常等基本事件。</li>
+<li><code>epoll</code>：支持多种事件类型，包括可读、可写、错误、边缘触发等。这使得 <code>epoll</code> 更灵活，可以更精细地控制事件的处理。</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，<code>epoll</code> 在性能和功能上通常优于 <code>select</code>，特别适用于需要处理大量文件描述符的高性能服务器应用程序。但需要注意的是，<code>epoll</code> 是Linux特有的，不跨平台，而 <code>select</code> 在不同操作系统上都有支持。因此，选择使用哪种机制取决于应用程序的需求和目标平台。</p>
+<p>UDP 问到了，跟上一篇文章一样说的，面试官也没有给予反馈。</p>
+<p>还有一些情景题，面试官并没有进行评价，不知道是答的错还是对，有点蛋疼。。。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>做题，还是不习惯纸上写，没有IDE 脑子一片混沌，诶，只能努力适应吧，面试的表达能力，还是不太行，专业术语用的少了些</p>
+<p>笔试，技术面1 技术面2，人事面，然后回去等通知，通知是待定，正在商议。有点无语。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.icrad.top">Icrad</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.icrad.top/2023/09/06/mianshi02/">https://www.icrad.top/2023/09/06/mianshi02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.icrad.top" target="_blank">icrad的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q1.qlogo.cn/g?b=qq&amp;nk=972791158&amp;s=100" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Icrad</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/icradP"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/87672381" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/icradP" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://message/?uin=972791158" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里icrad的博客，后端前端都学一点，快乐多一点，头发少一点。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95-%E2%80%9C%E4%B8%BB%E6%89%93%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8F%9B%E9%80%86%E2%80%9D"><span class="toc-number">1.</span> <span class="toc-text">面试 | “主打的是一个叛逆”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AF%95"><span class="toc-number">1.1.</span> <span class="toc-text">笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-number">1.1.1.</span> <span class="toc-text">字符串反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6"><span class="toc-number">1.1.2.</span> <span class="toc-text">二叉树最大深度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">递归的实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">迭代的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%BA%8F%E5%88%97%E5%AD%90%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="toc-number">1.1.3.</span> <span class="toc-text">最长递增序列子串长度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">滑动窗口的实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E9%A2%98%E8%A7%A3"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">动态规划的题解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="toc-number">1.1.4.</span> <span class="toc-text">最大回文子串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">暴力的写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%84%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E9%A2%98%E8%A7%A3"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">抄的动态规划的题解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E7%9A%84%E8%A7%A3%E6%B3%95"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">双指针的解法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E6%8F%90%E9%97%AE%E4%B8%8E%E5%9B%9E%E7%AD%94"><span class="toc-number">1.2.</span> <span class="toc-text">面试提问与回答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E4%BD%8D%E4%B8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">32位下的进程模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.2.</span> <span class="toc-text">C++特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">视频服务器实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vlc"><span class="toc-number">1.2.4.</span> <span class="toc-text">vlc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RTSP%EF%BC%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8E%A8%E6%8B%89%E6%B5%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.2.5.</span> <span class="toc-text">RTSP，视频的推拉流的处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Epoll-select-poll-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.6.</span> <span class="toc-text">Epoll select poll 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: #77767b"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Icrad</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://icrad-twikoo-blog.zeabur.app/',
+      region: 'ap-shanghai',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, "window.location.pathname"))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://icrad-twikoo-blog.zeabur.app/',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://unpkg.com/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://icrad-twikoo-blog.zeabur.app/',
+        region: 'ap-shanghai',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 5/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://unpkg.com/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="982869212" data-server="netease" data-type="playlist" data-fixed="true" data-lrctype="0" data-autoplay="false"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://unpkg.com/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
